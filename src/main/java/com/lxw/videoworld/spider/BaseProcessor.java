@@ -1,6 +1,5 @@
 package com.lxw.videoworld.spider;
 
-import com.lxw.videoworld.utils.JsonpUtil;
 import com.lxw.videoworld.utils.URLUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -23,16 +22,8 @@ public class BaseProcessor implements PageProcessor {
     @Override
     public void process(Page page) {
         // 转换字符编码
-        String UTFSpace = "";
-        byte bytes[] = {(byte) 0xC2,(byte) 0xA0};
-        try {
-            UTFSpace = new String(bytes,"utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        String pageString = changeEncoding(page.getRawText().replaceAll(UTFSpace, "&nbsp;"));
-        String jsonString = JsonpUtil.getJsonFromJsonp(JsonpUtil.formatJsonp(pageString)).trim();
-        page.putField("jsonString", jsonString);
+        String pageString = changeEncoding(page.getRawText()).trim();
+        page.putField("pageString", pageString);
         addTargetRequest(page);
     }
 

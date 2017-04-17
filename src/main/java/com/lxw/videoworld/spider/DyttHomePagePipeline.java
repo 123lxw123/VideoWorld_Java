@@ -13,7 +13,7 @@ public class DyttHomePagePipeline implements Pipeline {
     public void process(ResultItems resultItems, Task task) {
 
         // TODO Auto-generated method stub
-        String jsonString = resultItems.get("jsonString");
+        String pageString = resultItems.get("pageString");
     }
 
 
