@@ -173,6 +173,25 @@
       <artifactId>commons-io</artifactId>
       <version>2.5</version>
     </dependency>
+
+    <!--webmagic 爬虫框架-->
+    <dependency>
+      <groupId>us.codecraft</groupId>
+      <artifactId>webmagic-core</artifactId>
+      <version>0.6.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>us.codecraft</groupId>
+      <artifactId>webmagic-extension</artifactId>
+      <version>0.6.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
   </dependencies>
   <!-- 配置可变版本号,也就是常说的版本管理 （Spring、SpringMvc、Mybatis、Gson、Druid） -->
   <!-- 要针对某个依赖进行升级的时候只需要更改下面对应的版本号 -->
@@ -193,5 +212,18 @@
   </properties>
   <build>
     <finalName>VideoWorld</finalName>
+    <plugins>
+      <!-- 编码和编译和JDK版本 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>utf8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
