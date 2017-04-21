@@ -11,6 +11,7 @@ public class Source implements Serializable{
     private String type;
     private String title;
     private String date;
+    private String url;
     private String status;
     private long time;
 
@@ -54,6 +55,14 @@ public class Source implements Serializable{
         this.date = date;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -73,12 +82,13 @@ public class Source implements Serializable{
     @Override
     public String toString() {
         return "Source{" +
-                "id=" + id +
-                ", category=" + category +
-                ", type=" + type +
+                ", id='" + id + '\'' +
+                ", category='" + category + '\'' +
+                ", type='" + type + '\'' +
                 ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
-                ", status=" + status +
+                ", url='" + url + '\'' +
+                ", status='" + status + '\'' +
                 ", time=" + time +
                 '}';
     }

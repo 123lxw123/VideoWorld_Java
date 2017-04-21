@@ -24,7 +24,6 @@ public class YgdyHomePagePipeline implements Pipeline {
 
     @Override
     public void process(ResultItems resultItems, Task task) {
-        int j = 0;
         // TODO Auto-generated method stub
         List<String> urlList = resultItems.get("urlList");
         List<String> titleList = resultItems.get("titleList");
@@ -42,15 +41,19 @@ public class YgdyHomePagePipeline implements Pipeline {
                         if(!TextUtils.isEmpty(params[6]) && params[6].length() == 8){
                             source.setDate(params[6].substring(0, 4) + "-" + params[6].substring(4, 6) + "-" + params[6].substring(6, 8));
                         }
+                        source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
                         source.setTitle(titleList.get(i));
-                        sourceYgdyDao.add(source);
+                        try {
+                            sourceYgdyDao.add(source);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }else {
-                        j++;
+
                     }
                 }
             }
         }
-        System.out.print(j);
     }
 }

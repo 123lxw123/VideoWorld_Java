@@ -17,7 +17,7 @@ public class SourceYgdyTask {
     private YgdyHomePagePipeline ygdyHomePagePipeline;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 20 20 * * ?")
+    @Scheduled(cron = "0 19 22 * * ?")
     public void getYgdySource(){
         Spider.create(new YgdyHomePageProcessor()).thread(1)
                 .addUrl(URLUtil.URL_YGDY_HOME_PAGE)

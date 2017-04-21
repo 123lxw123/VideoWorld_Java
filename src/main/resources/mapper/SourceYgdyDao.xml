@@ -11,16 +11,16 @@
     FROM
     `source_ygdy`
     WHERE
-    id = #{id}
+    url = #{url}
     </select>
 
     <!--增加语句-->
     <insert id="add" parameterType="Source">
         INSERT INTO
         `source_ygdy`
-        (`id`,`category`,`type`,`title`,`date`,`status`)
+        (`id`,`category`,`type`,`title`,`date`,`url`,`status`)
         VALUES
-        (#{id},#{category},#{type},#{title},#{date},#{status})
+        (#{id},#{category},#{type},#{title},#{date},#{url},#{status})
     </insert>
 
     <!-- 删除 -->
@@ -30,7 +30,7 @@
         SET
         `status`=0
         WHERE
-        `id`=#{id};
+        `url`=#{url};
     </update>
 
     <!-- 更新用户信息 -->
@@ -38,8 +38,8 @@
         UPDATE
         `source_ygdy`
         SET
-        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `status`=#{status}
+        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `url`=#{url}, `status`=#{status}
         WHERE
-        `id`=#{id};
+        `url`=#{url};
     </update>
 </mapper>
