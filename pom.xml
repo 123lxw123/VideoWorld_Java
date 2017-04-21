@@ -192,6 +192,11 @@
         </exclusion>
       </exclusions>
     </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>RELEASE</version>
+      </dependency>
   </dependencies>
   <!-- 配置可变版本号,也就是常说的版本管理 （Spring、SpringMvc、Mybatis、Gson、Druid） -->
   <!-- 要针对某个依赖进行升级的时候只需要更改下面对应的版本号 -->

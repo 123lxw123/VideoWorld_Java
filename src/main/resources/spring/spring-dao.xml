@@ -65,7 +65,7 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="com.lxw.videoworld"/>
+        <property name="basePackage" value="com.lxw.videoworld.dao"/>
     </bean>
     <!-- 上面的druid的配置 -->
     <bean id="logFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">

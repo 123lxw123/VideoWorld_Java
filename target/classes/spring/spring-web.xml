@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -8,7 +9,10 @@
       http://www.springframework.org/schema/context
       http://www.springframework.org/schema/context/spring-context.xsd
       http://www.springframework.org/schema/mvc
-      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+      http://www.springframework.org/schema/task
+      http://www.springframework.org/schema/task/spring-task-4.1.xsd">
+
     <!-- 配置SpringMVC -->
     <!-- 1.开启SpringMVC注解模式 -->
     <!-- 简化配置：
@@ -33,9 +37,18 @@
     </bean>
 
     <!-- 4.扫描web相关的bean配置 -->
-    <context:component-scan base-package="com.lxw.videoworld">
+    <context:component-scan base-package="com.lxw.videoworld.mvc">
         <!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
+    <!-- 配置注解扫描 -->
+    <context:annotation-config />
+
+    <!-- 自动扫描的包名 -->
+    <context:component-scan base-package="com.lxw.videoworld.task" />
+
+    <!-- spring定时器注解开关-->
+    <task:annotation-driven/>
 
 </beans>

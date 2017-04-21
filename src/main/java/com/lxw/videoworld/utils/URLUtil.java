@@ -13,7 +13,7 @@ public class URLUtil {
             .setTimeOut(10000)
             .setCharset("GB2312");
 
-    public static final String URL_DYTT_HOME_PAGE = "http://www.dytt8.net/index.htm";
+    public static final String URL_YGDY_HOME_PAGE = "http://www.ygdy8.net/";
 
     public static Site getSiteInstance(){
         return site;
