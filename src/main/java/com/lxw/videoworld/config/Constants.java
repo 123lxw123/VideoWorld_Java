@@ -11,8 +11,9 @@ public class Constants {
     public static final String CATEGORY_0 = "gndy";// 电影
     public static final String CATEGORY_1 = "tv";// 电视剧
     public static final String CATEGORY_2 = "zongyi2013";// 综艺
-    public static final String CATEGORY_3 = "dongman";// 动漫
-    public static final String CATEGORY_4 = "game";// 游戏
+    public static final String CATEGORY_3 = "2009zongyi";// 旧版综艺
+    public static final String CATEGORY_4 = "dongman";// 动漫
+    public static final String CATEGORY_5 = "game";// 游戏
 
     public static final String TYPE_0 = "jddy";// 经典电影
     public static final String TYPE_1 = "dyzz";// 最新电影

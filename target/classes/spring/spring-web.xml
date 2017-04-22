@@ -48,7 +48,9 @@
     <!-- 自动扫描的包名 -->
     <context:component-scan base-package="com.lxw.videoworld.task" />
 
+    <task:executor id="executor" pool-size="5" />
+    <task:scheduler id="scheduler" pool-size="10" />
     <!-- spring定时器注解开关-->
-    <task:annotation-driven/>
+    <task:annotation-driven executor="executor" scheduler="scheduler" />
 
 </beans>
