@@ -10,6 +10,7 @@ public class YgdySpider {
 //         .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
 //         .addPipeline(new YgdyHomePagePipeline())
 //         .run();
+
     }
 
 }
