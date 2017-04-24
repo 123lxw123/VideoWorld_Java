@@ -1,4 +1,4 @@
-import com.lxw.videoworld.dao.SourceYgdyDao;
+import com.lxw.videoworld.dao.YgdySourceDao;
 import com.lxw.videoworld.domain.Source;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,10 +11,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
     @RunWith(SpringJUnit4ClassRunner.class) //spring的单元测试
     @ContextConfiguration({"classpath:spring/spring-*.xml"})    //上下文配置
-    public class SourceYgdyDaoTest {
+    public class YgdySourceDaoTest {
 
         @Autowired
-        private SourceYgdyDao sourceYgdyDao;    //初始化Dao层，面向接口编程
+        private YgdySourceDao ygdySourceDao;    //初始化Dao层，面向接口编程
 
         /**
          * 添加用户的单元测试，添加成功与否会有对应的提示。
@@ -32,7 +32,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
             source1.setStatus("2");
             int result = 0; //受影响的行数默认为0
             try {
-                result = sourceYgdyDao.update(source1);
+                result = ygdySourceDao.update(source1);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("添加用户失败");

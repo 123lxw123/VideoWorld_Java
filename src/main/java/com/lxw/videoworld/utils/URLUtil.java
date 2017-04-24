@@ -14,8 +14,9 @@ public class URLUtil {
             .setCharset("GB2312");
 
     public static final String URL_YGDY_HOME_PAGE = "http://www.ygdy8.com";
+    public static final String URL_YGDY_HOME_DY = URL_YGDY_HOME_PAGE + "/html/gndy/index.html";
     public static final String URL_YGDY_ZXDY = URL_YGDY_HOME_PAGE + "/html/gndy/dyzz/index.html";
-    public static final String URL_YGDY_JDDY = URL_YGDY_HOME_PAGE + "/html/gndy/index.html";
+    public static final String URL_YGDY_JDDY = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/index.html";
     public static final String URL_YGDY_GNDY = URL_YGDY_HOME_PAGE + "/html/gndy/china/index.html";
     public static final String URL_YGDY_OMDY = URL_YGDY_HOME_PAGE + "/html/gndy/oumei/index.html";
     public static final String URL_YGDY_RHDY = URL_YGDY_HOME_PAGE + "/html/gndy/rihan/index.html";

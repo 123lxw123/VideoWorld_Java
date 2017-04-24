@@ -1,7 +1,7 @@
 package com.lxw.videoworld.spider;
 
 import com.lxw.videoworld.config.Constants;
-import com.lxw.videoworld.dao.YgdySourceDao;
+import com.lxw.videoworld.dao.YgdyHotDao;
 import com.lxw.videoworld.domain.Source;
 import org.apache.http.util.TextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import us.codecraft.webmagic.pipeline.Pipeline;
 import java.util.List;
 
 /**
- * Created by Zion on 2017/4/17.
+ * Created by Zion on 2017/4/24.
  */
-@Service("ygdyHomePagePipeline")
-public class YgdyHomePagePipeline implements Pipeline {
 
+@Service("ygdyHotListPipeline")
+public class YgdyHotListPipeline implements Pipeline {
     @Autowired
-    private YgdySourceDao ygdySourceDao;
+    private YgdyHotDao ygdyHotDao;
 
     @Override
     public void process(ResultItems resultItems, Task task) {
@@ -44,7 +44,7 @@ public class YgdyHomePagePipeline implements Pipeline {
                         source.setStatus(Constants.STATUS_1);
                         source.setTitle(titleList.get(i));
                         try {
-                            ygdySourceDao.add(source);
+                            ygdyHotDao.add(source);
                         }catch (Exception e){
                             e.printStackTrace();
                         }

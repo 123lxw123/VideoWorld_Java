@@ -60,6 +60,7 @@ public class YgdyMenuPageProcessor extends BaseProcessor {
         super.addTargetRequest(page);
         List<String> menuUrlList = new ArrayList<>();
         menuUrlList.add(URLUtil.URL_YGDY_GNDY);
+        menuUrlList.add(URLUtil.URL_YGDY_JDDY);
         menuUrlList.add(URLUtil.URL_YGDY_OMDY);
         menuUrlList.add(URLUtil.URL_YGDY_RHDY);
         menuUrlList.add(URLUtil.URL_YGDY_HYTV);

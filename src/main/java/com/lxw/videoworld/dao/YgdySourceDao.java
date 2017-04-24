@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by lxw9047 on 2017/4/20.
  */
-public interface SourceYgdyDao extends Dao<Source> {
+public interface YgdySourceDao extends Dao<Source> {
     int add(Source source);
 
     int del(Source source);
