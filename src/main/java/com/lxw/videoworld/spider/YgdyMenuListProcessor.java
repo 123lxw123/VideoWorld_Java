@@ -8,6 +8,7 @@ import java.util.List;
  * Created by Zion on 2017/4/22.
  */
 public class YgdyMenuListProcessor extends BaseProcessor {
+
     @Override
     public void process(Page page) {
         super.process(page);

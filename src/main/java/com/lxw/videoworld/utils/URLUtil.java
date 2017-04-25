@@ -28,6 +28,9 @@ public class URLUtil {
     public static final String URL_YGDY_DONGMAN = URL_YGDY_HOME_PAGE + "/html/dongman/index.html";
     public static final String URL_YGDY_GAME = URL_YGDY_HOME_PAGE + "/html/game/index.html";
     public static final String URL_YGDY_GFJDDY = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541.html";
+    public static final String URL_YGDY_GFJDDY2 = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541_2.html";
+    public static final String URL_YGDY_GFJDDY3 = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541_3.html";
+    public static final String URL_YGDY_GFJDDY4 = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541_4.html";
 
     public static Site getSiteInstance(){
         return site;

@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指定我们的到具体的bean -->
-<mapper namespace="com.lxw.videoworld.dao.SourceYgdyDao">
+<mapper namespace="com.lxw.videoworld.dao.YgdySourceDao">
 
     <!--查找-->
     <select id="findOneById" resultType="Source" parameterType="String">
     SELECT
     *
     FROM
-    `source_ygdy`
+    `ygdy_source`
     WHERE
     url = #{url}
     </select>
@@ -17,7 +17,7 @@
     <!--增加语句-->
     <insert id="add" parameterType="Source">
         INSERT INTO
-        `source_ygdy`
+        `ygdy_source`
         (`id`,`category`,`type`,`title`,`date`,`url`,`status`)
         VALUES
         (#{id},#{category},#{type},#{title},#{date},#{url},#{status})
@@ -26,7 +26,7 @@
     <!-- 删除 -->
     <update id="del" parameterType="Source">
         UPDATE
-        `source_ygdy`
+        `ygdy_source`
         SET
         `status`=0
         WHERE
@@ -36,7 +36,7 @@
     <!-- 更新用户信息 -->
     <update id="update" parameterType="Source">
         UPDATE
-        `source_ygdy`
+        `ygdy_source`
         SET
         `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `url`=#{url}, `status`=#{status}
         WHERE
