@@ -15,7 +15,12 @@ public interface YgdySourceDao extends Dao<Source> {
 
     int update(Source source);
 
+    int updateStatus(String url, String status);
+
     Source findOneById(Serializable Id);
 
     List<Source> findAll();
+
+    List<Source> findAllNoDetail();
+
 }
