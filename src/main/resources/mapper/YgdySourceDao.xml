@@ -23,9 +23,9 @@
     </select>
 
     <!--查找所有没获取过详情的-->
-    <select id="findAllNoDetail" resultType="Source">
+    <select id="findAllUrlNoDetail" resultType="String">
         SELECT
-        *
+        `url`
         FROM
         `ygdy_source`
          WHERE
@@ -46,7 +46,7 @@
         UPDATE
         `ygdy_source`
         SET
-        `status`=0
+        `status`='0'
         WHERE
         `url`=#{url};
     </update>
