@@ -12,10 +12,17 @@ public class YgdySourceDetailProcessor extends BaseProcessor {
     public void process(Page page) {
         super.process(page);
         String title = page.getHtml().css("div.title_all").css("font").regex(">(.*?)</font>").get();
-        List<String> urlList = page.getHtml().css("div.co_content2").links().all();
-        List<String> titleList = page.getHtml().css("div.co_content2").css("a").regex(">(.*?)</a>").all();
-        page.putField("urlList", urlList);
-        page.putField("titleList", titleList);
+        List<String> imgUrl = page.getHtml().css("div.co_content8").css("img").links().all();
+        String content = "";
+        if(imgUrl != null && imgUrl.size() == 1){
+            content = page.getHtml().css("div.co_content8").regex("<img.*?/>(.*?)</p>").all().get(0);
+        }else if(imgUrl != null && imgUrl.size() > 1){
+            content = page.getHtml().css("div.co_content8").regex("<img.*?/>(.*?)<img").all().get(0);
+        }
+        List<String> downloadUrl = page.getHtml().css("div.co_content8").css("table").links().all();
+        page.putField("title", title);
+        page.putField("imgUrl", imgUrl);
+        page.putField("content", content);
     }
 
 

@@ -33,16 +33,16 @@ public class YgdySourceTask {
     @Scheduled(cron = "0 04 00 * * ?")
     public void getYgdySource() {
         // 阳光电影首页
-//        Spider.create(new YgdyHomePageProcessor()).thread(1)
-//                .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
-//                .addPipeline(ygdyHomePagePipeline)
-//                .run();
+        Spider.create(new YgdyHomePageProcessor()).thread(1)
+                .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
+                .addPipeline(ygdyHomePagePipeline)
+                .run();
         // 阳光电影排行
-//        Spider.create(new YgdyHotListProcessor()).thread(2)
-//                .addUrl(URLUtil.URL_YGDY_HOME_DY)
-//                .addPipeline(ygdyHomePagePipeline)
-//                .addPipeline(ygdyHotListPipeline)
-//                .run();
+        Spider.create(new YgdyHotListProcessor()).thread(2)
+                .addUrl(URLUtil.URL_YGDY_HOME_DY)
+                .addPipeline(ygdyHomePagePipeline)
+                .addPipeline(ygdyHotListPipeline)
+                .run();
         // 阳光电影高分经典
         Spider.create(new YgdyClassicalListProcessor()).thread(2)
                 .addUrl(URLUtil.URL_YGDY_GFJDDY)
@@ -50,30 +50,28 @@ public class YgdySourceTask {
                 .addPipeline(ygdyClassicalListPipeline)
                 .run();
         // 阳光电影菜单
-//        Spider.create(ygdyMenuPageProcessor).thread(5)
-//                .addUrl(URLUtil.URL_YGDY_ZXDY)
-//                .run();
+        Spider.create(new YgdyMenuPageProcessor()).thread(5)
+                .addUrl(URLUtil.URL_YGDY_ZXDY)
+                .run();
 
         // 阳光电影详情
-        final List<Source> sources = ygdySourceDao.findAllNoDetail();
-        if(sources != null && sources.size() > 0){
-            if(sources.size() == 1){
+        final List<String> urlList = ygdySourceDao.findAllUrlNoDetail();
+        if(urlList != null && urlList.size() > 0){
+            if(urlList.size() == 1){
                 Spider.create(new YgdySourceDetailProcessor()).thread(1)
-                        .addUrl(sources.get(0).getUrl())
+                        .addUrl(urlList.get(0))
                         .run();
             }else{
-                List<String> urlList = new ArrayList<>();
-                for(int i = 1; i < sources.size(); i++){
-                    urlList.add(sources.get(i).getUrl());
-                }
+                final List<String> urlList1 = urlList;
+                urlList1.remove(0);
                 Spider.create(new YgdySourceDetailProcessor(){
                     @Override
                     public void addTargetRequest(Page page) {
                         super.addTargetRequest(page);
-                        page.addTargetRequests(urlList);
+                        page.addTargetRequests(urlList1);
                     }
                 }).thread(50)
-                        .addUrl(sources.get(0).getUrl())
+                        .addUrl(urlList.get(0))
                         .run();
             }
         }
