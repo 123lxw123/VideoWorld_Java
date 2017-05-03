@@ -11,7 +11,7 @@
     FROM
     `ygdy_classical`
     WHERE
-    url = #{url}
+    `url` = #{url}
     </select>
 
     <!--查找所有-->

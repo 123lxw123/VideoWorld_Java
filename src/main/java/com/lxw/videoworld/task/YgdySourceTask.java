@@ -26,33 +26,35 @@ public class YgdySourceTask {
     @Autowired
     private YgdyClassicalListPipeline ygdyClassicalListPipeline;
     @Autowired
+    private YgdySourceDetailPipeline ygdySourceDetailPipeline;
+    @Autowired
     private YgdySourceDao ygdySourceDao;
 
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 04 00 * * ?")
+    @Scheduled(cron = "0 07 01 * * ?")
     public void getYgdySource() {
-        // 阳光电影首页
-        Spider.create(new YgdyHomePageProcessor()).thread(1)
-                .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
-                .addPipeline(ygdyHomePagePipeline)
-                .run();
-        // 阳光电影排行
-        Spider.create(new YgdyHotListProcessor()).thread(2)
-                .addUrl(URLUtil.URL_YGDY_HOME_DY)
-                .addPipeline(ygdyHomePagePipeline)
-                .addPipeline(ygdyHotListPipeline)
-                .run();
-        // 阳光电影高分经典
-        Spider.create(new YgdyClassicalListProcessor()).thread(2)
-                .addUrl(URLUtil.URL_YGDY_GFJDDY)
-                .addPipeline(ygdyHomePagePipeline)
-                .addPipeline(ygdyClassicalListPipeline)
-                .run();
-        // 阳光电影菜单
-        Spider.create(new YgdyMenuPageProcessor()).thread(5)
-                .addUrl(URLUtil.URL_YGDY_ZXDY)
-                .run();
+//        // 阳光电影首页
+//        Spider.create(new YgdyHomePageProcessor()).thread(1)
+//                .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
+//                .addPipeline(ygdyHomePagePipeline)
+//                .run();
+//        // 阳光电影排行
+//        Spider.create(new YgdyHotListProcessor()).thread(2)
+//                .addUrl(URLUtil.URL_YGDY_HOME_DY)
+//                .addPipeline(ygdyHomePagePipeline)
+//                .addPipeline(ygdyHotListPipeline)
+//                .run();
+//        // 阳光电影菜单
+//        Spider.create(new YgdyMenuPageProcessor()).thread(5)
+//                .addUrl(URLUtil.URL_YGDY_ZXDY)
+//                .run();
+//        // 阳光电影高分经典
+//        Spider.create(new YgdyClassicalListProcessor()).thread(2)
+//                .addUrl(URLUtil.URL_YGDY_GFJDDY)
+//                .addPipeline(ygdyHomePagePipeline)
+//                .addPipeline(ygdyClassicalListPipeline)
+//                .run();
 
         // 阳光电影详情
         final List<String> urlList = ygdySourceDao.findAllUrlNoDetail();
@@ -72,7 +74,7 @@ public class YgdySourceTask {
                     }
                 }).thread(50)
                         .addUrl(urlList.get(0))
-                        .addPipeline(ygdyClassicalListPipeline)
+                        .addPipeline(ygdySourceDetailPipeline)
                         .run();
             }
         }

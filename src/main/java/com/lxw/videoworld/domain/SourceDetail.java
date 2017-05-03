@@ -11,6 +11,7 @@ public class SourceDetail implements Serializable {
     private String title;
     private String images;
     private String content;
+    private String links;
     private String status;
     private long time;
 
@@ -46,6 +47,14 @@ public class SourceDetail implements Serializable {
         this.content = content;
     }
 
+    public String getLinks() {
+        return links;
+    }
+
+    public void setLinks(String links) {
+        this.links = links;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -69,6 +78,7 @@ public class SourceDetail implements Serializable {
                 ", title='" + title + '\'' +
                 ", images='" + images + '\'' +
                 ", content='" + content + '\'' +
+                ", links='" + links + '\'' +
                 ", status='" + status + '\'' +
                 ", time=" + time +
                 '}';

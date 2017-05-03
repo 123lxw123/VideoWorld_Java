@@ -26,11 +26,15 @@ public class YgdySourceDetailPipeline implements Pipeline {
         String title = resultItems.get("title");
         String content = resultItems.get("content");
         List<String> imgUrl = resultItems.get("imgUrl");
+        List<String> links = resultItems.get("links");
         SourceDetail sourceDetail = new SourceDetail();
         sourceDetail.setUrl(url);
         sourceDetail.setTitle(title);
         if(imgUrl != null && imgUrl.size() > 0){
             sourceDetail.setImages(imgUrl.toString());
+        }
+        if(links != null && links.size() > 0){
+            sourceDetail.setLinks(links.toString());
         }
         sourceDetail.setContent(content);
         sourceDetail.setStatus(Constants.STATUS_2);
