@@ -72,6 +72,7 @@ public class YgdySourceTask {
                     }
                 }).thread(50)
                         .addUrl(urlList.get(0))
+                        .addPipeline(ygdyClassicalListPipeline)
                         .run();
             }
         }
