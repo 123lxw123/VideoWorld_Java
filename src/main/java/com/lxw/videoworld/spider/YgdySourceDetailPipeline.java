@@ -38,7 +38,7 @@ public class YgdySourceDetailPipeline implements Pipeline {
                 sourceDetail.setCategory(params[4]);
                 sourceDetail.setType(params[5]);
                 if(!TextUtils.isEmpty(params[6]) && params[6].length() == 8){
-                    sourceDetail.setDate(params[6].substring(0, 4) + "-" + params[6].substring(4, 6) + "-" + params[6].substring(6, 8));
+                    sourceDetail.setDate(Integer.valueOf(params[6]));
                 }
             }else {
 

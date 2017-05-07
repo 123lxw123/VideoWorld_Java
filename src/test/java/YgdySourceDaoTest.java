@@ -23,22 +23,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
          */
         @Test
         public void testAdd() {
-            Source source1 = new Source();
-            source1.setId("1");
-            source1.setCategory("2");
-            source1.setType("2");
-            source1.setTitle("2");
-            source1.setDate("20170421");
-            source1.setStatus("2");
-            int result = 0; //受影响的行数默认为0
-            try {
-                result = ygdySourceDao.update(source1);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("添加用户失败");
-            }
-            if (result>0)
-                System.out.println("添加用户成功");
+//            Source source1 = new Source();
+//            source1.setId("1");
+//            source1.setCategory("2");
+//            source1.setType("2");
+//            source1.setStatus("2");
+//            int result = 0; //受影响的行数默认为0
+//            try {
+//                result = ygdySourceDao.update(source1);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                System.out.println("添加用户失败");
+//            }
+//            if (result>0)
+//                System.out.println("添加用户成功");
         }
 
     }

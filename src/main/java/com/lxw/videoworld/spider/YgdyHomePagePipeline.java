@@ -25,8 +25,7 @@ public class YgdyHomePagePipeline implements Pipeline {
     public void process(ResultItems resultItems, Task task) {
         // TODO Auto-generated method stub
         List<String> urlList = resultItems.get("urlList");
-        List<String> titleList = resultItems.get("titleList");
-        if(urlList != null && titleList!= null && urlList.size() == titleList.size()){
+        if(urlList != null){
             for(int i = 0; i < urlList.size(); i++){
                 if(!TextUtils.isEmpty(urlList.get(i))){
                     String[] params =  urlList.get(i).split("/");
@@ -38,11 +37,10 @@ public class YgdyHomePagePipeline implements Pipeline {
                         source.setCategory(params[4]);
                         source.setType(params[5]);
                         if(!TextUtils.isEmpty(params[6]) && params[6].length() == 8){
-                            source.setDate(params[6].substring(0, 4) + "-" + params[6].substring(4, 6) + "-" + params[6].substring(6, 8));
+                            source.setDate(Integer.valueOf(params[6]));
                         }
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
-                        source.setTitle(titleList.get(i));
                         try {
                             ygdySourceDao.add(source);
                         }catch (Exception e){

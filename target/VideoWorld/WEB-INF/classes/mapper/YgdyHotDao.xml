@@ -26,9 +26,9 @@
     <insert id="add" parameterType="Source">
         INSERT INTO
         `ygdy_hot`
-        (`id`,`category`,`type`,`title`,`date`,`url`,`status`)
+        (`id`,`category`,`type`,`date`,`url`,`status`)
         VALUES
-        (#{id},#{category},#{type},#{title},#{date},#{url},#{status})
+        (#{id},#{category},#{type},#{date},#{url},#{status})
     </insert>
 
     <!-- 删除 -->
@@ -46,8 +46,16 @@
         UPDATE
         `ygdy_hot`
         SET
-        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `url`=#{url}, `status`=#{status}
+        `category`=#{category}, `type`=#{type}, `date`=#{date}, `id`=#{id}, `status`=#{status}
         WHERE
         `url`=#{url};
     </update>
+
+    <!-- 清空表 -->
+    <delete id="clear">
+        DELETE
+        *
+        FROM
+        `ygdy_hot`
+    </delete>
 </mapper>

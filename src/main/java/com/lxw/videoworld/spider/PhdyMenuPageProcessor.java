@@ -13,43 +13,47 @@ import java.util.List;
 /**
  * Created by Zion on 2017/4/22.
  */
-@Service("ygdyMenuPageProcessor")
-public class PhdyMenuPageProcessor extends BaseProcessor {
+@Service("phdyMenuPageProcessor")
+public class PhdyMenuPageProcessor extends BasePhdyProcessor {
 
     @Autowired
-    private YgdyHomePagePipeline ygdyHomePagePipeline;
+    private PhdyMenuListPipeline phdyMenuListPipeline;
 
     @Override
     public void process(Page page) {
         super.process(page);
-        List<String> urlList = page.getHtml().css("div.page").css("select").css("option").regex("list.*?html").all();
+        List<String> urlList = page.getHtml().css("div.tk").links().all();
         List<String> pathList = page.getHtml().css("div#dir").links().all();
         String path = "";
         if(pathList != null && pathList.size() > 0){
             path = pathList.get(pathList.size() - 1);
         }
         if(urlList != null && !TextUtils.isEmpty(path) && urlList.size() > 0){
+            // 计算总页数
+            String str[] = urlList.get(urlList.size() - 1).split(".");
+            int pageCount = Integer.valueOf(str[0].substring(5, str[0].length()));
             List<String> urlNewList = new ArrayList<>();
-            for(int i = 0; i < urlList.size(); i++){
-                urlNewList.add(page + urlList.get(i));
+            for(int i = 1; i <= pageCount; i++){
+                urlNewList.add(path.replace("index.html", "list_" + i + ".html"));
             }
             if(urlNewList.size() == 1){
-                Spider.create(new YgdyMenuListProcessor()).thread(1)
+                Spider.create(new PhdyMenuListProcessor()).thread(1)
                         .addUrl(urlNewList.get(0))
-                        .addPipeline(ygdyHomePagePipeline)
+                        .addPipeline(phdyMenuListPipeline)
                         .run();
             }else{
-                Spider.create(new YgdyMenuListProcessor(){
+                Spider.create(new PhdyMenuListProcessor(){
                     @Override
                     public void addTargetRequest(Page page) {
                         super.addTargetRequest(page);
-                        List<String> targetUrlList = urlNewList;
-                        targetUrlList.remove(0);
-                        page.addTargetRequests(targetUrlList);
+//                        List<String> targetUrlList = urlNewList;
+//                        targetUrlList.remove(0);
+//                        page.addTargetRequests(targetUrlList);
+                        page.addTargetRequests(urlNewList);
                     }
                 }).thread(10)
                         .addUrl(urlNewList.get(0))
-                        .addPipeline(ygdyHomePagePipeline)
+                        .addPipeline(phdyMenuListPipeline)
                         .run();
             }
         }

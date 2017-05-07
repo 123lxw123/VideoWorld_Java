@@ -9,9 +9,15 @@ public class URLUtil {
 
     private static final Site site = Site.me()
             .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
-            .setSleepTime(1000)
+            .setSleepTime(5000)
             .setTimeOut(600000)
-            .setCharset("GB2312");
+            .setCharset("gb2312");
+
+    private static final Site site1 = Site.me()
+            .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
+            .setSleepTime(5000)
+            .setTimeOut(600000)
+            .setCharset("utf-8");
 
     public static final String URL_YGDY_HOME_PAGE = "http://www.ygdy8.com";
     public static final String URL_YGDY_HOME_DY = URL_YGDY_HOME_PAGE + "/html/gndy/index.html";
@@ -32,24 +38,28 @@ public class URLUtil {
     public static final String URL_YGDY_GFJDDY3 = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541_3.html";
     public static final String URL_YGDY_GFJDDY4 = URL_YGDY_HOME_PAGE + "/html/gndy/jddy/20160320/50541_4.html";
 
-    public static final String URL_PHDY_HOME_PAGE = "http://www.piaohua.net";
-    public static final String URL_PHDY_DONGZUO = URL_PHDY_HOME_PAGE + "/html/dongzuo/";
-    public static final String URL_PHDY_XIJU = URL_PHDY_HOME_PAGE + "/html/xiju/";
-    public static final String URL_PHDY_AIQING = URL_PHDY_HOME_PAGE + "/html/aiqing/";
-    public static final String URL_PHDY_KEHUAN = URL_PHDY_HOME_PAGE + "/html/kehuan/";
-    public static final String URL_PHDY_JUQING = URL_PHDY_HOME_PAGE + "/html/juqing/";
-    public static final String URL_PHDY_XUANYI = URL_PHDY_HOME_PAGE + "/html/xuanyi/";
-    public static final String URL_PHDY_WENYI = URL_PHDY_HOME_PAGE + "/html/wenyi/";
-    public static final String URL_PHDY_ZHANZHENG = URL_PHDY_HOME_PAGE + "/html/zhanzheng/";
-    public static final String URL_PHDY_KONGBU = URL_PHDY_HOME_PAGE + "/html/kongbu/";
-    public static final String URL_PHDY_ZAINAN = URL_PHDY_HOME_PAGE + "/html/zainan/";
-    public static final String URL_PHDY_LIANXUJU = URL_PHDY_HOME_PAGE + "/html/lianxuju/";
-    public static final String URL_PHDY_DONGMAN = URL_PHDY_HOME_PAGE + "/html/dongman/";
-    public static final String URL_PHDY_ZONGYI = URL_PHDY_HOME_PAGE + "/html/zongyi/";
-    public static final String URL_PHDY_DIANYING = URL_PHDY_HOME_PAGE + "/html/dianying.html";
+    public static final String URL_PHDY_HOME_PAGE = "http://www.piaohua.com";
+    public static final String URL_PHDY_DONGZUO = URL_PHDY_HOME_PAGE + "/html/dongzuo/index.html";
+    public static final String URL_PHDY_XIJU = URL_PHDY_HOME_PAGE + "/html/xiju/index.html";
+    public static final String URL_PHDY_AIQING = URL_PHDY_HOME_PAGE + "/html/aiqing/index.html";
+    public static final String URL_PHDY_KEHUAN = URL_PHDY_HOME_PAGE + "/html/kehuan/index.html";
+    public static final String URL_PHDY_JUQING = URL_PHDY_HOME_PAGE + "/html/juqing/index.html";
+    public static final String URL_PHDY_XUANYI = URL_PHDY_HOME_PAGE + "/html/xuannian/index.html";
+    public static final String URL_PHDY_WENYI = URL_PHDY_HOME_PAGE + "/html/wenyi/index.html";
+    public static final String URL_PHDY_ZHANZHENG = URL_PHDY_HOME_PAGE + "/html/zhanzheng/index.html";
+    public static final String URL_PHDY_KONGBU = URL_PHDY_HOME_PAGE + "/html/kongbu/index.html";
+    public static final String URL_PHDY_ZAINAN = URL_PHDY_HOME_PAGE + "/html/zainan/index.html";
+    public static final String URL_PHDY_LIANXUJU = URL_PHDY_HOME_PAGE + "/html/lianxuju/index.html";
+    public static final String URL_PHDY_DONGMAN = URL_PHDY_HOME_PAGE + "/html/dongman/index.html";
+    public static final String URL_PHDY_ZONGYI = URL_PHDY_HOME_PAGE + "/html/zongyijiemu/index.html";
+    public static final String URL_PHDY_DIANYING = URL_PHDY_HOME_PAGE + "/html/zuixindianying.html";
 
 
     public static Site getSiteInstance(){
         return site;
+    }
+
+    public static Site getSiteInstance1(){
+        return site1;
     }
 }

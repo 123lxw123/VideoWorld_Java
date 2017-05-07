@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lxw9047 on 2017/4/28.
  */
-public class YgdySourceDetailProcessor extends BaseProcessor {
+public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
     @Override
     public void process(Page page) {
         super.process(page);

@@ -36,9 +36,9 @@
     <insert id="add" parameterType="Source">
         INSERT INTO
         `ygdy_source`
-        (`id`,`category`,`type`,`title`,`date`,`url`,`status`)
+        (`id`,`category`,`type`,`date`,`url`,`status`)
         VALUES
-        (#{id},#{category},#{type},#{title},#{date},#{url},#{status})
+        (#{id},#{category},#{type},#{date},#{url},#{status})
     </insert>
 
     <!-- 删除 -->
@@ -56,7 +56,7 @@
         UPDATE
         `ygdy_source`
         SET
-        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `id`=#{id}, `status`=#{status}
+        `category`=#{category}, `type`=#{type}, `date`=#{date}, `id`=#{id}, `status`=#{status}
         WHERE
         `url`=#{url};
     </update>

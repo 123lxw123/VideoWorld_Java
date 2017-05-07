@@ -15,7 +15,7 @@ public class SourceDetail implements Serializable {
     private String images;
     private String content;
     private String links;
-    private String date;
+    private int date;
     private String status;
     private long time;
 
@@ -99,11 +99,11 @@ public class SourceDetail implements Serializable {
         this.type = type;
     }
 
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 

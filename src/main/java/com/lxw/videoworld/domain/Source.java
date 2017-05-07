@@ -9,8 +9,7 @@ public class Source implements Serializable{
     private String id;
     private String category;
     private String type;
-    private String title;
-    private String date;
+    private int date;
     private String url;
     private String status;
     private long time;
@@ -39,19 +38,11 @@ public class Source implements Serializable{
         this.type = type;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDate() {
+    public int getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(int date) {
         this.date = date;
     }
 
@@ -82,10 +73,9 @@ public class Source implements Serializable{
     @Override
     public String toString() {
         return "Source{" +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", category='" + category + '\'' +
                 ", type='" + type + '\'' +
-                ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
                 ", url='" + url + '\'' +
                 ", status='" + status + '\'' +

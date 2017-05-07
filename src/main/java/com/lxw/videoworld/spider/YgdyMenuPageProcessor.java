@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Zion on 2017/4/22.
  */
 @Service("ygdyMenuPageProcessor")
-public class YgdyMenuPageProcessor extends BaseProcessor {
+public class YgdyMenuPageProcessor extends BaseYgdyProcessor {
 
     @Autowired
     private YgdyHomePagePipeline ygdyHomePagePipeline;
@@ -43,9 +43,10 @@ public class YgdyMenuPageProcessor extends BaseProcessor {
                     @Override
                     public void addTargetRequest(Page page) {
                         super.addTargetRequest(page);
-                        List<String> targetUrlList = urlNewList;
-                        targetUrlList.remove(0);
-                        page.addTargetRequests(targetUrlList);
+//                        List<String> targetUrlList = urlNewList;
+//                        targetUrlList.remove(0);
+//                        page.addTargetRequests(targetUrlList);
+                        page.addTargetRequests(urlNewList);
                     }
                 }).thread(10)
                         .addUrl(urlNewList.get(0))

@@ -9,9 +9,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BaseProcessor implements PageProcessor {
+public class BaseYgdyProcessor implements PageProcessor {
 
-    public BaseProcessor() {
+    public BaseYgdyProcessor() {
     }
 
     @Override
