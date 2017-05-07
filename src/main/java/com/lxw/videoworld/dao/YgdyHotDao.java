@@ -18,4 +18,6 @@ public interface YgdyHotDao extends Dao<Source> {
     Source findOneById(Serializable Id);
 
     List<Source> findAll();
+
+    int clear();
 }

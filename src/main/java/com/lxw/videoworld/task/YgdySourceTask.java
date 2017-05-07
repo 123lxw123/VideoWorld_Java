@@ -1,16 +1,14 @@
 package com.lxw.videoworld.task;
 
+import com.lxw.videoworld.dao.YgdyHotDao;
 import com.lxw.videoworld.dao.YgdySourceDao;
-import com.lxw.videoworld.domain.Source;
 import com.lxw.videoworld.spider.*;
-import com.lxw.videoworld.utils.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Spider;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,11 +27,15 @@ public class YgdySourceTask {
     private YgdySourceDetailPipeline ygdySourceDetailPipeline;
     @Autowired
     private YgdySourceDao ygdySourceDao;
+    @Autowired
+    private YgdyHotDao ygdyHotDao;
 
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 07 01 * * ?")
+    @Scheduled(cron = "0 00 04 * * ?")
     public void getYgdySource() {
+//        // 清空热门排行榜
+//        ygdyHotDao.clear();
 //        // 阳光电影首页
 //        Spider.create(new YgdyHomePageProcessor()).thread(1)
 //                .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
@@ -55,28 +57,40 @@ public class YgdySourceTask {
 //                .addPipeline(ygdyHomePagePipeline)
 //                .addPipeline(ygdyClassicalListPipeline)
 //                .run();
+    }
 
-        // 阳光电影详情
-        final List<String> urlList = ygdySourceDao.findAllUrlNoDetail();
-        if(urlList != null && urlList.size() > 0){
-            if(urlList.size() == 1){
-                Spider.create(new YgdySourceDetailProcessor()).thread(1)
-                        .addUrl(urlList.get(0))
-                        .run();
-            }else{
-                final List<String> urlList1 = urlList;
-                urlList1.remove(0);
-                Spider.create(new YgdySourceDetailProcessor(){
-                    @Override
-                    public void addTargetRequest(Page page) {
-                        super.addTargetRequest(page);
-                        page.addTargetRequests(urlList1);
-                    }
-                }).thread(50)
-                        .addUrl(urlList.get(0))
-                        .addPipeline(ygdySourceDetailPipeline)
-                        .run();
-            }
-        }
+    // 每天凌晨4点执行
+    @Scheduled(cron = "0 00 04 * * ?")
+    public void getYgdySourceDetail() {
+        //      // 阳光电影详情
+//        final List<String> urlList = ygdySourceDao.findAllUrlNoDetail();
+//        if(urlList != null && urlList.size() > 0){
+//            if(urlList.size() == 1){
+//                Spider.create(new YgdySourceDetailProcessor()).thread(1)
+//                        .addUrl(urlList.get(0))
+//                        .run();
+//            }else{
+//                final List<String> urlList1 = urlList;
+//                urlList1.remove(0);
+//                Spider.create(new YgdySourceDetailProcessor(){
+//                    @Override
+//                    public void addTargetRequest(Page page) {
+//                        super.addTargetRequest(page);
+//                        page.addTargetRequests(urlList1);
+//                    }
+//                }).thread(50)
+//                        .addUrl(urlList.get(0))
+//                        .addPipeline(ygdySourceDetailPipeline)
+//                        .run();
+//            }
+//        }
+
+    }
+
+
+    // 每天凌晨4点执行
+    @Scheduled(cron = "0 39 16 * * ?")
+    public void getPhdySource() {
+
     }
 }

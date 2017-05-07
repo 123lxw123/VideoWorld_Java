@@ -56,7 +56,7 @@
         UPDATE
         `ygdy_source`
         SET
-        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `url`=#{url}, `status`=#{status}
+        `category`=#{category}, `type`=#{type}, `title`=#{title}, `date`=#{date}, `id`=#{id}, `status`=#{status}
         WHERE
         `url`=#{url};
     </update>
