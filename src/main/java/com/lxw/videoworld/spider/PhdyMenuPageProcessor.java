@@ -30,8 +30,11 @@ public class PhdyMenuPageProcessor extends BasePhdyProcessor {
         }
         if(urlList != null && !TextUtils.isEmpty(path) && urlList.size() > 0){
             // 计算总页数
-            String str[] = urlList.get(urlList.size() - 1).split(".");
-            int pageCount = Integer.valueOf(str[0].substring(5, str[0].length()));
+            String str0[] = urlList.get(urlList.size() - 1).split("/");
+            String str = str0[str0.length - 1];
+            int start = str.indexOf("_");
+            int end = str.indexOf(".");
+            int pageCount = Integer.valueOf(str.substring(start + 1, end));
             List<String> urlNewList = new ArrayList<>();
             for(int i = 1; i <= pageCount; i++){
                 urlNewList.add(path.replace("index.html", "list_" + i + ".html"));
@@ -55,6 +58,11 @@ public class PhdyMenuPageProcessor extends BasePhdyProcessor {
                         .addUrl(urlNewList.get(0))
                         .addPipeline(phdyMenuListPipeline)
                         .run();
+            }
+        }else{
+            String url = page.getHtml().css("script").regex("window.location.href='(.*?)'").toString();
+            if(!TextUtils.isEmpty(url)){
+                page.addTargetRequest(URLUtil.URL_PHDY_HOME_PAGE + url);
             }
         }
     }

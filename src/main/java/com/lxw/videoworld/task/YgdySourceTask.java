@@ -27,6 +27,8 @@ public class YgdySourceTask {
     @Autowired
     private YgdySourceDetailPipeline ygdySourceDetailPipeline;
     @Autowired
+    private YgdyMenuPageProcessor ygdyMenuPageProcessor;
+    @Autowired
     private YgdySourceDao ygdySourceDao;
     @Autowired
     private YgdyHotDao ygdyHotDao;
@@ -49,7 +51,7 @@ public class YgdySourceTask {
                 .addPipeline(ygdyHotListPipeline)
                 .run();
         // 阳光电影菜单
-        Spider.create(new YgdyMenuPageProcessor()).thread(5)
+        Spider.create(ygdyMenuPageProcessor).thread(5)
                 .addUrl(URLUtil.URL_YGDY_ZXDY)
                 .run();
         // 阳光电影高分经典
