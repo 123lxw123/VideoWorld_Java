@@ -62,7 +62,7 @@ public class YgdySourceTask {
                 .run();
     }
 
-    // 每天凌晨4点执行
+    // 每天凌晨5点执行
     @Scheduled(cron = "0 00 05 * * ?")
     public void getYgdySourceDetail() {
         //      // 阳光电影详情

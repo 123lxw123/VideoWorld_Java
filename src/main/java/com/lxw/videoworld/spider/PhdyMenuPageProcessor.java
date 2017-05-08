@@ -83,6 +83,7 @@ public class PhdyMenuPageProcessor extends BasePhdyProcessor {
         menuUrlList.add(URLUtil.URL_PHDY_LIANXUJU);
         menuUrlList.add(URLUtil.URL_PHDY_DONGMAN);
         menuUrlList.add(URLUtil.URL_PHDY_ZONGYI);
+        menuUrlList.add(URLUtil.URL_PHDY_HUAIJIU);
         page.addTargetRequests(menuUrlList);
     }
 }

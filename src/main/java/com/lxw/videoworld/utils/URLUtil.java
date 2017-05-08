@@ -9,13 +9,13 @@ public class URLUtil {
 
     private static final Site site = Site.me()
             .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
-            .setSleepTime(5000)
+            .setSleepTime(1000)
             .setTimeOut(600000)
             .setCharset("gb2312");
 
     private static final Site site1 = Site.me()
             .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
-            .setSleepTime(5000)
+            .setSleepTime(1000)
             .setTimeOut(600000)
             .setCharset("utf-8");
 
@@ -52,8 +52,13 @@ public class URLUtil {
     public static final String URL_PHDY_LIANXUJU = URL_PHDY_HOME_PAGE + "/html/lianxuju/index.html";
     public static final String URL_PHDY_DONGMAN = URL_PHDY_HOME_PAGE + "/html/dongman/index.html";
     public static final String URL_PHDY_ZONGYI = URL_PHDY_HOME_PAGE + "/html/zongyijiemu/index.html";
+    public static final String URL_PHDY_HUAIJIU = URL_PHDY_HOME_PAGE + "/html/huaijiu/index.html";
     public static final String URL_PHDY_DIANYING = URL_PHDY_HOME_PAGE + "/html/zuixindianying.html";
 
+    public static final String URL_MPDY_HOME_PAGE = "http://maopu.tv";
+    public static final String URL_MPDY_DY = URL_MPDY_HOME_PAGE + "/dy/index.html";
+    public static final String URL_MPDY_DS = URL_MPDY_HOME_PAGE + "/ds/index.html";
+    public static final String URL_MPDY_DM = URL_MPDY_HOME_PAGE + "/dm/index.html";
 
     public static Site getSiteInstance(){
         return site;
