@@ -1,10 +1,8 @@
 package com.lxw.videoworld.spider;
 
 import com.lxw.videoworld.config.Constants;
-import com.lxw.videoworld.dao.YgdySourceDao;
-import com.lxw.videoworld.dao.YgdySourceDetailDao;
+import com.lxw.videoworld.dao.PhdySourceDetailDao;
 import com.lxw.videoworld.domain.SourceDetail;
-import com.lxw.videoworld.utils.URLUtil;
 import org.apache.http.util.TextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +16,10 @@ import java.util.List;
  * Created by lxw9047 on 2017/5/3.
  */
 
-@Service("ygdySourceDetailPipeline")
-public class YgdySourceDetailPipeline implements Pipeline {
+@Service("phdySourceDetailPipeline")
+public class PhdySourceDetailPipeline implements Pipeline {
     @Autowired
-    private YgdySourceDetailDao ygdySourceDetailDao;
-    @Autowired
-    private YgdySourceDao ygdySourceDao;
+    private PhdySourceDetailDao phdySourceDetailDao;
 
     @Override
     public void process(ResultItems resultItems, Task task) {
@@ -40,10 +36,7 @@ public class YgdySourceDetailPipeline implements Pipeline {
                     sourceDetail.setId(params[7].substring(0, params[7].length() - 5));
                 }
                 sourceDetail.setCategory(params[4]);
-                sourceDetail.setType(params[5]);
-                if(!TextUtils.isEmpty(params[6]) && params[6].length() == 8){
-                    sourceDetail.setDate(Integer.valueOf(params[6]));
-                }
+                sourceDetail.setDate(Integer.valueOf(params[5] + params[6]));
             }else {
 
             }
@@ -63,8 +56,7 @@ public class YgdySourceDetailPipeline implements Pipeline {
         }
         sourceDetail.setStatus(Constants.STATUS_2);
         try {
-            ygdySourceDetailDao.add(sourceDetail);
-            ygdySourceDao.updateStatus(url, Constants.STATUS_2);
+            phdySourceDetailDao.add(sourceDetail);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -2,6 +2,7 @@ package com.lxw.videoworld.task;
 
 import com.lxw.videoworld.dao.PhdyHotDao;
 import com.lxw.videoworld.dao.PhdyNewDao;
+import com.lxw.videoworld.dao.PhdySourceDao;
 import com.lxw.videoworld.spider.*;
 import com.lxw.videoworld.utils.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +25,21 @@ public class PhdySourceTask {
     @Autowired
     private PhdyNewDao phdyNewDao;
     @Autowired
+    private PhdySourceDao phdySourceDao;
+    @Autowired
     private PhdyMenuListPipeline phdyMenuListPipeline;
     @Autowired
     private PhdyHotListPipeline phdyHotListPipeline;
     @Autowired
     private PhdyNewListPipeline phdyNewListPipeline;
+    @Autowired
+    private PhdySourceDetailPipeline phdySourceDetailPipeline;
 
     @Autowired
     private PhdyMenuPageProcessor phdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 00 17 * * ?")
+    @Scheduled(cron = "0 26 00 * * ?")
     public void getPhdySource() {
         // 清空排行榜
 //        phdyHotDao.clear();
@@ -72,5 +77,19 @@ public class PhdySourceTask {
                 .addPipeline(phdyMenuListPipeline)
                 .addPipeline(phdyNewListPipeline)
                 .run();
+    }
+
+    // 每天凌晨5点执行
+    @Scheduled(cron = "0 19 01 * * ?")
+    public void getPhdySourceDetail() {
+        //      // 阳光电影详情
+        final List<String> urlList = phdySourceDao.findAllUrlNoDetail();
+        if (urlList != null && urlList.size() > 0) {
+            Spider.create(new PhdySourceDetailProcessor()).thread(50)
+                    .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
+                    .addPipeline(phdySourceDetailPipeline)
+                    .run();
+        }
+
     }
 }

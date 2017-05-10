@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="com.lxw.videoworld.dao.MpdySourceDetailDao">
+
+    <!--查找-->
+    <select id="findOneById" resultType="SourceDetail" parameterType="String">
+    SELECT
+    *
+    FROM
+    `mpdy_source_detail`
+    WHERE
+    `url` = #{url}
+    </select>
+
+    <!--查找所有-->
+    <select id="findAll" resultType="SourceDetail">
+        SELECT
+        *
+        FROM
+        `mpdy_source_detail`
+    </select>
+
+    <!--增加语句-->
+    <insert id="add" parameterType="SourceDetail">
+        INSERT INTO
+        `mpdy_source_detail`
+        (`url`,`id`,`category`,`title`,`images`,`content`,`links`,`date`,`status`)
+        VALUES
+        (#{url},#{id},#{category},#{title},#{images},#{content},#{links},#{date},#{status})
+    </insert>
+
+    <!-- 删除 -->
+    <update id="del" parameterType="SourceDetail">
+        UPDATE
+        `mpdy_source_detail`
+        SET
+        `status`='0'
+        WHERE
+        `url`=#{url};
+    </update>
+
+    <!-- 更新信息 -->
+    <update id="update" parameterType="SourceDetail">
+        UPDATE
+        `mpdy_source_detail`
+        SET
+        `id`=#{id},`category`=#{category},`title`=#{title}, `images`=#{images}, `content`=#{content}, `links`=#{links}, `date`=#{date}, `status`=#{status}
+        WHERE
+        `url`=#{url};
+    </update>
+
+</mapper>
