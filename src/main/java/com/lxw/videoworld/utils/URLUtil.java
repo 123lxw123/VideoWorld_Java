@@ -10,13 +10,13 @@ public class URLUtil {
     private static final Site site = Site.me()
             .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
             .setSleepTime(1000)
-            .setTimeOut(600000)
+            .setTimeOut(10000)
             .setCharset("gb2312");
 
     private static final Site site1 = Site.me()
             .setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.91 Safari/537.36")
             .setSleepTime(1000)
-            .setTimeOut(600000)
+            .setTimeOut(10000)
             .setCharset("utf-8");
 
     public static final String URL_YGDY_HOME_PAGE = "http://www.ygdy8.com";

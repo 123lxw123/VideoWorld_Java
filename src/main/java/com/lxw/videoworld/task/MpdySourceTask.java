@@ -25,13 +25,15 @@ public class MpdySourceTask {
     private MpdyMenuPageProcessor mpdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 04 23 * * ?")
+    @Scheduled(cron = "0 07 20 * * ?")
     public void getMpdySource() {
         //清空今日更新
 //        phdyNewDao.clear();
         // 猫扑电影菜单
         Spider.create(mpdyMenuPageProcessor).thread(1)
                 .addUrl(URLUtil.URL_MPDY_DY)
+                .addUrl(URLUtil.URL_MPDY_DS)
+                .addUrl(URLUtil.URL_MPDY_DM)
                 .run();
         // 飘花电影今日更新
 //        Spider.create(new PhdyNewListProcessor()).thread(1)

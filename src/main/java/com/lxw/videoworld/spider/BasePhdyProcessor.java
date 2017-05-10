@@ -24,10 +24,7 @@ public class BasePhdyProcessor implements PageProcessor {
         // 转换字符编码
         String pageString = changeEncoding(page.getRawText()).trim();
         page.putField("pageString", pageString);
-        addTargetRequest(page);
     }
-
-    public void addTargetRequest(Page page) {}
 
     // 网页内容转换成 UTF-8 编码
     public String changeEncoding(String pageString) {

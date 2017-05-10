@@ -1,6 +1,5 @@
 package com.lxw.videoworld.spider;
 
-import com.lxw.videoworld.utils.URLUtil;
 import us.codecraft.webmagic.Page;
 
 import java.util.List;
@@ -14,11 +13,5 @@ public class YgdyHotListProcessor extends BaseYgdyProcessor {
         super.process(page);
         List<String> urlList = page.getHtml().css("div.co_content2").links().all();
         page.putField("urlList", urlList);
-    }
-
-    @Override
-    public void addTargetRequest(Page page) {
-        super.addTargetRequest(page);
-        page.addTargetRequest(URLUtil.URL_YGDY_GFJDDY);
     }
 }

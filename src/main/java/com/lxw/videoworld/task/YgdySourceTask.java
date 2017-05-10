@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Spider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,16 +48,33 @@ public class YgdySourceTask {
         // 阳光电影排行
         Spider.create(new YgdyHotListProcessor()).thread(2)
                 .addUrl(URLUtil.URL_YGDY_HOME_DY)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY)
                 .addPipeline(ygdyHomePagePipeline)
                 .addPipeline(ygdyHotListPipeline)
                 .run();
         // 阳光电影菜单
+        List<String> menuUrlList = new ArrayList<>();
+        menuUrlList.add(URLUtil.URL_YGDY_ZXDY);
+        menuUrlList.add(URLUtil.URL_YGDY_GNDY);
+        menuUrlList.add(URLUtil.URL_YGDY_JDDY);
+        menuUrlList.add(URLUtil.URL_YGDY_OMDY);
+        menuUrlList.add(URLUtil.URL_YGDY_RHDY);
+        menuUrlList.add(URLUtil.URL_YGDY_HYTV);
+        menuUrlList.add(URLUtil.URL_YGDY_RHTV);
+        menuUrlList.add(URLUtil.URL_YGDY_OMTV);
+        menuUrlList.add(URLUtil.URL_YGDY_ZXZY);
+        menuUrlList.add(URLUtil.URL_YGDY_JBZY);
+        menuUrlList.add(URLUtil.URL_YGDY_DONGMAN);
+        menuUrlList.add(URLUtil.URL_YGDY_GAME);
         Spider.create(ygdyMenuPageProcessor).thread(5)
-                .addUrl(URLUtil.URL_YGDY_ZXDY)
+                .addUrl((String[]) menuUrlList.toArray(new String[menuUrlList.size()]))
                 .run();
         // 阳光电影高分经典
         Spider.create(new YgdyClassicalListProcessor()).thread(2)
                 .addUrl(URLUtil.URL_YGDY_GFJDDY)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY2)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY3)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY4)
                 .addPipeline(ygdyHomePagePipeline)
                 .addPipeline(ygdyClassicalListPipeline)
                 .run();
@@ -68,24 +86,10 @@ public class YgdySourceTask {
         //      // 阳光电影详情
         final List<String> urlList = ygdySourceDao.findAllUrlNoDetail();
         if (urlList != null && urlList.size() > 0) {
-            if (urlList.size() == 1) {
-                Spider.create(new YgdySourceDetailProcessor()).thread(1)
-                        .addUrl(urlList.get(0))
-                        .run();
-            } else {
-                final List<String> urlList1 = urlList;
-                urlList1.remove(0);
-                Spider.create(new YgdySourceDetailProcessor() {
-                    @Override
-                    public void addTargetRequest(Page page) {
-                        super.addTargetRequest(page);
-                        page.addTargetRequests(urlList1);
-                    }
-                }).thread(50)
-                        .addUrl(urlList.get(0))
-                        .addPipeline(ygdySourceDetailPipeline)
-                        .run();
-            }
+            Spider.create(new YgdySourceDetailProcessor()).thread(50)
+                    .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
+                    .addPipeline(ygdySourceDetailPipeline)
+                    .run();
         }
 
     }

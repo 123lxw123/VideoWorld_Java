@@ -1,6 +1,5 @@
 package com.lxw.videoworld.spider;
 
-import com.lxw.videoworld.utils.URLUtil;
 import us.codecraft.webmagic.Page;
 
 import java.util.ArrayList;
@@ -23,13 +22,5 @@ public class YgdyClassicalListProcessor extends BaseYgdyProcessor {
             }
         }
         page.putField("urlList", urlList);
-    }
-
-    @Override
-    public void addTargetRequest(Page page) {
-        super.addTargetRequest(page);
-        page.addTargetRequest(URLUtil.URL_YGDY_GFJDDY2);
-        page.addTargetRequest(URLUtil.URL_YGDY_GFJDDY3);
-        page.addTargetRequest(URLUtil.URL_YGDY_GFJDDY4);
     }
 }
