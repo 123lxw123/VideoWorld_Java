@@ -44,9 +44,9 @@
     <insert id="add" parameterType="Source">
         INSERT INTO
         `mpdy_source`
-        (`id`,`category`,`url`,`status`)
+        (`id`,`category`,`type`,`url`,`status`)
         VALUES
-        (#{id},#{category},#{url},#{status})
+        (#{id},#{category},#{type},#{url},#{status})
     </insert>
 
     <!-- 删除 -->
@@ -64,7 +64,7 @@
         UPDATE
         `mpdy_source`
         SET
-        `category`=#{category}, `id`=#{id}, `status`=#{status}
+        `category`=#{category}, `type`=#{type}, `id`=#{id}, `status`=#{status}
         WHERE
         `url`=#{url};
     </update>

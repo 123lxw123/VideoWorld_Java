@@ -27,29 +27,8 @@ public class MpdySourceDetailPipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
         String url = resultItems.get("url");
-        String date = resultItems.get("date");
-        String title = resultItems.get("title");
-        String content = resultItems.get("content");
-        List<String> imgUrl = resultItems.get("imgUrl");
-        List<String> links = resultItems.get("links");
-        SourceDetail sourceDetail = new SourceDetail();
-        sourceDetail.setUrl(url);
-        if(!TextUtils.isEmpty(title)){
-            sourceDetail.setTitle(title.trim());
-        }
-        if(!TextUtils.isEmpty(date) && date.length() == 8){
-            sourceDetail.setDate(Integer.valueOf(date));
-        }
-        if(imgUrl != null && imgUrl.size() > 0){
-            sourceDetail.setImages(imgUrl.toString());
-        }
-        if(links != null && links.size() > 0){
-            sourceDetail.setLinks(links.toString());
-        }
-        if(!TextUtils.isEmpty(content)){
-            sourceDetail.setContent(content.trim());
-        }
-        sourceDetail.setStatus(Constants.STATUS_2);
+        SourceDetail sourceDetail = resultItems.get("sourceDetail");
+
         try {
             mpdySourceDetailDao.add(sourceDetail);
             mpdySourceDao.updateStatus(url, Constants.STATUS_2);
