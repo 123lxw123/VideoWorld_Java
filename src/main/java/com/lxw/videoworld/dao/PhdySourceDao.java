@@ -21,6 +21,8 @@ public interface PhdySourceDao extends Dao<Source> {
 
     List<Source> findAll();
 
+    List<String> findAllUrl();
+
     List<String> findAllUrlNoDetail();
 
 }

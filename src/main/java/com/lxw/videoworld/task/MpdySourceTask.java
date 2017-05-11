@@ -29,8 +29,13 @@ public class MpdySourceTask {
     // 每天凌晨4点执行
     @Scheduled(cron = "0 07 20 * * ?")
     public void getMpdySource() {
-        //清空今日更新
+        try{
+            //清空今日更新
 //        phdyNewDao.clear();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         // 猫扑电影菜单
         Spider.create(mpdyMenuPageProcessor).thread(1)
                 .addUrl(URLUtil.URL_MPDY_DY)
@@ -43,7 +48,7 @@ public class MpdySourceTask {
     @Scheduled(cron = "0 59 02 * * ?")
     public void getMpdySourceDetail() {
         //      // 阳光电影详情
-        final List<String> urlList = mpdySourceDao.findAllUrlNoDetail();
+        final List<String> urlList = mpdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
             Spider.create(new MpdySourceDetailProcessor()).thread(50)
                     .addUrl((String[]) urlList.toArray(new String[urlList.size()]))

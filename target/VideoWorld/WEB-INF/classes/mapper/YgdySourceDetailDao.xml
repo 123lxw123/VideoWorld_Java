@@ -26,9 +26,13 @@
     <insert id="add" parameterType="SourceDetail">
         INSERT INTO
         `ygdy_source_detail`
-        (`url`,`id`,`category`,`type`,`title`,`images`,`content`,`links`,`date`,`status`)
+        (`url`,`id`,`category`,`type`,`title`,`images`,`content`,`links`,`date`,`status`,`name`,`translate_name`,`year`,`area`,`style`,`language`,`subtitles`,
+           `release_date`,`imdb_score`,`imdb_intro`,`imdb_url`,`douban_score`,`douban_intro`,`douban_url`,`file_format`,`file_size`,`file_amounts`,`file_length`,
+              `director`,`performer`,`intro`,`awards`,`episodes`)
         VALUES
-        (#{url},#{id},#{category},#{type},#{title},#{images},#{content},#{links},#{date},#{status})
+        (#{url},#{id},#{category},#{type},#{title},#{images},#{content},#{links},#{date},#{status},#{name},#{translateName},#{year},#{area},#{style},#{language},
+        #{subtitles},#{releaseDate},#{imdbScore},#{imdbIntro},#{imdbUrl},#{doubanScore},#{doubanIntro},#{doubanUrl},#{fileFormat},#{fileSize},#{fileAmounts},
+        #{fileLength},#{director},#{performer},#{intro},#{awards},#{episodes})
     </insert>
 
     <!-- 删除 -->
@@ -46,7 +50,11 @@
         UPDATE
         `ygdy_source_detail`
         SET
-        `id`=#{id},`category`=#{category}, `type`=#{type},`title`=#{title}, `images`=#{images}, `content`=#{content}, `links`=#{links}, `date`=#{date}, `status`=#{status}
+        `id`=#{id},`category`=#{category}, `type`=#{type},`title`=#{title}, `images`=#{images}, `content`=#{content}, `links`=#{links}, `date`=#{date}, `status`=#{status},
+        `name`=#{name},`translate_name`=#{translateName}, `year`=#{year},`area`=#{area}, `style`=#{style}, `language`=#{language}, `subtitles`=#{subtitles},
+         `release_date`=#{releaseDate}, `imdb_score`=#{imdbScore}, `imdb_intro`=#{imdbIntro},`imdb_url`=#{imdbUrl}, `douban_score`=#{doubanScore},`douban_intro`=#{doubanIntro},
+         `douban_url`=#{doubanUrl}, `file_format`=#{fileFormat}, `file_size`=#{fileSize}, `file_amounts`=#{fileAmounts}, `file_length`=#{fileLength}, `director`=#{director},
+         `performer`=#{performer}, `intro`=#{intro},`awards`=#{awards}, `episodes`=#{episodes}
         WHERE
         `url`=#{url};
     </update>

@@ -21,6 +21,8 @@ public interface YgdySourceDao extends Dao<Source> {
 
     List<Source> findAll();
 
+    List<String> findAllUrl();
+
     List<String> findAllUrlNoDetail();
 
 }

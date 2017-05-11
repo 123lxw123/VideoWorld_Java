@@ -22,6 +22,14 @@
         `mpdy_source`
     </select>
 
+    <!--查找所有 URL-->
+    <select id="findAllUrl" resultType="String">
+        SELECT
+        `url`
+        FROM
+        `mpdy_source`
+    </select>
+
     <!--查找所有没获取过详情的-->
     <select id="findAllUrlNoDetail" resultType="String">
         SELECT

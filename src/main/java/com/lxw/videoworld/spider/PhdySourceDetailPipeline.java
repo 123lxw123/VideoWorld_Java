@@ -1,6 +1,7 @@
 package com.lxw.videoworld.spider;
 
 import com.lxw.videoworld.config.Constants;
+import com.lxw.videoworld.dao.PhdySourceDao;
 import com.lxw.videoworld.dao.PhdySourceDetailDao;
 import com.lxw.videoworld.domain.SourceDetail;
 import org.apache.http.util.TextUtils;
@@ -20,6 +21,8 @@ import java.util.List;
 public class PhdySourceDetailPipeline implements Pipeline {
     @Autowired
     private PhdySourceDetailDao phdySourceDetailDao;
+    @Autowired
+    private PhdySourceDao phdySourceDao;
 
     @Override
     public void process(ResultItems resultItems, Task task) {
@@ -57,7 +60,9 @@ public class PhdySourceDetailPipeline implements Pipeline {
         sourceDetail.setStatus(Constants.STATUS_2);
         try {
             phdySourceDetailDao.add(sourceDetail);
+            phdySourceDao.updateStatus(url, Constants.STATUS_2);
         }catch (Exception e){
+            phdySourceDetailDao.update(sourceDetail);
             e.printStackTrace();
         }
     }

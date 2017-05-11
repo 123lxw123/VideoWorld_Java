@@ -41,10 +41,15 @@ public class PhdySourceTask {
     // 每天凌晨4点执行
     @Scheduled(cron = "0 26 00 * * ?")
     public void getPhdySource() {
-        // 清空排行榜
+        try{
+            // 清空排行榜
 //        phdyHotDao.clear();
-        //清空今日更新
+            //清空今日更新
 //        phdyNewDao.clear();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         List<String> menuUrlList = new ArrayList<>();
         menuUrlList.add(URLUtil.URL_PHDY_DONGZUO);
         menuUrlList.add(URLUtil.URL_PHDY_XIJU);
@@ -83,7 +88,7 @@ public class PhdySourceTask {
     @Scheduled(cron = "0 19 01 * * ?")
     public void getPhdySourceDetail() {
         //      // 阳光电影详情
-        final List<String> urlList = phdySourceDao.findAllUrlNoDetail();
+        final List<String> urlList = phdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
             Spider.create(new PhdySourceDetailProcessor()).thread(50)
                     .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
