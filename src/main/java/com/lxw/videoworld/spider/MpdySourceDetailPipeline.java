@@ -28,13 +28,19 @@ public class MpdySourceDetailPipeline implements Pipeline {
     public void process(ResultItems resultItems, Task task) {
         String url = resultItems.get("url");
         SourceDetail sourceDetail = resultItems.get("sourceDetail");
-
-        try {
-            mpdySourceDetailDao.add(sourceDetail);
-            mpdySourceDao.updateStatus(url, Constants.STATUS_2);
-        }catch (Exception e){
-            mpdySourceDetailDao.update(sourceDetail);
-            e.printStackTrace();
+        if(sourceDetail != null){
+            try {
+                mpdySourceDetailDao.add(sourceDetail);
+                mpdySourceDao.updateStatus(url, Constants.STATUS_2);
+            }catch (Exception e){
+                try{
+                    mpdySourceDetailDao.update(sourceDetail);
+                }catch (Exception exception){
+                    e.printStackTrace();
+                }
+                e.printStackTrace();
+            }
         }
+
     }
 }

@@ -28,13 +28,18 @@ public class PhdySourceDetailPipeline implements Pipeline {
     public void process(ResultItems resultItems, Task task) {
         String url = resultItems.get("url");
         SourceDetail sourceDetail = resultItems.get("sourceDetail");
-
-        try {
-            phdySourceDetailDao.add(sourceDetail);
-            phdySourceDao.updateStatus(url, Constants.STATUS_2);
-        }catch (Exception e){
-            phdySourceDetailDao.update(sourceDetail);
-            e.printStackTrace();
+        if(sourceDetail != null){
+            try {
+                phdySourceDetailDao.add(sourceDetail);
+                phdySourceDao.updateStatus(url, Constants.STATUS_2);
+            }catch (Exception e){
+                try{
+                    phdySourceDetailDao.update(sourceDetail);
+                }catch (Exception exception){
+                    e.printStackTrace();
+                }
+                e.printStackTrace();
+            }
         }
     }
 }
