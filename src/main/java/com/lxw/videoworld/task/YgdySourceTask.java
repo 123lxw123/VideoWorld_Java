@@ -36,11 +36,11 @@ public class YgdySourceTask {
 
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 29 19 * * ?")
+    @Scheduled(cron = "0 25 21 * * ?")
     public void getYgdySource() {
         try{
             // 清空热门排行榜
-            ygdyHotDao.clear();
+//            ygdyHotDao.clear();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -51,12 +51,12 @@ public class YgdySourceTask {
                 .addPipeline(ygdyHomePagePipeline)
                 .run();
         // 阳光电影排行
-//        Spider.create(new YgdyHotListProcessor()).thread(2)
-//                .addUrl(URLUtil.URL_YGDY_HOME_DY)
-//                .addUrl(URLUtil.URL_YGDY_GFJDDY)
-//                .addPipeline(ygdyHomePagePipeline)
-//                .addPipeline(ygdyHotListPipeline)
-//                .run();
+        Spider.create(new YgdyHotListProcessor()).thread(2)
+                .addUrl(URLUtil.URL_YGDY_HOME_DY)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY)
+                .addPipeline(ygdyHomePagePipeline)
+                .addPipeline(ygdyHotListPipeline)
+                .run();
         // 阳光电影菜单
         List<String> menuUrlList = new ArrayList<>();
         menuUrlList.add(URLUtil.URL_YGDY_ZXDY);
@@ -71,22 +71,22 @@ public class YgdySourceTask {
         menuUrlList.add(URLUtil.URL_YGDY_JBZY);
         menuUrlList.add(URLUtil.URL_YGDY_DONGMAN);
         menuUrlList.add(URLUtil.URL_YGDY_GAME);
-//        Spider.create(ygdyMenuPageProcessor).thread(5)
-//                .addUrl((String[]) menuUrlList.toArray(new String[menuUrlList.size()]))
-//                .run();
-//        // 阳光电影高分经典
-//        Spider.create(new YgdyClassicalListProcessor()).thread(2)
-//                .addUrl(URLUtil.URL_YGDY_GFJDDY)
-//                .addUrl(URLUtil.URL_YGDY_GFJDDY2)
-//                .addUrl(URLUtil.URL_YGDY_GFJDDY3)
-//                .addUrl(URLUtil.URL_YGDY_GFJDDY4)
-//                .addPipeline(ygdyHomePagePipeline)
-//                .addPipeline(ygdyClassicalListPipeline)
-//                .run();
+        Spider.create(ygdyMenuPageProcessor).thread(5)
+                .addUrl((String[]) menuUrlList.toArray(new String[menuUrlList.size()]))
+                .run();
+        // 阳光电影高分经典
+        Spider.create(new YgdyClassicalListProcessor()).thread(2)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY2)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY3)
+                .addUrl(URLUtil.URL_YGDY_GFJDDY4)
+                .addPipeline(ygdyHomePagePipeline)
+                .addPipeline(ygdyClassicalListPipeline)
+                .run();
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 54 19 * * ?")
+    @Scheduled(cron = "0 50 21 * * ?")
     public void getYgdySourceDetail() {
         //      // 阳光电影详情
         final List<String> urlList = ygdySourceDao.findAllUrl();

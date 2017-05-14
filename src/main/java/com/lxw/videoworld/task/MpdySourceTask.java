@@ -27,7 +27,7 @@ public class MpdySourceTask {
     private MpdyMenuPageProcessor mpdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 18 00 * * ?")
+    @Scheduled(cron = "0 25 21 * * ?")
     public void getMpdySource() {
         try{
             //清空今日更新
@@ -38,14 +38,14 @@ public class MpdySourceTask {
 
         // 猫扑电影菜单
         Spider.create(mpdyMenuPageProcessor).thread(1)
-//                .addUrl(URLUtil.URL_MPDY_DY)
-//                .addUrl(URLUtil.URL_MPDY_DS)
+                .addUrl(URLUtil.URL_MPDY_DY)
+                .addUrl(URLUtil.URL_MPDY_DS)
                 .addUrl(URLUtil.URL_MPDY_DM)
                 .run();
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 46 00 * * ?")
+    @Scheduled(cron = "0 50 21 * * ?")
     public void getMpdySourceDetail() {
         //      // 阳光电影详情
         final List<String> urlList = mpdySourceDao.findAllUrl();
