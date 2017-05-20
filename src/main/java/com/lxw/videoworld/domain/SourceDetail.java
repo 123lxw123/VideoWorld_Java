@@ -9,38 +9,39 @@ public class SourceDetail implements Serializable {
 
     private String url;
     private String id;
-    private String category;
-    private String type;
+    private String category;// 一级分类
+    private String type;// 二级分类
     private String title;
     private String images;
-    private String content;
-    private String name;
-    private String translateName;
-    private int year;
-    private String area;
-    private String style;
-    private String language;
-    private String subtitles;
-    private String releaseDate;
+    private String content;// 详情信息
+    private String name;// 名字
+    private String translateName;// 译名
+    private int year;// 年份
+    private String area;// 国家、地区
+    private String style;// 详情里的分类
+    private String language;// 语言
+    private String subtitles;// 字幕语言
+    private String releaseDate;// 首映日期
     private float imdbScore;
     private String imdbIntro;
     private String imdbUrl;
-    private float doubanScore;
-    private String doubanIntro;
-    private String doubanUrl;
-    private String fileFormat;
-    private String fileSize;
-    private String fileAmounts;
-    private String fileLength;
-    private String director;
-    private String performer;
-    private String intro;
-    private String awards;
-    private String episodes;
-    private String links;
-    private int date;
+    private float doubanScore;// 豆瓣评分
+    private String doubanIntro;// 豆瓣评分说明
+    private String doubanUrl;// 豆瓣评分地址
+    private String fileFormat;// 文件格式
+    private String fileSize;// 清晰度
+    private String fileAmounts;// 张数 1 CD
+    private String fileLength;// 时长
+    private String author;// 编剧
+    private String director;// 导演
+    private String performer;// 主演
+    private String intro;// 简介
+    private String awards;// 获奖情况
+    private String episodes;// 集数
+    private String links;// 下载链接
+    private int date;// 网站更新时间
     private String status;
-    private long time;
+    private long time;// 数据库时间
 
     public String getUrl() {
         return url;
@@ -314,6 +315,14 @@ public class SourceDetail implements Serializable {
         this.date = date;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String toString() {
         return "SourceDetail{" +
@@ -332,16 +341,17 @@ public class SourceDetail implements Serializable {
                 ", language='" + language + '\'' +
                 ", subtitles='" + subtitles + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
-                ", imdbScore='" + imdbScore + '\'' +
+                ", imdbScore=" + imdbScore +
                 ", imdbIntro='" + imdbIntro + '\'' +
                 ", imdbUrl='" + imdbUrl + '\'' +
-                ", doubanScore='" + doubanScore + '\'' +
+                ", doubanScore=" + doubanScore +
                 ", doubanIntro='" + doubanIntro + '\'' +
                 ", doubanUrl='" + doubanUrl + '\'' +
                 ", fileFormat='" + fileFormat + '\'' +
                 ", fileSize='" + fileSize + '\'' +
                 ", fileAmounts='" + fileAmounts + '\'' +
                 ", fileLength='" + fileLength + '\'' +
+                ", author='" + author + '\'' +
                 ", director='" + director + '\'' +
                 ", performer='" + performer + '\'' +
                 ", intro='" + intro + '\'' +

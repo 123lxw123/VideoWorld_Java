@@ -39,6 +39,7 @@ public class PhdyMenuListPipeline implements Pipeline {
                         source.setDate(Integer.valueOf(params[5] + params[6]));
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
+                        source.setTime(System.currentTimeMillis());
                         try {
                             phdySourceDao.add(source);
                         }catch (Exception e){

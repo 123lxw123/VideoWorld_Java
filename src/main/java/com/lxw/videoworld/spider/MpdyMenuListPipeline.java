@@ -36,6 +36,7 @@ public class MpdyMenuListPipeline implements Pipeline {
                     source.setCategory(params[3]);
                     source.setUrl(urlList.get(i));
                     source.setStatus(Constants.STATUS_1);
+                    source.setTime(System.currentTimeMillis());
                     try {
                         mpdySourceDao.add(source);
                     } catch (Exception e) {

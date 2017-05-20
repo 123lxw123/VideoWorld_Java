@@ -41,6 +41,7 @@ public class YgdyHomePagePipeline implements Pipeline {
                         }
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
+                        source.setTime(System.currentTimeMillis());
                         try {
                             ygdySourceDao.add(source);
                         }catch (Exception e){

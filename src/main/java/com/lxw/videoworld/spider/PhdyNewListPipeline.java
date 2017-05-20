@@ -41,6 +41,7 @@ public class PhdyNewListPipeline implements Pipeline {
                         source.setDate(Integer.valueOf(params[5] + params[6]));
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
+                        source.setTime(System.currentTimeMillis());
                         try {
                             phdyNewDao.add(source);
                         }catch (Exception e){

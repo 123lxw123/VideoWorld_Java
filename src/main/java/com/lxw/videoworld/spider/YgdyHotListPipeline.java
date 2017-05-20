@@ -41,6 +41,7 @@ public class YgdyHotListPipeline implements Pipeline {
                         }
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
+                        source.setTime(System.currentTimeMillis());
                         try {
                             ygdyHotDao.add(source);
                         }catch (Exception e){
