@@ -119,117 +119,139 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
         // 获取视频详情各种属性
         if (!TextUtils.isEmpty(sourceDetail.getCategory()) && !sourceDetail.getCategory().equals(Constants.CATEGORY_2) && !sourceDetail.getCategory().equals(Constants.CATEGORY_3)) {
             if (sourceDetail.getCategory().equals(Constants.CATEGORY_5)) {
-                String name = page.getHtml().css("div#Zoom").regex("中文名称:(.*?)<").toString().replaceAll("</font>", "");
+                String name = page.getHtml().css("div#Zoom").regex("中文名称:(.*?)<").toString();
                 if (!TextUtils.isEmpty(name)) {
                     sourceDetail.setName(StringUtil.disposeField(name));
                 }
-                String style = page.getHtml().css("div#Zoom").regex("游戏类型:(.*?)<").toString().replaceAll("</font>", "");
+                String style = page.getHtml().css("div#Zoom").regex("游戏类型:(.*?)<").toString();
                 if (!TextUtils.isEmpty(style)) {
                     sourceDetail.setStyle(StringUtil.disposeField(style));
                 }
             } else {
-                String name = page.getHtml().css("div#Zoom").regex("◎片　　名(.*?)<").toString().replaceAll("</font>", "");
+                String name = page.getHtml().css("div#Zoom").regex("◎片　　名(.*?)<").toString();
                 if (!TextUtils.isEmpty(name)) {
+                    name = name.replaceAll("</font>", "");
                     sourceDetail.setName(StringUtil.disposeField(name));
                 } else {
-                    String name1 = page.getHtml().css("div#Zoom").regex("【原 &nbsp; &nbsp;　名】：(.*?)<").toString().replaceAll("</font>", "");
+                    String name1 = page.getHtml().css("div#Zoom").regex("【原 &nbsp; &nbsp;　名】：(.*?)<").toString();
                     if (!TextUtils.isEmpty(name1)) {
+                        name1 = name1.replaceAll("</font>", "");
                         sourceDetail.setName(StringUtil.disposeField(name1));
                     } else {
-                        String name2 = page.getHtml().css("div#Zoom").regex("[剧 名]:(.*?)<").toString().replaceAll("</font>", "");
+                        String name2 = page.getHtml().css("div#Zoom").regex("[剧 名]:(.*?)<").toString();
                         if (!TextUtils.isEmpty(name2)) {
+                            name2 = name2.replaceAll("</font>", "");
                             sourceDetail.setName(StringUtil.disposeField(name2));
                         } else {
-                            String name3 = page.getHtml().css("div#Zoom").regex("【片 &nbsp; &nbsp;　名】：(.*?)<").toString().replaceAll("</font>", "");
+                            String name3 = page.getHtml().css("div#Zoom").regex("【片 &nbsp; &nbsp;　名】：(.*?)<").toString();
                             if (!TextUtils.isEmpty(name3)) {
+                                name3 = name3.replaceAll("</font>", "");
                                 sourceDetail.setName(StringUtil.disposeField(name3));
                             }
                         }
                     }
                 }
-                String translate_name = page.getHtml().css("div#Zoom").regex("◎译　　名(.*?)<").toString().replaceAll("</font>", "");
+                String translate_name = page.getHtml().css("div#Zoom").regex("◎译　　名(.*?)<").toString();
                 if (!TextUtils.isEmpty(translate_name)) {
+                    translate_name = translate_name.replaceAll("</font>", "");
                     sourceDetail.setTranslateName(StringUtil.disposeField(translate_name));
                 } else {
-                    String translate_name1 = page.getHtml().css("div#Zoom").regex("【译 &nbsp; &nbsp;　名】：(.*?)<").toString().replaceAll("</font>", "");
+                    String translate_name1 = page.getHtml().css("div#Zoom").regex("【译 &nbsp; &nbsp;　名】：(.*?)<").toString();
                     if (!TextUtils.isEmpty(translate_name1)) {
+                        translate_name1 = translate_name1.replaceAll("</font>", "");
                         sourceDetail.setTranslateName(StringUtil.disposeField(translate_name1));
                     }
                 }
                 try {
-                    String year = page.getHtml().css("div#Zoom").regex("◎年　　代(.*?)<").toString().replaceAll("</font>", "");
+                    String year = page.getHtml().css("div#Zoom").regex("◎年　　代(.*?)<").toString();
                     if (!TextUtils.isEmpty(year)) {
+                        year = year.replaceAll("</font>", "");
                         sourceDetail.setYear(Integer.valueOf(StringUtil.disposeField(year)));
                     } else {
-                        String year1 = page.getHtml().css("div#Zoom").regex("【年 &nbsp; &nbsp;　代】：(.*?)<").toString().replaceAll("</font>", "");
+                        String year1 = page.getHtml().css("div#Zoom").regex("【年 &nbsp; &nbsp;　代】：(.*?)<").toString();
                         if (!TextUtils.isEmpty(year1)) {
+                            year1 = year1.replaceAll("</font>", "");
                             sourceDetail.setYear(Integer.valueOf(StringUtil.disposeField(year1)));
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                String area = page.getHtml().css("div#Zoom").regex("◎产　　地(.*?)<").toString().replaceAll("</font>", "");
+                String area = page.getHtml().css("div#Zoom").regex("◎产　　地(.*?)<").toString();
                 if (!TextUtils.isEmpty(area)) {
+                    area = area.replaceAll("</font>", "");
                     sourceDetail.setArea(StringUtil.disposeField(area));
                 } else {
-                    String area1 = page.getHtml().css("div#Zoom").regex("◎国　　家(.*?)<").toString().replaceAll("</font>", "");
+                    String area1 = page.getHtml().css("div#Zoom").regex("◎国　　家(.*?)<").toString();
                     if (!TextUtils.isEmpty(area1)) {
+                        area1 = area1.replaceAll("</font>", "");
                         sourceDetail.setArea(StringUtil.disposeField(area1));
                     } else {
-                        String area2 = page.getHtml().css("div#Zoom").regex("【国 &nbsp; &nbsp;　家】：(.*?)<").toString().replaceAll("</font>", "");
+                        String area2 = page.getHtml().css("div#Zoom").regex("【国 &nbsp; &nbsp;　家】：(.*?)<").toString();
                         if (!TextUtils.isEmpty(area2)) {
+                            area2 = area2.replaceAll("</font>", "");
                             sourceDetail.setArea(StringUtil.disposeField(area2));
                         }
                     }
                 }
-                String style = page.getHtml().css("div#Zoom").regex("◎类　　别(.*?)<").toString().replaceAll("</font>", "");
+                String style = page.getHtml().css("div#Zoom").regex("◎类　　别(.*?)<").toString();
                 if (!TextUtils.isEmpty(style)) {
+                    style = style.replaceAll("</font>", "");
                     sourceDetail.setStyle(StringUtil.disposeField(style));
                 } else {
-                    String style1 = page.getHtml().css("div#Zoom").regex("【类 &nbsp; &nbsp;　别】：(.*?)<").toString().replaceAll("</font>", "");
+                    String style1 = page.getHtml().css("div#Zoom").regex("【类 &nbsp; &nbsp;　别】：(.*?)<").toString();
                     if (!TextUtils.isEmpty(style1)) {
+                        style1 = style1.replaceAll("</font>", "");
                         sourceDetail.setStyle(StringUtil.disposeField(style1));
                     } else {
-                        String style2 = page.getHtml().css("div#Zoom").regex("[类 型]:(.*?)<").toString().replaceAll("</font>", "");
+                        String style2 = page.getHtml().css("div#Zoom").regex("[类 型]:(.*?)<").toString();
                         if (!TextUtils.isEmpty(style2)) {
+                            style2 = style2.replaceAll("</font>", "");
                             sourceDetail.setStyle(StringUtil.disposeField(style2));
                         }
                     }
-                    String language = page.getHtml().css("div#Zoom").regex("◎语　　言(.*?)<").toString().replaceAll("</font>", "");
+                    String language = page.getHtml().css("div#Zoom").regex("◎语　　言(.*?)<").toString();
                     if (!TextUtils.isEmpty(language)) {
+                        language = language.replaceAll("</font>", "");
                         sourceDetail.setLanguage(StringUtil.disposeField(language));
                     } else {
-                        String language1 = page.getHtml().css("div#Zoom").regex("【语 &nbsp; &nbsp;　言】：(.*?)<").toString().replaceAll("</font>", "");
+                        String language1 = page.getHtml().css("div#Zoom").regex("【语 &nbsp; &nbsp;　言】：(.*?)<").toString();
                         if (!TextUtils.isEmpty(language1)) {
+                            language1 = language1.replaceAll("</font>", "");
                             sourceDetail.setLanguage(StringUtil.disposeField(language1));
                         }
                     }
-                    String subtitles = page.getHtml().css("div#Zoom").regex("◎字　　幕(.*?)<").toString().replaceAll("</font>", "");
+                    String subtitles = page.getHtml().css("div#Zoom").regex("◎字　　幕(.*?)<").toString();
                     if (!TextUtils.isEmpty(subtitles)) {
+                        subtitles = subtitles.replaceAll("</font>", "");
                         sourceDetail.setSubtitles(StringUtil.disposeField(subtitles));
                     } else {
-                        String subtitles1 = page.getHtml().css("div#Zoom").regex("【字 &nbsp; &nbsp;　幕】：(.*?)<").toString().replaceAll("</font>", "");
+                        String subtitles1 = page.getHtml().css("div#Zoom").regex("【字 &nbsp; &nbsp;　幕】：(.*?)<").toString();
                         if (!TextUtils.isEmpty(subtitles1)) {
+                            subtitles1 = subtitles1.replaceAll("</font>", "");
                             sourceDetail.setSubtitles(StringUtil.disposeField(subtitles1));
                         }
                     }
-                    String release_date = page.getHtml().css("div#Zoom").regex("◎上映日期(.*?)<").toString().replaceAll("</font>", "");
+                    String release_date = page.getHtml().css("div#Zoom").regex("◎上映日期(.*?)<").toString();
                     if (!TextUtils.isEmpty(release_date)) {
+                        release_date = release_date.replaceAll("</font>", "");
                         sourceDetail.setReleaseDate(StringUtil.disposeField(release_date));
                     } else {
-                        String release_date1 = page.getHtml().css("div#Zoom").regex("【首 &nbsp; &nbsp;　播】：(.*?)<").toString().replaceAll("</font>", "");
+                        String release_date1 = page.getHtml().css("div#Zoom").regex("【首 &nbsp; &nbsp;　播】：(.*?)<").toString();
                         if (!TextUtils.isEmpty(release_date1)) {
+                            release_date1 = release_date1.replaceAll("</font>", "");
                             sourceDetail.setReleaseDate(StringUtil.disposeField(release_date1));
                         } else {
-                            String release_date2 = page.getHtml().css("div#Zoom").regex("[首 播]:(.*?)<").toString().replaceAll("</font>", "");
+                            String release_date2 = page.getHtml().css("div#Zoom").regex("[首 播]:(.*?)<").toString();
                             if (!TextUtils.isEmpty(release_date2)) {
+                                release_date2 = release_date2.replaceAll("</font>", "");
                                 sourceDetail.setReleaseDate(StringUtil.disposeField(release_date2));
                             }
                         }
                         try {
-                            String imdb_score0 = page.getHtml().css("div#Zoom").regex("◎IMDb评分(.*?)<").toString().replaceAll("</font>", "");
+                            String imdb_score0 = page.getHtml().css("div#Zoom").regex("◎IMDb评分(.*?)<").toString();
                             if (!TextUtils.isEmpty(imdb_score0)) {
+                                imdb_score0 = imdb_score0.replaceAll("</font>", "");
                                 String[] imdb_score = imdb_score0.trim().split("/");
                                 if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
                                     sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
@@ -238,8 +260,9 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setImdbUrl(StringUtil.disposeField(imdb_score[1]));
                                 }
                             } else {
-                                String imdb_score1 = page.getHtml().css("div#Zoom").regex("【IMDB评分】：(.*?)<").toString().replaceAll("</font>", "");
+                                String imdb_score1 = page.getHtml().css("div#Zoom").regex("【IMDB评分】：(.*?)<").toString();
                                 if (!TextUtils.isEmpty(imdb_score1)) {
+                                    imdb_score1 = imdb_score1.replaceAll("</font>", "");
                                     String[] imdb_score = imdb_score1.trim().split("/");
                                     if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
                                         sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
@@ -253,8 +276,9 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             e.printStackTrace();
                         }
                         try {
-                            String douban_score0 = page.getHtml().css("div#Zoom").regex("◎豆瓣评分(.*?)<").toString().replaceAll("</font>", "");
+                            String douban_score0 = page.getHtml().css("div#Zoom").regex("◎豆瓣评分(.*?)<").toString();
                             if (!TextUtils.isEmpty(douban_score0)) {
+                                douban_score0 = douban_score0.replaceAll("</font>", "");
                                 String[] douban_score = douban_score0.trim().split("/");
                                 if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
                                     sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
@@ -263,8 +287,9 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
                                 }
                             } else {
-                                String douban_score1 = page.getHtml().css("div#Zoom").regex("【豆瓣评分】：(.*?)<").toString().replaceAll("</font>", "");
+                                String douban_score1 = page.getHtml().css("div#Zoom").regex("【豆瓣评分】：(.*?)<").toString();
                                 if (!TextUtils.isEmpty(douban_score1)) {
+                                    douban_score1 = douban_score1.replaceAll("</font>", "");
                                     String[] douban_score = douban_score1.trim().split("/");
                                     if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
                                         sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
@@ -277,37 +302,45 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        String file_format = page.getHtml().css("div#Zoom").regex("◎文件格式(.*?)<").toString().replaceAll("</font>", "");
+                        String file_format = page.getHtml().css("div#Zoom").regex("◎文件格式(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_format)) {
+                            file_format = file_format.replaceAll("</font>", "");
                             sourceDetail.setFileFormat(StringUtil.disposeField(file_format));
                         }
-                        String file_size = page.getHtml().css("div#Zoom").regex("◎视频尺寸(.*?)<").toString().replaceAll("</font>", "");
+                        String file_size = page.getHtml().css("div#Zoom").regex("◎视频尺寸(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_size)) {
+                            file_size = file_size.replaceAll("</font>", "");
                             sourceDetail.setFileSize(StringUtil.disposeField(file_size));
                         }
-                        String file_amounts = page.getHtml().css("div#Zoom").regex("◎文件大小(.*?)<").toString().replaceAll("</font>", "");
+                        String file_amounts = page.getHtml().css("div#Zoom").regex("◎文件大小(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_amounts)) {
+                            file_amounts = file_amounts.replaceAll("</font>", "");
                             sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts));
                         }
-                        String file_length = page.getHtml().css("div#Zoom").regex("◎片　　长(.*?)<").toString().replaceAll("</font>", "");
+                        String file_length = page.getHtml().css("div#Zoom").regex("◎片　　长(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_length)) {
+                            file_length = file_length.replaceAll("</font>", "");
                             sourceDetail.setFileLength(StringUtil.disposeField(file_length));
                         } else {
-                            String file_length1 = page.getHtml().css("div#Zoom").regex("【片 &nbsp; &nbsp;　长】：(.*?)<").toString().replaceAll("</font>", "");
+                            String file_length1 = page.getHtml().css("div#Zoom").regex("【片 &nbsp; &nbsp;　长】：(.*?)<").toString();
                             if (!TextUtils.isEmpty(file_length1)) {
+                                file_length1 = file_length1.replaceAll("</font>", "");
                                 sourceDetail.setFileLength(StringUtil.disposeField(file_length1));
                             }
                         }
-                        String episodes = page.getHtml().css("div#Zoom").regex("◎集　　数(.*?)<").toString().replaceAll("</font>", "");
+                        String episodes = page.getHtml().css("div#Zoom").regex("◎集　　数(.*?)<").toString();
                         if (!TextUtils.isEmpty(episodes)) {
+                            episodes = episodes.replaceAll("</font>", "");
                             sourceDetail.setEpisodes(StringUtil.disposeField(episodes));
                         } else {
-                            String episodes1 = page.getHtml().css("div#Zoom").regex("【集 &nbsp; &nbsp;　数】：(.*?)<").toString().replaceAll("</font>", "");
+                            String episodes1 = page.getHtml().css("div#Zoom").regex("【集 &nbsp; &nbsp;　数】：(.*?)<").toString();
                             if (!TextUtils.isEmpty(episodes1)) {
+                                episodes1 = episodes1.replaceAll("</font>", "");
                                 sourceDetail.setEpisodes(StringUtil.disposeField(episodes1));
                             } else {
-                                String episodes2 = page.getHtml().css("div#Zoom").regex("[集 数]:(.*?)<").toString().replaceAll("</font>", "");
+                                String episodes2 = page.getHtml().css("div#Zoom").regex("[集 数]:(.*?)<").toString();
                                 if (!TextUtils.isEmpty(episodes2)) {
+                                    episodes2 = episodes2.replaceAll("</font>", "");
                                     sourceDetail.setEpisodes(StringUtil.disposeField(episodes2));
                                 }
                             }
