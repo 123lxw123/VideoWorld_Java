@@ -47,7 +47,7 @@ public class MpdySourceTask {
     // 每天凌晨5点执行
     @Scheduled(cron = "0 50 21 * * ?")
     public void getMpdySourceDetail() {
-        //      // 阳光电影详情
+        // 猫扑电影详情
         final List<String> urlList = mpdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
             Spider.create(new MpdySourceDetailProcessor()).thread(50)

@@ -48,7 +48,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
             String showinfo = page.getHtml().css("div#showinfo").toString();
             if (!TextUtils.isEmpty(showinfo)) {
                 List<String> imgUrl = page.getHtml().css("div#showinfo").css("img", "src").all();
-                List<String> content0 = page.getHtml().css("div#showinfo").regex("<div.*?>(.*?)</div>").all();
+                List<String> content0 = page.getHtml().css("div#showinfo").regex("<div>(.*?)</div>").all();
                 List<String> newContent = new ArrayList<>();
                 if (content0 != null && content0.size() > 0) {
                     for (int j = 0; j < content0.size(); j++) {
@@ -57,8 +57,27 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                             content = StringEscapeUtils.unescapeHtml(content).replaceAll("<br/>", "\n").replaceAll("<br>", "\n")
                                     .replaceAll("<br />", "\n").replaceAll("<p>", "").replaceAll("</p>", "\n");
                             content = HTMLUtil.trimHtml2Txt(content, null);
-                            newContent.add(content);
+                            content = StringUtil.disposeField(content);
+                            if(!TextUtils.isEmpty(content)){
+                                newContent.add(content);
+                            }
                         }
+                    }
+                }
+                if(newContent.size() == 0){
+                    String content = "";
+                    if(showinfo.contains("[下载地址]")){
+                        content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)[下载地址]").toString();
+                    }else if(showinfo.contains("迅雷下载地址列表")){
+                        content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)迅雷下载地址列表").toString();
+                    }else if(showinfo.contains("独孤在线播放")) {
+                        content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)独孤在线播放").toString();
+                    }else{
+                        content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)下载地址").toString();
+                    }
+                    content = StringUtil.disposeField(content);
+                    if(!TextUtils.isEmpty(content)){
+                        newContent.add(content);
                     }
                 }
                 List<String> links = new ArrayList<>();

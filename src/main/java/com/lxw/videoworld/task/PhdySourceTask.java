@@ -85,13 +85,13 @@ public class PhdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 54 23 * * ?")
+    @Scheduled(cron = "0 29 00 * * ?")
     public void getPhdySourceDetail() {
-        //      // 阳光电影详情
+        // 飘花电影详情
         final List<String> urlList = phdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
             Spider.create(new PhdySourceDetailProcessor()).thread(50)
-                    .addUrl("http://www.piaohua.com/html/dongman/2016/1023/31452.html")
+                    .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
                     .addPipeline(phdySourceDetailPipeline)
                     .run();
         }
