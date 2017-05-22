@@ -39,7 +39,7 @@ public class PhdySourceTask {
     private PhdyMenuPageProcessor phdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 00 04 * * ?")
+    @Scheduled(cron = "0 04 04 * * ?")
     public void getPhdySource() {
         try{
             // 清空排行榜
@@ -85,7 +85,7 @@ public class PhdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 31 22 * * ?")
+    @Scheduled(cron = "0 09 00 * * ?")
     public void getPhdySourceDetail() {
         // 飘花电影详情
         final List<String> urlList = phdySourceDao.findAllUrl();

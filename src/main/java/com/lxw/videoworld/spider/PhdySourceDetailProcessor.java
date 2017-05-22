@@ -432,8 +432,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 }
                                 if (!TextUtils.isEmpty(sourceDetail.getContent())) {
                                     String str = sourceDetail.getContent();
-                                    if (str.contains("◎编　　剧")) {
-                                        String[] author0 = str.split("◎编　　剧");
+                                    if (str.contains("◎编  剧")) {
+                                        String[] author0 = str.split("◎编  剧");
                                         if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
                                             String[] temp = author0[1].split("◎");
                                             sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
@@ -442,8 +442,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                         }
                                     } else {
-                                        if (str.contains("【编 &nbsp; &nbsp;　剧】：")) {
-                                            String[] author0 = str.split("【编 &nbsp; &nbsp;　剧】：");
+                                        if (str.contains("【编     剧】：")) {
+                                            String[] author0 = str.split("【编     剧】：");
                                             if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
                                                 String[] temp = author0[1].split("【");
                                                 sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
@@ -464,8 +464,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             }
                                         }
                                     }
-                                    if (str.contains("◎导　　演")) {
-                                        String[] director0 = str.split("◎导　　演");
+                                    if (str.contains("◎导  演")) {
+                                        String[] director0 = str.split("◎导  演");
                                         if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
                                             String[] temp = director0[1].split("◎");
                                             sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
@@ -474,8 +474,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
                                         }
                                     } else {
-                                        if (str.contains("【导 &nbsp; &nbsp;　演】：")) {
-                                            String[] director0 = str.split("【导 &nbsp; &nbsp;　演】：");
+                                        if (str.contains("【导     演】：")) {
+                                            String[] director0 = str.split("【导     演】：");
                                             if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
                                                 String[] temp = director0[1].split("【");
                                                 sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
@@ -496,8 +496,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             }
                                         }
                                     }
-                                    if (str.contains("◎主　　演")) {
-                                        String[] performer0 = str.split("◎主　　演");
+                                    if (str.contains("◎主  演")) {
+                                        String[] performer0 = str.split("◎主  演");
                                         if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
                                             String[] temp = performer0[1].split("◎");
                                             sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
@@ -506,8 +506,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
                                         }
                                     } else {
-                                        if (str.contains("【演 &nbsp; &nbsp;　员】：")) {
-                                            String[] performer0 = str.split("【演 &nbsp; &nbsp;　员】：");
+                                        if (str.contains("【演     员】：")) {
+                                            String[] performer0 = str.split("【演     员】：");
                                             if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
                                                 String[] temp = performer0[1].split("【");
                                                 sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
@@ -528,8 +528,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             }
                                         }
                                     }
-                                    if (str.contains("◎简　　介")) {
-                                        String[] intro0 = str.split("◎简　　介");
+                                    if (str.contains("◎简  介")) {
+                                        String[] intro0 = str.split("◎简  介");
                                         if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
                                             String[] temp = intro0[1].split("◎");
                                             sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
@@ -538,8 +538,8 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
                                         }
                                     } else {
-                                        if (str.contains("【简 &nbsp; &nbsp;　介】：")) {
-                                            String[] intro0 = str.split("【简 &nbsp; &nbsp;　介】：");
+                                        if (str.contains("【简     介】：")) {
+                                            String[] intro0 = str.split("【简     介】：");
                                             if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
                                                 String[] temp = intro0[1].split("【");
                                                 sourceDetail.setIntro(StringUtil.disposeField(temp[0]));

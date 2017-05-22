@@ -36,7 +36,7 @@ public class YgdySourceTask {
 
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 01 15 * * ?")
+    @Scheduled(cron = "0 04 15 * * ?")
     public void getYgdySource() {
         try{
             // 清空热门排行榜
@@ -86,7 +86,7 @@ public class YgdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 18 23 * * ?")
+    @Scheduled(cron = "0 09 00 * * ?")
     public void getYgdySourceDetail() {
         //      // 阳光电影详情
         final List<String> urlList = ygdySourceDao.findAllUrl();

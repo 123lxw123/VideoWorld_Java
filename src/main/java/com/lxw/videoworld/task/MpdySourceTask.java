@@ -27,7 +27,7 @@ public class MpdySourceTask {
     private MpdyMenuPageProcessor mpdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 00 17 * * ?")
+    @Scheduled(cron = "0 04 17 * * ?")
     public void getMpdySource() {
         try{
             //清空今日更新
@@ -45,7 +45,7 @@ public class MpdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 01 17 * * ?")
+    @Scheduled(cron = "0 04 17 * * ?")
     public void getMpdySourceDetail() {
         // 猫扑电影详情
         final List<String> urlList = mpdySourceDao.findAllUrl();
