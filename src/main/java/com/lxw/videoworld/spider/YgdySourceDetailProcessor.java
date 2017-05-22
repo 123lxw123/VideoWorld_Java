@@ -147,6 +147,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             if (!TextUtils.isEmpty(name3)) {
                                 name3 = name3.replaceAll("</font>", "");
                                 sourceDetail.setName(StringUtil.disposeField(name3));
+                            }else{
+                                String name4 = page.getHtml().css("div#Zoom").regex("片　　名(.*?)<").toString();
+                                if (!TextUtils.isEmpty(name4)) {
+                                    name4 = name4.replaceAll("</font>", "");
+                                    sourceDetail.setName(StringUtil.disposeField(name4));
+                                }
                             }
                         }
                     }
@@ -160,6 +166,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                     if (!TextUtils.isEmpty(translate_name1)) {
                         translate_name1 = translate_name1.replaceAll("</font>", "");
                         sourceDetail.setTranslateName(StringUtil.disposeField(translate_name1));
+                    }else{
+                        String translate_name2 = page.getHtml().css("div#Zoom").regex("译　　名(.*?)<").toString();
+                        if (!TextUtils.isEmpty(translate_name2)) {
+                            translate_name2 = translate_name2.replaceAll("</font>", "");
+                            sourceDetail.setTranslateName(StringUtil.disposeField(translate_name2));
+                        }
                     }
                 }
                 try {
@@ -180,6 +192,16 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                 year1 = year1.substring(0, 4);
                             }
                             sourceDetail.setYear(Integer.valueOf(year1));
+                        }else{
+                            String year2 = page.getHtml().css("div#Zoom").regex("年　　代(.*?)<").toString();
+                            if (!TextUtils.isEmpty(year2)) {
+                                year2 = year2.replaceAll("</font>", "");
+                                year2 = StringUtil.disposeField(year2);
+                                if(!TextUtils.isEmpty(year2) && year2.length() > 4){
+                                    year2 = year2.substring(0, 4);
+                                }
+                                sourceDetail.setYear(Integer.valueOf(year2));
+                            }
                         }
                     }
                 } catch (Exception e) {
@@ -199,6 +221,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         if (!TextUtils.isEmpty(area2)) {
                             area2 = area2.replaceAll("</font>", "");
                             sourceDetail.setArea(StringUtil.disposeField(area2));
+                        }else{
+                            String area3 = page.getHtml().css("div#Zoom").regex("国　　家(.*?)<").toString();
+                            if (!TextUtils.isEmpty(area3)) {
+                                area3 = area3.replaceAll("</font>", "");
+                                sourceDetail.setArea(StringUtil.disposeField(area3));
+                            }
                         }
                     }
                 }
@@ -216,6 +244,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         if (!TextUtils.isEmpty(style2)) {
                             style2 = style2.replaceAll("</font>", "");
                             sourceDetail.setStyle(StringUtil.disposeField(style2));
+                        }else{
+                            String style3 = page.getHtml().css("div#Zoom").regex("类　　别(.*?)<").toString();
+                            if (!TextUtils.isEmpty(style3)) {
+                                style3 = style3.replaceAll("</font>", "");
+                                sourceDetail.setStyle(StringUtil.disposeField(style3));
+                            }
                         }
                     }
                     String language = page.getHtml().css("div#Zoom").regex("◎语　　言(.*?)<").toString();
@@ -227,6 +261,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         if (!TextUtils.isEmpty(language1)) {
                             language1 = language1.replaceAll("</font>", "");
                             sourceDetail.setLanguage(StringUtil.disposeField(language1));
+                        }else{
+                            String language2 = page.getHtml().css("div#Zoom").regex("语　　言(.*?)<").toString();
+                            if (!TextUtils.isEmpty(language2)) {
+                                language2 = language2.replaceAll("</font>", "");
+                                sourceDetail.setLanguage(StringUtil.disposeField(language2));
+                            }
                         }
                     }
                     String subtitles = page.getHtml().css("div#Zoom").regex("◎字　　幕(.*?)<").toString();
@@ -238,6 +278,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         if (!TextUtils.isEmpty(subtitles1)) {
                             subtitles1 = subtitles1.replaceAll("</font>", "");
                             sourceDetail.setSubtitles(StringUtil.disposeField(subtitles1));
+                        }else{
+                            String subtitles2 = page.getHtml().css("div#Zoom").regex("字　　幕(.*?)<").toString();
+                            if (!TextUtils.isEmpty(subtitles2)) {
+                                subtitles2 = subtitles2.replaceAll("</font>", "");
+                                sourceDetail.setSubtitles(StringUtil.disposeField(subtitles2));
+                            }
                         }
                     }
                     String release_date = page.getHtml().css("div#Zoom").regex("◎上映日期(.*?)<").toString();
@@ -254,6 +300,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             if (!TextUtils.isEmpty(release_date2)) {
                                 release_date2 = release_date2.replaceAll("</font>", "");
                                 sourceDetail.setReleaseDate(StringUtil.disposeField(release_date2));
+                            }else{
+                                String release_date3 = page.getHtml().css("div#Zoom").regex("上映日期(.*?)<").toString();
+                                if (!TextUtils.isEmpty(release_date3)) {
+                                    release_date3 = release_date3.replaceAll("</font>", "");
+                                    sourceDetail.setReleaseDate(StringUtil.disposeField(release_date3));
+                                }
                             }
                         }
                         try {
@@ -314,16 +366,34 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                         if (!TextUtils.isEmpty(file_format)) {
                             file_format = file_format.replaceAll("</font>", "");
                             sourceDetail.setFileFormat(StringUtil.disposeField(file_format));
+                        }else{
+                            String file_format1 = page.getHtml().css("div#Zoom").regex("文件格式(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_format1)) {
+                                file_format1 = file_format1.replaceAll("</font>", "");
+                                sourceDetail.setFileFormat(StringUtil.disposeField(file_format1));
+                            }
                         }
                         String file_size = page.getHtml().css("div#Zoom").regex("◎视频尺寸(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_size)) {
                             file_size = file_size.replaceAll("</font>", "");
                             sourceDetail.setFileSize(StringUtil.disposeField(file_size));
+                        }else{
+                            String file_size1 = page.getHtml().css("div#Zoom").regex("视频尺寸(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_size1)) {
+                                file_size1 = file_size1.replaceAll("</font>", "");
+                                sourceDetail.setFileSize(StringUtil.disposeField(file_size1));
+                            }
                         }
                         String file_amounts = page.getHtml().css("div#Zoom").regex("◎文件大小(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_amounts)) {
                             file_amounts = file_amounts.replaceAll("</font>", "");
                             sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts));
+                        }else{
+                            String file_amounts1 = page.getHtml().css("div#Zoom").regex("文件大小(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_amounts1)) {
+                                file_amounts1 = file_amounts1.replaceAll("</font>", "");
+                                sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts1));
+                            }
                         }
                         String file_length = page.getHtml().css("div#Zoom").regex("◎片　　长(.*?)<").toString();
                         if (!TextUtils.isEmpty(file_length)) {
@@ -334,6 +404,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             if (!TextUtils.isEmpty(file_length1)) {
                                 file_length1 = file_length1.replaceAll("</font>", "");
                                 sourceDetail.setFileLength(StringUtil.disposeField(file_length1));
+                            }else{
+                                String file_length2 = page.getHtml().css("div#Zoom").regex("片　　长(.*?)<").toString();
+                                if (!TextUtils.isEmpty(file_length2)) {
+                                    file_length2 = file_length2.replaceAll("</font>", "");
+                                    sourceDetail.setFileLength(StringUtil.disposeField(file_length2));
+                                }
                             }
                         }
                         String episodes = page.getHtml().css("div#Zoom").regex("◎集　　数(.*?)<").toString();
@@ -350,13 +426,19 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                 if (!TextUtils.isEmpty(episodes2)) {
                                     episodes2 = episodes2.replaceAll("</font>", "");
                                     sourceDetail.setEpisodes(StringUtil.disposeField(episodes2));
+                                }else{
+                                    String episodes3 = page.getHtml().css("div#Zoom").regex("集　　数(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(episodes3)) {
+                                        episodes3 = episodes3.replaceAll("</font>", "");
+                                        sourceDetail.setEpisodes(StringUtil.disposeField(episodes3));
+                                    }
                                 }
                             }
                         }
                         if (!TextUtils.isEmpty(sourceDetail.getContent())) {
                             String str = sourceDetail.getContent();
-                            if (str.contains("◎编　　剧")) {
-                                String[] author0 = str.split("◎编　　剧");
+                            if (str.contains("◎编  剧")) {
+                                String[] author0 = str.split("◎编  剧");
                                 if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
                                     String[] temp = author0[1].split("◎");
                                     sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
@@ -365,8 +447,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                 }
                             } else {
-                                if (str.contains("【编 &nbsp; &nbsp;　剧】：")) {
-                                    String[] author0 = str.split("【编 &nbsp; &nbsp;　剧】：");
+                                if (str.contains("【编     剧】：")) {
+                                    String[] author0 = str.split("【编     剧】：");
                                     if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
                                         String[] temp = author0[1].split("【");
                                         sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
@@ -387,8 +469,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     }
                                 }
                             }
-                            if (str.contains("◎导　　演")) {
-                                String[] director0 = str.split("◎导　　演");
+                            if (str.contains("◎导  演")) {
+                                String[] director0 = str.split("◎导  演");
                                 if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
                                     String[] temp = director0[1].split("◎");
                                     sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
@@ -397,8 +479,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
                                 }
                             } else {
-                                if (str.contains("【导 &nbsp; &nbsp;　演】：")) {
-                                    String[] director0 = str.split("【导 &nbsp; &nbsp;　演】：");
+                                if (str.contains("【导     演】：")) {
+                                    String[] director0 = str.split("【导     演】：");
                                     if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
                                         String[] temp = director0[1].split("【");
                                         sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
@@ -419,8 +501,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     }
                                 }
                             }
-                            if (str.contains("◎主　　演")) {
-                                String[] performer0 = str.split("◎主　　演");
+                            if (str.contains("◎主  演")) {
+                                String[] performer0 = str.split("◎主  演");
                                 if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
                                     String[] temp = performer0[1].split("◎");
                                     sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
@@ -429,8 +511,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
                                 }
                             } else {
-                                if (str.contains("【演 &nbsp; &nbsp;　员】：")) {
-                                    String[] performer0 = str.split("【演 &nbsp; &nbsp;　员】：");
+                                if (str.contains("【演     员】：")) {
+                                    String[] performer0 = str.split("【演     员】：");
                                     if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
                                         String[] temp = performer0[1].split("【");
                                         sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
@@ -451,8 +533,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     }
                                 }
                             }
-                            if (str.contains("◎简　　介")) {
-                                String[] intro0 = str.split("◎简　　介");
+                            if (str.contains("◎简  介")) {
+                                String[] intro0 = str.split("◎简  介");
                                 if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
                                     String[] temp = intro0[1].split("◎");
                                     sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
@@ -461,8 +543,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
                                 }
                             } else {
-                                if (str.contains("【简 &nbsp; &nbsp;　介】：")) {
-                                    String[] intro0 = str.split("【简 &nbsp; &nbsp;　介】：");
+                                if (str.contains("【简     介】：")) {
+                                    String[] intro0 = str.split("【简     介】：");
                                     if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
                                         String[] temp = intro0[1].split("【");
                                         sourceDetail.setIntro(StringUtil.disposeField(temp[0]));

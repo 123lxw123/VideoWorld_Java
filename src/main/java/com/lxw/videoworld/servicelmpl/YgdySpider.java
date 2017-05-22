@@ -1,28 +1,19 @@
 package com.lxw.videoworld.servicelmpl;
 
+import com.lxw.videoworld.spider.YgdySourceDetailPipeline;
+import com.lxw.videoworld.spider.YgdySourceDetailProcessor;
+import us.codecraft.webmagic.Spider;
+
 /**
  * Created by Zion on 2017/4/17.
  */
 public class YgdySpider {
 
     public static void main(String args[]) {
-//        Spider.create(new YgdyHomePageProcessor()).thread(1)
-//         .addUrl(URLUtil.URL_YGDY_HOME_PAGE)
-//         .addPipeline(new YgdyHomePagePipeline())
-//         .run();
-
-        String aa ="      ";
-        String bb = getUnicode(aa);
-
+        Spider.create(new YgdySourceDetailProcessor()).thread(1)
+         .addUrl("http://www.ygdy8.com/html/tv/oumeitv/20151009/49266.html")
+         .addPipeline(new YgdySourceDetailPipeline())
+         .run();
     }
-    public static String getUnicode(String source){
-        String returnUniCode=null;
-        String uniCodeTemp=null;
-        for(int i=0;i<source.length();i++){
-            uniCodeTemp = "\\u"+Integer.toHexString((int)source.charAt(i));//使用char类的charAt()的方法
-            returnUniCode=returnUniCode==null?uniCodeTemp:returnUniCode+uniCodeTemp;
-        }
-        System.out.print(source +" 's unicode = "+returnUniCode);
-        return returnUniCode;//返回一个字符的unicode的编码值
-    }
+
 }

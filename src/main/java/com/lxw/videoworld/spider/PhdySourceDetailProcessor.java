@@ -20,9 +20,10 @@ import java.util.List;
  * Created by lxw9047 on 2017/4/28.
  */
 public class PhdySourceDetailProcessor extends BasePhdyProcessor {
-    private  String value0;
-    private  String c_name0;
-    private  String expiredays0;
+    private String value0;
+    private String c_name0;
+    private String expiredays0;
+
     @Override
     public void process(Page page) {
         super.process(page);
@@ -30,7 +31,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
         value0 = page.getHtml().regex("'cookie': \"(.*?)\"").toString();
         c_name0 = page.getHtml().regex("'(.*?)', data['cookie']").toString();
         expiredays0 = page.getHtml().regex("data['cookie'], (\\d*)").toString();
-        if(TextUtils.isEmpty(value0)){
+        if (TextUtils.isEmpty(value0)) {
             SourceDetail sourceDetail = new SourceDetail();
             sourceDetail.setUrl(url);
             if (!TextUtils.isEmpty(url)) {
@@ -58,25 +59,30 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     .replaceAll("<br />", "\n").replaceAll("<p>", "").replaceAll("</p>", "\n");
                             content = HTMLUtil.trimHtml2Txt(content, null);
                             content = StringUtil.disposeField(content);
-                            if(!TextUtils.isEmpty(content)){
+                            if (!TextUtils.isEmpty(content)) {
                                 newContent.add(content);
                             }
                         }
                     }
                 }
-                if(newContent.size() == 0){
+                if (newContent.size() == 0) {
                     String content = "";
-                    if(showinfo.contains("[下载地址]")){
+                    if (showinfo.contains("[下载地址]")) {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)[下载地址]").toString();
-                    }else if(showinfo.contains("迅雷下载地址列表")){
+                    } else if (showinfo.contains("迅雷下载地址列表")) {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)迅雷下载地址列表").toString();
-                    }else if(showinfo.contains("独孤在线播放")) {
+                    } else if (showinfo.contains("独孤在线播放")) {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)独孤在线播放").toString();
-                    }else{
+                    } else if (showinfo.contains("电影截图")) {
+                        content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)电影截图").toString();
+                    } else {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)下载地址").toString();
+                        if(TextUtils.isEmpty(content)){
+                            content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)迅雷下载").toString();
+                        }
                     }
                     content = StringUtil.disposeField(content);
-                    if(!TextUtils.isEmpty(content)){
+                    if (!TextUtils.isEmpty(content)) {
                         newContent.add(content);
                     }
                 }
@@ -136,6 +142,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     if (!TextUtils.isEmpty(name3)) {
                                         name3 = name3.replaceAll("</font>", "");
                                         sourceDetail.setName(StringUtil.disposeField(name3));
+                                    } else {
+                                        String name4 = page.getHtml().css("div#showinfo").regex("片　　名(.*?)<").toString();
+                                        if (!TextUtils.isEmpty(name4)) {
+                                            name4 = name4.replaceAll("</font>", "");
+                                            sourceDetail.setName(StringUtil.disposeField(name4));
+                                        }
                                     }
                                 }
                             }
@@ -149,6 +161,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                             if (!TextUtils.isEmpty(translate_name1)) {
                                 translate_name1 = translate_name1.replaceAll("</font>", "");
                                 sourceDetail.setTranslateName(StringUtil.disposeField(translate_name1));
+                            } else {
+                                String translate_name2 = page.getHtml().css("div#showinfo").regex("译　　名(.*?)<").toString();
+                                if (!TextUtils.isEmpty(translate_name2)) {
+                                    translate_name2 = translate_name2.replaceAll("</font>", "");
+                                    sourceDetail.setTranslateName(StringUtil.disposeField(translate_name2));
+                                }
                             }
                         }
                         try {
@@ -156,7 +174,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                             if (!TextUtils.isEmpty(year)) {
                                 year = year.replaceAll("</font>", "");
                                 year = StringUtil.disposeField(year);
-                                if(!TextUtils.isEmpty(year) && year.length() > 4){
+                                if (!TextUtils.isEmpty(year) && year.length() > 4) {
                                     year = year.substring(0, 4);
                                 }
                                 sourceDetail.setYear(Integer.valueOf(year));
@@ -165,10 +183,20 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(year1)) {
                                     year1 = year1.replaceAll("</font>", "");
                                     year1 = StringUtil.disposeField(year1);
-                                    if(!TextUtils.isEmpty(year1) && year1.length() > 4){
+                                    if (!TextUtils.isEmpty(year1) && year1.length() > 4) {
                                         year1 = year1.substring(0, 4);
                                     }
                                     sourceDetail.setYear(Integer.valueOf(year1));
+                                } else {
+                                    String year2 = page.getHtml().css("div#showinfo").regex("年　　代(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(year2)) {
+                                        year2 = year2.replaceAll("</font>", "");
+                                        year2 = StringUtil.disposeField(year2);
+                                        if (!TextUtils.isEmpty(year2) && year2.length() > 4) {
+                                            year2 = year2.substring(0, 4);
+                                        }
+                                        sourceDetail.setYear(Integer.valueOf(year2));
+                                    }
                                 }
                             }
                         } catch (Exception e) {
@@ -188,6 +216,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(area2)) {
                                     area2 = area2.replaceAll("</font>", "");
                                     sourceDetail.setArea(StringUtil.disposeField(area2));
+                                } else {
+                                    String area3 = page.getHtml().css("div#showinfo").regex("国　　家(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(area3)) {
+                                        area3 = area3.replaceAll("</font>", "");
+                                        sourceDetail.setArea(StringUtil.disposeField(area3));
+                                    }
                                 }
                             }
                         }
@@ -205,6 +239,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(style2)) {
                                     style2 = style2.replaceAll("</font>", "");
                                     sourceDetail.setStyle(StringUtil.disposeField(style2));
+                                } else {
+                                    String style3 = page.getHtml().css("div#showinfo").regex("类　　别(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(style3)) {
+                                        style3 = style3.replaceAll("</font>", "");
+                                        sourceDetail.setStyle(StringUtil.disposeField(style3));
+                                    }
                                 }
                             }
                             String language = page.getHtml().css("div#showinfo").regex("◎语　　言(.*?)<").toString();
@@ -216,6 +256,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(language1)) {
                                     language1 = language1.replaceAll("</font>", "");
                                     sourceDetail.setLanguage(StringUtil.disposeField(language1));
+                                } else {
+                                    String language2 = page.getHtml().css("div#showinfo").regex("语　　言(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(language2)) {
+                                        language2 = language2.replaceAll("</font>", "");
+                                        sourceDetail.setLanguage(StringUtil.disposeField(language2));
+                                    }
                                 }
                             }
                             String subtitles = page.getHtml().css("div#showinfo").regex("◎字　　幕(.*?)<").toString();
@@ -227,6 +273,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(subtitles1)) {
                                     subtitles1 = subtitles1.replaceAll("</font>", "");
                                     sourceDetail.setSubtitles(StringUtil.disposeField(subtitles1));
+                                } else {
+                                    String subtitles2 = page.getHtml().css("div#showinfo").regex("字　　幕(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(subtitles2)) {
+                                        subtitles2 = subtitles2.replaceAll("</font>", "");
+                                        sourceDetail.setSubtitles(StringUtil.disposeField(subtitles2));
+                                    }
                                 }
                             }
                             String release_date = page.getHtml().css("div#showinfo").regex("◎上映日期(.*?)<").toString();
@@ -243,6 +295,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     if (!TextUtils.isEmpty(release_date2)) {
                                         release_date2 = release_date2.replaceAll("</font>", "");
                                         sourceDetail.setReleaseDate(StringUtil.disposeField(release_date2));
+                                    } else {
+                                        String release_date3 = page.getHtml().css("div#showinfo").regex("上映日期(.*?)<").toString();
+                                        if (!TextUtils.isEmpty(release_date3)) {
+                                            release_date3 = release_date3.replaceAll("</font>", "");
+                                            sourceDetail.setReleaseDate(StringUtil.disposeField(release_date3));
+                                        }
                                     }
                                 }
                                 try {
@@ -303,16 +361,34 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(file_format)) {
                                     file_format = file_format.replaceAll("</font>", "");
                                     sourceDetail.setFileFormat(StringUtil.disposeField(file_format));
+                                } else {
+                                    String file_format1 = page.getHtml().css("div#showinfo").regex("文件格式(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(file_format1)) {
+                                        file_format1 = file_format1.replaceAll("</font>", "");
+                                        sourceDetail.setFileFormat(StringUtil.disposeField(file_format1));
+                                    }
                                 }
                                 String file_size = page.getHtml().css("div#showinfo").regex("◎视频尺寸(.*?)<").toString();
                                 if (!TextUtils.isEmpty(file_size)) {
                                     file_size = file_size.replaceAll("</font>", "");
                                     sourceDetail.setFileSize(StringUtil.disposeField(file_size));
+                                } else {
+                                    String file_size1 = page.getHtml().css("div#showinfo").regex("视频尺寸(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(file_size1)) {
+                                        file_size1 = file_size1.replaceAll("</font>", "");
+                                        sourceDetail.setFileSize(StringUtil.disposeField(file_size1));
+                                    }
                                 }
                                 String file_amounts = page.getHtml().css("div#showinfo").regex("◎文件大小(.*?)<").toString();
                                 if (!TextUtils.isEmpty(file_amounts)) {
                                     file_amounts = file_amounts.replaceAll("</font>", "");
                                     sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts));
+                                } else {
+                                    String file_amounts1 = page.getHtml().css("div#showinfo").regex("文件大小(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(file_amounts1)) {
+                                        file_amounts1 = file_amounts1.replaceAll("</font>", "");
+                                        sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts1));
+                                    }
                                 }
                                 String file_length = page.getHtml().css("div#showinfo").regex("◎片　　长(.*?)<").toString();
                                 if (!TextUtils.isEmpty(file_length)) {
@@ -323,6 +399,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     if (!TextUtils.isEmpty(file_length1)) {
                                         file_length1 = file_length1.replaceAll("</font>", "");
                                         sourceDetail.setFileLength(StringUtil.disposeField(file_length1));
+                                    } else {
+                                        String file_length2 = page.getHtml().css("div#showinfo").regex("片　　长(.*?)<").toString();
+                                        if (!TextUtils.isEmpty(file_length2)) {
+                                            file_length2 = file_length2.replaceAll("</font>", "");
+                                            sourceDetail.setFileLength(StringUtil.disposeField(file_length2));
+                                        }
                                     }
                                 }
                                 String episodes = page.getHtml().css("div#showinfo").regex("◎集　　数(.*?)<").toString();
@@ -339,6 +421,12 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                         if (!TextUtils.isEmpty(episodes2)) {
                                             episodes2 = episodes2.replaceAll("</font>", "");
                                             sourceDetail.setEpisodes(StringUtil.disposeField(episodes2));
+                                        } else {
+                                            String episodes3 = page.getHtml().css("div#showinfo").regex("集　　数(.*?)<").toString();
+                                            if (!TextUtils.isEmpty(episodes3)) {
+                                                episodes3 = episodes3.replaceAll("</font>", "");
+                                                sourceDetail.setEpisodes(StringUtil.disposeField(episodes3));
+                                            }
                                         }
                                     }
                                 }
@@ -497,7 +585,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                     page.addTargetRequest(URLUtil.URL_PHDY_HOME_PAGE + newUrl);
                 }
             }
-        }else{
+        } else {
             setCookie();
             page.addTargetRequest(url);
         }
@@ -505,9 +593,9 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
     }
 
 
-    public void setCookie(){
+    public void setCookie() {
         String expiredays = "";
-        if(!TextUtils.isEmpty(expiredays0)){
+        if (!TextUtils.isEmpty(expiredays0)) {
             Date date = new Date();
             date.setDate(date.getDate() + 365);
             expiredays = "; path=/; expires=" + date.toGMTString();
@@ -522,7 +610,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
             e.printStackTrace();
         }
         String c_name = "";
-        if(!TextUtils.isEmpty(c_name0)){
+        if (!TextUtils.isEmpty(c_name0)) {
             c_name = c_name0;
         }
         PhdySourceDetailProcessor.this.getSite().addCookie(c_name, escape);
