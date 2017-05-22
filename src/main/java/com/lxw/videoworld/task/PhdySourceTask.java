@@ -85,7 +85,7 @@ public class PhdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 29 00 * * ?")
+    @Scheduled(cron = "0 53 10 * * ?")
     public void getPhdySourceDetail() {
         // 飘花电影详情
         final List<String> urlList = phdySourceDao.findAllUrl();

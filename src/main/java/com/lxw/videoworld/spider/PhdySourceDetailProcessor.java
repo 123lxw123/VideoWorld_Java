@@ -155,12 +155,20 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                             String year = page.getHtml().css("div#showinfo").regex("◎年　　代(.*?)<").toString();
                             if (!TextUtils.isEmpty(year)) {
                                 year = year.replaceAll("</font>", "");
-                                sourceDetail.setYear(Integer.valueOf(StringUtil.disposeField(year)));
+                                year = StringUtil.disposeField(year);
+                                if(!TextUtils.isEmpty(year) && year.length() > 4){
+                                    year = year.substring(0, 4);
+                                }
+                                sourceDetail.setYear(Integer.valueOf(year));
                             } else {
                                 String year1 = page.getHtml().css("div#showinfo").regex("【年 &nbsp; &nbsp;　代】：(.*?)<").toString();
                                 if (!TextUtils.isEmpty(year1)) {
                                     year1 = year1.replaceAll("</font>", "");
-                                    sourceDetail.setYear(Integer.valueOf(StringUtil.disposeField(year1)));
+                                    year1 = StringUtil.disposeField(year1);
+                                    if(!TextUtils.isEmpty(year1) && year1.length() > 4){
+                                        year1 = year1.substring(0, 4);
+                                    }
+                                    sourceDetail.setYear(Integer.valueOf(year1));
                                 }
                             }
                         } catch (Exception e) {
