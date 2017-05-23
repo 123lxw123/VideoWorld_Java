@@ -77,7 +77,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)电影截图").toString();
                     } else {
                         content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)下载地址").toString();
-                        if(TextUtils.isEmpty(content)){
+                        if (TextUtils.isEmpty(content)) {
                             content = page.getHtml().css("div#showinfo").regex("迅雷下载地址和剧情：(.*?)迅雷下载").toString();
                         }
                     }
@@ -247,329 +247,329 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     }
                                 }
                             }
-                            String language = page.getHtml().css("div#showinfo").regex("◎语　　言(.*?)<").toString();
-                            if (!TextUtils.isEmpty(language)) {
-                                language = language.replaceAll("</font>", "");
-                                sourceDetail.setLanguage(StringUtil.disposeField(language));
+                        }
+                        String language = page.getHtml().css("div#showinfo").regex("◎语　　言(.*?)<").toString();
+                        if (!TextUtils.isEmpty(language)) {
+                            language = language.replaceAll("</font>", "");
+                            sourceDetail.setLanguage(StringUtil.disposeField(language));
+                        } else {
+                            String language1 = page.getHtml().css("div#showinfo").regex("【语 &nbsp; &nbsp;　言】：(.*?)<").toString();
+                            if (!TextUtils.isEmpty(language1)) {
+                                language1 = language1.replaceAll("</font>", "");
+                                sourceDetail.setLanguage(StringUtil.disposeField(language1));
                             } else {
-                                String language1 = page.getHtml().css("div#showinfo").regex("【语 &nbsp; &nbsp;　言】：(.*?)<").toString();
-                                if (!TextUtils.isEmpty(language1)) {
-                                    language1 = language1.replaceAll("</font>", "");
-                                    sourceDetail.setLanguage(StringUtil.disposeField(language1));
+                                String language2 = page.getHtml().css("div#showinfo").regex("语　　言(.*?)<").toString();
+                                if (!TextUtils.isEmpty(language2)) {
+                                    language2 = language2.replaceAll("</font>", "");
+                                    sourceDetail.setLanguage(StringUtil.disposeField(language2));
+                                }
+                            }
+                        }
+                        String subtitles = page.getHtml().css("div#showinfo").regex("◎字　　幕(.*?)<").toString();
+                        if (!TextUtils.isEmpty(subtitles)) {
+                            subtitles = subtitles.replaceAll("</font>", "");
+                            sourceDetail.setSubtitles(StringUtil.disposeField(subtitles));
+                        } else {
+                            String subtitles1 = page.getHtml().css("div#showinfo").regex("【字 &nbsp; &nbsp;　幕】：(.*?)<").toString();
+                            if (!TextUtils.isEmpty(subtitles1)) {
+                                subtitles1 = subtitles1.replaceAll("</font>", "");
+                                sourceDetail.setSubtitles(StringUtil.disposeField(subtitles1));
+                            } else {
+                                String subtitles2 = page.getHtml().css("div#showinfo").regex("字　　幕(.*?)<").toString();
+                                if (!TextUtils.isEmpty(subtitles2)) {
+                                    subtitles2 = subtitles2.replaceAll("</font>", "");
+                                    sourceDetail.setSubtitles(StringUtil.disposeField(subtitles2));
+                                }
+                            }
+                        }
+                        String release_date = page.getHtml().css("div#showinfo").regex("◎上映日期(.*?)<").toString();
+                        if (!TextUtils.isEmpty(release_date)) {
+                            release_date = release_date.replaceAll("</font>", "");
+                            sourceDetail.setReleaseDate(StringUtil.disposeField(release_date));
+                        } else {
+                            String release_date1 = page.getHtml().css("div#showinfo").regex("【首 &nbsp; &nbsp;　播】：(.*?)<").toString();
+                            if (!TextUtils.isEmpty(release_date1)) {
+                                release_date1 = release_date1.replaceAll("</font>", "");
+                                sourceDetail.setReleaseDate(StringUtil.disposeField(release_date1));
+                            } else {
+                                String release_date2 = page.getHtml().css("div#showinfo").regex("[首 播]:(.*?)<").toString();
+                                if (!TextUtils.isEmpty(release_date2)) {
+                                    release_date2 = release_date2.replaceAll("</font>", "");
+                                    sourceDetail.setReleaseDate(StringUtil.disposeField(release_date2));
                                 } else {
-                                    String language2 = page.getHtml().css("div#showinfo").regex("语　　言(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(language2)) {
-                                        language2 = language2.replaceAll("</font>", "");
-                                        sourceDetail.setLanguage(StringUtil.disposeField(language2));
+                                    String release_date3 = page.getHtml().css("div#showinfo").regex("上映日期(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(release_date3)) {
+                                        release_date3 = release_date3.replaceAll("</font>", "");
+                                        sourceDetail.setReleaseDate(StringUtil.disposeField(release_date3));
                                     }
                                 }
                             }
-                            String subtitles = page.getHtml().css("div#showinfo").regex("◎字　　幕(.*?)<").toString();
-                            if (!TextUtils.isEmpty(subtitles)) {
-                                subtitles = subtitles.replaceAll("</font>", "");
-                                sourceDetail.setSubtitles(StringUtil.disposeField(subtitles));
+                        }
+                        try {
+                            String imdb_score0 = page.getHtml().css("div#showinfo").regex("◎IMDb评分(.*?)<").toString();
+                            if (!TextUtils.isEmpty(imdb_score0)) {
+                                imdb_score0 = imdb_score0.replaceAll("</font>", "");
+                                String[] imdb_score = imdb_score0.trim().split("/");
+                                if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
+                                    sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
+                                }
+                                if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
+                                    sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
+                                }
                             } else {
-                                String subtitles1 = page.getHtml().css("div#showinfo").regex("【字 &nbsp; &nbsp;　幕】：(.*?)<").toString();
-                                if (!TextUtils.isEmpty(subtitles1)) {
-                                    subtitles1 = subtitles1.replaceAll("</font>", "");
-                                    sourceDetail.setSubtitles(StringUtil.disposeField(subtitles1));
-                                } else {
-                                    String subtitles2 = page.getHtml().css("div#showinfo").regex("字　　幕(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(subtitles2)) {
-                                        subtitles2 = subtitles2.replaceAll("</font>", "");
-                                        sourceDetail.setSubtitles(StringUtil.disposeField(subtitles2));
+                                String imdb_score1 = page.getHtml().css("div#showinfo").regex("【IMDB评分】：(.*?)<").toString();
+                                if (!TextUtils.isEmpty(imdb_score1)) {
+                                    imdb_score1 = imdb_score1.replaceAll("</font>", "");
+                                    String[] imdb_score = imdb_score1.trim().split("/");
+                                    if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
+                                        sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
+                                    }
+                                    if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
+                                        sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
                                     }
                                 }
                             }
-                            String release_date = page.getHtml().css("div#showinfo").regex("◎上映日期(.*?)<").toString();
-                            if (!TextUtils.isEmpty(release_date)) {
-                                release_date = release_date.replaceAll("</font>", "");
-                                sourceDetail.setReleaseDate(StringUtil.disposeField(release_date));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            String douban_score0 = page.getHtml().css("div#showinfo").regex("◎豆瓣评分(.*?)<").toString();
+                            if (!TextUtils.isEmpty(douban_score0)) {
+                                douban_score0 = douban_score0.replaceAll("</font>", "");
+                                String[] douban_score = douban_score0.trim().split("/");
+                                if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
+                                    sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
+                                }
+                                if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
+                                    sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
+                                }
                             } else {
-                                String release_date1 = page.getHtml().css("div#showinfo").regex("【首 &nbsp; &nbsp;　播】：(.*?)<").toString();
-                                if (!TextUtils.isEmpty(release_date1)) {
-                                    release_date1 = release_date1.replaceAll("</font>", "");
-                                    sourceDetail.setReleaseDate(StringUtil.disposeField(release_date1));
+                                String douban_score1 = page.getHtml().css("div#showinfo").regex("【豆瓣评分】：(.*?)<").toString();
+                                if (!TextUtils.isEmpty(douban_score1)) {
+                                    douban_score1 = douban_score1.replaceAll("</font>", "");
+                                    String[] douban_score = douban_score1.trim().split("/");
+                                    if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
+                                        sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
+                                    }
+                                    if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
+                                        sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        String file_format = page.getHtml().css("div#showinfo").regex("◎文件格式(.*?)<").toString();
+                        if (!TextUtils.isEmpty(file_format)) {
+                            file_format = file_format.replaceAll("</font>", "");
+                            sourceDetail.setFileFormat(StringUtil.disposeField(file_format));
+                        } else {
+                            String file_format1 = page.getHtml().css("div#showinfo").regex("文件格式(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_format1)) {
+                                file_format1 = file_format1.replaceAll("</font>", "");
+                                sourceDetail.setFileFormat(StringUtil.disposeField(file_format1));
+                            }
+                        }
+                        String file_size = page.getHtml().css("div#showinfo").regex("◎视频尺寸(.*?)<").toString();
+                        if (!TextUtils.isEmpty(file_size)) {
+                            file_size = file_size.replaceAll("</font>", "");
+                            sourceDetail.setFileSize(StringUtil.disposeField(file_size));
+                        } else {
+                            String file_size1 = page.getHtml().css("div#showinfo").regex("视频尺寸(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_size1)) {
+                                file_size1 = file_size1.replaceAll("</font>", "");
+                                sourceDetail.setFileSize(StringUtil.disposeField(file_size1));
+                            }
+                        }
+                        String file_amounts = page.getHtml().css("div#showinfo").regex("◎文件大小(.*?)<").toString();
+                        if (!TextUtils.isEmpty(file_amounts)) {
+                            file_amounts = file_amounts.replaceAll("</font>", "");
+                            sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts));
+                        } else {
+                            String file_amounts1 = page.getHtml().css("div#showinfo").regex("文件大小(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_amounts1)) {
+                                file_amounts1 = file_amounts1.replaceAll("</font>", "");
+                                sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts1));
+                            }
+                        }
+                        String file_length = page.getHtml().css("div#showinfo").regex("◎片　　长(.*?)<").toString();
+                        if (!TextUtils.isEmpty(file_length)) {
+                            file_length = file_length.replaceAll("</font>", "");
+                            sourceDetail.setFileLength(StringUtil.disposeField(file_length));
+                        } else {
+                            String file_length1 = page.getHtml().css("div#showinfo").regex("【片 &nbsp; &nbsp;　长】：(.*?)<").toString();
+                            if (!TextUtils.isEmpty(file_length1)) {
+                                file_length1 = file_length1.replaceAll("</font>", "");
+                                sourceDetail.setFileLength(StringUtil.disposeField(file_length1));
+                            } else {
+                                String file_length2 = page.getHtml().css("div#showinfo").regex("片　　长(.*?)<").toString();
+                                if (!TextUtils.isEmpty(file_length2)) {
+                                    file_length2 = file_length2.replaceAll("</font>", "");
+                                    sourceDetail.setFileLength(StringUtil.disposeField(file_length2));
+                                }
+                            }
+                        }
+                        String episodes = page.getHtml().css("div#showinfo").regex("◎集　　数(.*?)<").toString();
+                        if (!TextUtils.isEmpty(episodes)) {
+                            episodes = episodes.replaceAll("</font>", "");
+                            sourceDetail.setEpisodes(StringUtil.disposeField(episodes));
+                        } else {
+                            String episodes1 = page.getHtml().css("div#showinfo").regex("【集 &nbsp; &nbsp;　数】：(.*?)<").toString();
+                            if (!TextUtils.isEmpty(episodes1)) {
+                                episodes1 = episodes1.replaceAll("</font>", "");
+                                sourceDetail.setEpisodes(StringUtil.disposeField(episodes1));
+                            } else {
+                                String episodes2 = page.getHtml().css("div#showinfo").regex("[集 数]:(.*?)<").toString();
+                                if (!TextUtils.isEmpty(episodes2)) {
+                                    episodes2 = episodes2.replaceAll("</font>", "");
+                                    sourceDetail.setEpisodes(StringUtil.disposeField(episodes2));
                                 } else {
-                                    String release_date2 = page.getHtml().css("div#showinfo").regex("[首 播]:(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(release_date2)) {
-                                        release_date2 = release_date2.replaceAll("</font>", "");
-                                        sourceDetail.setReleaseDate(StringUtil.disposeField(release_date2));
-                                    } else {
-                                        String release_date3 = page.getHtml().css("div#showinfo").regex("上映日期(.*?)<").toString();
-                                        if (!TextUtils.isEmpty(release_date3)) {
-                                            release_date3 = release_date3.replaceAll("</font>", "");
-                                            sourceDetail.setReleaseDate(StringUtil.disposeField(release_date3));
-                                        }
+                                    String episodes3 = page.getHtml().css("div#showinfo").regex("集　　数(.*?)<").toString();
+                                    if (!TextUtils.isEmpty(episodes3)) {
+                                        episodes3 = episodes3.replaceAll("</font>", "");
+                                        sourceDetail.setEpisodes(StringUtil.disposeField(episodes3));
                                     }
                                 }
-                                try {
-                                    String imdb_score0 = page.getHtml().css("div#showinfo").regex("◎IMDb评分(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(imdb_score0)) {
-                                        imdb_score0 = imdb_score0.replaceAll("</font>", "");
-                                        String[] imdb_score = imdb_score0.trim().split("/");
-                                        if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                            sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
-                                        }
-                                        if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
-                                            sourceDetail.setImdbUrl(StringUtil.disposeField(imdb_score[1]));
-                                        }
-                                    } else {
-                                        String imdb_score1 = page.getHtml().css("div#showinfo").regex("【IMDB评分】：(.*?)<").toString();
-                                        if (!TextUtils.isEmpty(imdb_score1)) {
-                                            imdb_score1 = imdb_score1.replaceAll("</font>", "");
-                                            String[] imdb_score = imdb_score1.trim().split("/");
-                                            if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                                sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
-                                            }
-                                            if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
-                                                sourceDetail.setImdbUrl(StringUtil.disposeField(imdb_score[1]));
-                                            }
-                                        }
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                            }
+                        }
+                        if (!TextUtils.isEmpty(sourceDetail.getContent())) {
+                            String str = sourceDetail.getContent();
+                            if (str.contains("◎编  剧")) {
+                                String[] author0 = str.split("◎编  剧");
+                                if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
+                                    String[] temp = author0[1].split("◎");
+                                    sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
+                                } else if (author0.length == 1 && !TextUtils.isEmpty(author0[0])) {
+                                    String[] temp = author0[0].split("◎");
+                                    sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                 }
-                                try {
-                                    String douban_score0 = page.getHtml().css("div#showinfo").regex("◎豆瓣评分(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(douban_score0)) {
-                                        douban_score0 = douban_score0.replaceAll("</font>", "");
-                                        String[] douban_score = douban_score0.trim().split("/");
-                                        if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                            sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
-                                        }
-                                        if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
-                                            sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
-                                        }
-                                    } else {
-                                        String douban_score1 = page.getHtml().css("div#showinfo").regex("【豆瓣评分】：(.*?)<").toString();
-                                        if (!TextUtils.isEmpty(douban_score1)) {
-                                            douban_score1 = douban_score1.replaceAll("</font>", "");
-                                            String[] douban_score = douban_score1.trim().split("/");
-                                            if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                                sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
-                                            }
-                                            if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
-                                                sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
-                                            }
-                                        }
+                            } else {
+                                if (str.contains("【编     剧】：")) {
+                                    String[] author0 = str.split("【编     剧】：");
+                                    if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
+                                        String[] temp = author0[1].split("【");
+                                        sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
+                                    } else if (author0.length == 1 && !TextUtils.isEmpty(author0[0])) {
+                                        String[] temp = author0[0].split("【");
+                                        sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                     }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                String file_format = page.getHtml().css("div#showinfo").regex("◎文件格式(.*?)<").toString();
-                                if (!TextUtils.isEmpty(file_format)) {
-                                    file_format = file_format.replaceAll("</font>", "");
-                                    sourceDetail.setFileFormat(StringUtil.disposeField(file_format));
                                 } else {
-                                    String file_format1 = page.getHtml().css("div#showinfo").regex("文件格式(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(file_format1)) {
-                                        file_format1 = file_format1.replaceAll("</font>", "");
-                                        sourceDetail.setFileFormat(StringUtil.disposeField(file_format1));
-                                    }
-                                }
-                                String file_size = page.getHtml().css("div#showinfo").regex("◎视频尺寸(.*?)<").toString();
-                                if (!TextUtils.isEmpty(file_size)) {
-                                    file_size = file_size.replaceAll("</font>", "");
-                                    sourceDetail.setFileSize(StringUtil.disposeField(file_size));
-                                } else {
-                                    String file_size1 = page.getHtml().css("div#showinfo").regex("视频尺寸(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(file_size1)) {
-                                        file_size1 = file_size1.replaceAll("</font>", "");
-                                        sourceDetail.setFileSize(StringUtil.disposeField(file_size1));
-                                    }
-                                }
-                                String file_amounts = page.getHtml().css("div#showinfo").regex("◎文件大小(.*?)<").toString();
-                                if (!TextUtils.isEmpty(file_amounts)) {
-                                    file_amounts = file_amounts.replaceAll("</font>", "");
-                                    sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts));
-                                } else {
-                                    String file_amounts1 = page.getHtml().css("div#showinfo").regex("文件大小(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(file_amounts1)) {
-                                        file_amounts1 = file_amounts1.replaceAll("</font>", "");
-                                        sourceDetail.setFileAmounts(StringUtil.disposeField(file_amounts1));
-                                    }
-                                }
-                                String file_length = page.getHtml().css("div#showinfo").regex("◎片　　长(.*?)<").toString();
-                                if (!TextUtils.isEmpty(file_length)) {
-                                    file_length = file_length.replaceAll("</font>", "");
-                                    sourceDetail.setFileLength(StringUtil.disposeField(file_length));
-                                } else {
-                                    String file_length1 = page.getHtml().css("div#showinfo").regex("【片 &nbsp; &nbsp;　长】：(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(file_length1)) {
-                                        file_length1 = file_length1.replaceAll("</font>", "");
-                                        sourceDetail.setFileLength(StringUtil.disposeField(file_length1));
-                                    } else {
-                                        String file_length2 = page.getHtml().css("div#showinfo").regex("片　　长(.*?)<").toString();
-                                        if (!TextUtils.isEmpty(file_length2)) {
-                                            file_length2 = file_length2.replaceAll("</font>", "");
-                                            sourceDetail.setFileLength(StringUtil.disposeField(file_length2));
-                                        }
-                                    }
-                                }
-                                String episodes = page.getHtml().css("div#showinfo").regex("◎集　　数(.*?)<").toString();
-                                if (!TextUtils.isEmpty(episodes)) {
-                                    episodes = episodes.replaceAll("</font>", "");
-                                    sourceDetail.setEpisodes(StringUtil.disposeField(episodes));
-                                } else {
-                                    String episodes1 = page.getHtml().css("div#showinfo").regex("【集 &nbsp; &nbsp;　数】：(.*?)<").toString();
-                                    if (!TextUtils.isEmpty(episodes1)) {
-                                        episodes1 = episodes1.replaceAll("</font>", "");
-                                        sourceDetail.setEpisodes(StringUtil.disposeField(episodes1));
-                                    } else {
-                                        String episodes2 = page.getHtml().css("div#showinfo").regex("[集 数]:(.*?)<").toString();
-                                        if (!TextUtils.isEmpty(episodes2)) {
-                                            episodes2 = episodes2.replaceAll("</font>", "");
-                                            sourceDetail.setEpisodes(StringUtil.disposeField(episodes2));
-                                        } else {
-                                            String episodes3 = page.getHtml().css("div#showinfo").regex("集　　数(.*?)<").toString();
-                                            if (!TextUtils.isEmpty(episodes3)) {
-                                                episodes3 = episodes3.replaceAll("</font>", "");
-                                                sourceDetail.setEpisodes(StringUtil.disposeField(episodes3));
-                                            }
-                                        }
-                                    }
-                                }
-                                if (!TextUtils.isEmpty(sourceDetail.getContent())) {
-                                    String str = sourceDetail.getContent();
-                                    if (str.contains("◎编  剧")) {
-                                        String[] author0 = str.split("◎编  剧");
+                                    if (str.contains("[编 剧]:")) {
+                                        String[] author0 = str.split("[编 剧]:");
                                         if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
-                                            String[] temp = author0[1].split("◎");
+                                            String[] temp = author0[1].split("\\[");
                                             sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                         } else if (author0.length == 1 && !TextUtils.isEmpty(author0[0])) {
-                                            String[] temp = author0[0].split("◎");
+                                            String[] temp = author0[0].split("\\[");
                                             sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
                                         }
-                                    } else {
-                                        if (str.contains("【编     剧】：")) {
-                                            String[] author0 = str.split("【编     剧】：");
-                                            if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
-                                                String[] temp = author0[1].split("【");
-                                                sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
-                                            } else if (author0.length == 1 && !TextUtils.isEmpty(author0[0])) {
-                                                String[] temp = author0[0].split("【");
-                                                sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
-                                            }
-                                        } else {
-                                            if (str.contains("[编 剧]:")) {
-                                                String[] author0 = str.split("[编 剧]:");
-                                                if (author0.length > 1 && !TextUtils.isEmpty(author0[1])) {
-                                                    String[] temp = author0[1].split("[");
-                                                    sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
-                                                } else if (author0.length == 1 && !TextUtils.isEmpty(author0[0])) {
-                                                    String[] temp = author0[0].split("[");
-                                                    sourceDetail.setAuthor(StringUtil.disposeField(temp[0]));
-                                                }
-                                            }
-                                        }
                                     }
-                                    if (str.contains("◎导  演")) {
-                                        String[] director0 = str.split("◎导  演");
+                                }
+                            }
+                            if (str.contains("◎导  演")) {
+                                String[] director0 = str.split("◎导  演");
+                                if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
+                                    String[] temp = director0[1].split("◎");
+                                    sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
+                                } else if (director0.length == 1 && !TextUtils.isEmpty(director0[0])) {
+                                    String[] temp = director0[0].split("◎");
+                                    sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
+                                }
+                            } else {
+                                if (str.contains("【导     演】：")) {
+                                    String[] director0 = str.split("【导     演】：");
+                                    if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
+                                        String[] temp = director0[1].split("【");
+                                        sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
+                                    } else if (director0.length == 1 && !TextUtils.isEmpty(director0[0])) {
+                                        String[] temp = director0[0].split("【");
+                                        sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
+                                    }
+                                } else {
+                                    if (str.contains("[导 演]:")) {
+                                        String[] director0 = str.split("[导 演]:");
                                         if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
-                                            String[] temp = director0[1].split("◎");
+                                            String[] temp = director0[1].split("\\[");
                                             sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
                                         } else if (director0.length == 1 && !TextUtils.isEmpty(director0[0])) {
-                                            String[] temp = director0[0].split("◎");
+                                            String[] temp = director0[0].split("\\[");
                                             sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
                                         }
-                                    } else {
-                                        if (str.contains("【导     演】：")) {
-                                            String[] director0 = str.split("【导     演】：");
-                                            if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
-                                                String[] temp = director0[1].split("【");
-                                                sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
-                                            } else if (director0.length == 1 && !TextUtils.isEmpty(director0[0])) {
-                                                String[] temp = director0[0].split("【");
-                                                sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
-                                            }
-                                        } else {
-                                            if (str.contains("[导 演]:")) {
-                                                String[] director0 = str.split("[导 演]:");
-                                                if (director0.length > 1 && !TextUtils.isEmpty(director0[1])) {
-                                                    String[] temp = director0[1].split("[");
-                                                    sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
-                                                } else if (director0.length == 1 && !TextUtils.isEmpty(director0[0])) {
-                                                    String[] temp = director0[0].split("[");
-                                                    sourceDetail.setDirector(StringUtil.disposeField(temp[0]));
-                                                }
-                                            }
-                                        }
                                     }
-                                    if (str.contains("◎主  演")) {
-                                        String[] performer0 = str.split("◎主  演");
+                                }
+                            }
+                            if (str.contains("◎主  演")) {
+                                String[] performer0 = str.split("◎主  演");
+                                if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
+                                    String[] temp = performer0[1].split("◎");
+                                    sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
+                                } else if (performer0.length == 1 && !TextUtils.isEmpty(performer0[0])) {
+                                    String[] temp = performer0[0].split("◎");
+                                    sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
+                                }
+                            } else {
+                                if (str.contains("【演     员】：")) {
+                                    String[] performer0 = str.split("【演     员】：");
+                                    if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
+                                        String[] temp = performer0[1].split("【");
+                                        sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
+                                    } else if (performer0.length == 1 && !TextUtils.isEmpty(performer0[0])) {
+                                        String[] temp = performer0[0].split("【");
+                                        sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
+                                    }
+                                } else {
+                                    if (str.contains("[演 员]:")) {
+                                        String[] performer0 = str.split("[演 员]:");
                                         if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
-                                            String[] temp = performer0[1].split("◎");
+                                            String[] temp = performer0[1].split("\\[");
                                             sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
                                         } else if (performer0.length == 1 && !TextUtils.isEmpty(performer0[0])) {
-                                            String[] temp = performer0[0].split("◎");
+                                            String[] temp = performer0[0].split("\\[");
                                             sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
                                         }
-                                    } else {
-                                        if (str.contains("【演     员】：")) {
-                                            String[] performer0 = str.split("【演     员】：");
-                                            if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
-                                                String[] temp = performer0[1].split("【");
-                                                sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
-                                            } else if (performer0.length == 1 && !TextUtils.isEmpty(performer0[0])) {
-                                                String[] temp = performer0[0].split("【");
-                                                sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
-                                            }
-                                        } else {
-                                            if (str.contains("[演 员]:")) {
-                                                String[] performer0 = str.split("[演 员]:");
-                                                if (performer0.length > 1 && !TextUtils.isEmpty(performer0[1])) {
-                                                    String[] temp = performer0[1].split("[");
-                                                    sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
-                                                } else if (performer0.length == 1 && !TextUtils.isEmpty(performer0[0])) {
-                                                    String[] temp = performer0[0].split("[");
-                                                    sourceDetail.setPerformer(StringUtil.disposeField(temp[0]));
-                                                }
-                                            }
-                                        }
                                     }
-                                    if (str.contains("◎简  介")) {
-                                        String[] intro0 = str.split("◎简  介");
+                                }
+                            }
+                            if (str.contains("◎简  介")) {
+                                String[] intro0 = str.split("◎简  介");
+                                if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
+                                    String[] temp = intro0[1].split("◎");
+                                    sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
+                                } else if (intro0.length == 1 && !TextUtils.isEmpty(intro0[0])) {
+                                    String[] temp = intro0[0].split("◎");
+                                    sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
+                                }
+                            } else {
+                                if (str.contains("【简     介】：")) {
+                                    String[] intro0 = str.split("【简     介】：");
+                                    if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
+                                        String[] temp = intro0[1].split("【");
+                                        sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
+                                    } else if (intro0.length == 1 && !TextUtils.isEmpty(intro0[0])) {
+                                        String[] temp = intro0[0].split("【");
+                                        sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
+                                    }
+                                } else {
+                                    if (str.contains("[简 介]:")) {
+                                        String[] intro0 = str.split("[简 介]:");
                                         if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
-                                            String[] temp = intro0[1].split("◎");
+                                            String[] temp = intro0[1].split("\\[");
                                             sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
                                         } else if (intro0.length == 1 && !TextUtils.isEmpty(intro0[0])) {
-                                            String[] temp = intro0[0].split("◎");
+                                            String[] temp = intro0[0].split("\\[");
                                             sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
                                         }
-                                    } else {
-                                        if (str.contains("【简     介】：")) {
-                                            String[] intro0 = str.split("【简     介】：");
-                                            if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
-                                                String[] temp = intro0[1].split("【");
-                                                sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
-                                            } else if (intro0.length == 1 && !TextUtils.isEmpty(intro0[0])) {
-                                                String[] temp = intro0[0].split("【");
-                                                sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
-                                            }
-                                        } else {
-                                            if (str.contains("[简 介]:")) {
-                                                String[] intro0 = str.split("[简 介]:");
-                                                if (intro0.length > 1 && !TextUtils.isEmpty(intro0[1])) {
-                                                    String[] temp = intro0[1].split("[");
-                                                    sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
-                                                } else if (intro0.length == 1 && !TextUtils.isEmpty(intro0[0])) {
-                                                    String[] temp = intro0[0].split("[");
-                                                    sourceDetail.setIntro(StringUtil.disposeField(temp[0]));
-                                                }
-                                            }
-                                        }
                                     }
-                                    if (str.contains("◎获奖情况")) {
-                                        String[] awards0 = str.split("◎获奖情况");
-                                        if (awards0.length > 1 && !TextUtils.isEmpty(awards0[1])) {
-                                            String[] temp = awards0[1].split("◎");
-                                            sourceDetail.setAwards(StringUtil.disposeField(temp[0]));
-                                        } else if (awards0.length == 1 && !TextUtils.isEmpty(awards0[0])) {
-                                            String[] temp = awards0[0].split("◎");
-                                            sourceDetail.setAwards(StringUtil.disposeField(temp[0]));
-                                        }
-                                    }
+                                }
+                            }
+                            if (str.contains("◎获奖情况")) {
+                                String[] awards0 = str.split("◎获奖情况");
+                                if (awards0.length > 1 && !TextUtils.isEmpty(awards0[1])) {
+                                    String[] temp = awards0[1].split("◎");
+                                    sourceDetail.setAwards(StringUtil.disposeField(temp[0]));
+                                } else if (awards0.length == 1 && !TextUtils.isEmpty(awards0[0])) {
+                                    String[] temp = awards0[0].split("◎");
+                                    sourceDetail.setAwards(StringUtil.disposeField(temp[0]));
                                 }
                             }
                         }

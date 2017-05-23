@@ -39,7 +39,7 @@ public class PhdySourceTask {
     private PhdyMenuPageProcessor phdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 04 04 * * ?")
+    @Scheduled(cron = "0 35,45 15 * * ?")
     public void getPhdySource() {
         try{
             // 清空排行榜
@@ -50,32 +50,32 @@ public class PhdySourceTask {
             e.printStackTrace();
         }
 
-//        List<String> menuUrlList = new ArrayList<>();
-//        menuUrlList.add(URLUtil.URL_PHDY_DONGZUO);
-//        menuUrlList.add(URLUtil.URL_PHDY_XIJU);
-//        menuUrlList.add(URLUtil.URL_PHDY_AIQING);
-//        menuUrlList.add(URLUtil.URL_PHDY_KEHUAN);
-//        menuUrlList.add(URLUtil.URL_PHDY_JUQING);
-//        menuUrlList.add(URLUtil.URL_PHDY_XUANYI);
-//        menuUrlList.add(URLUtil.URL_PHDY_WENYI);
-//        menuUrlList.add(URLUtil.URL_PHDY_ZHANZHENG);
-//        menuUrlList.add(URLUtil.URL_PHDY_KONGBU);
-//        menuUrlList.add(URLUtil.URL_PHDY_ZAINAN);
-//        menuUrlList.add(URLUtil.URL_PHDY_LIANXUJU);
-//        menuUrlList.add(URLUtil.URL_PHDY_DONGMAN);
-//        menuUrlList.add(URLUtil.URL_PHDY_ZONGYI);
-//        menuUrlList.add(URLUtil.URL_PHDY_HUAIJIU);
-//        // 飘花电影菜单
-//        Spider.create(phdyMenuPageProcessor).thread(5)
-//                .addUrl((String[])menuUrlList.toArray(new String[menuUrlList.size()]))
-//                .run();
-//        // 飘花电影排行榜
-//
-//        Spider.create(new PhdyHotListProcessor()).thread(5)
-//                .addUrl((String[])menuUrlList.toArray(new String[menuUrlList.size()]))
-//                .addPipeline(phdyMenuListPipeline)
-//                .addPipeline(phdyHotListPipeline)
-//                .run();
+        List<String> menuUrlList = new ArrayList<>();
+        menuUrlList.add(URLUtil.URL_PHDY_DONGZUO);
+        menuUrlList.add(URLUtil.URL_PHDY_XIJU);
+        menuUrlList.add(URLUtil.URL_PHDY_AIQING);
+        menuUrlList.add(URLUtil.URL_PHDY_KEHUAN);
+        menuUrlList.add(URLUtil.URL_PHDY_JUQING);
+        menuUrlList.add(URLUtil.URL_PHDY_XUANYI);
+        menuUrlList.add(URLUtil.URL_PHDY_WENYI);
+        menuUrlList.add(URLUtil.URL_PHDY_ZHANZHENG);
+        menuUrlList.add(URLUtil.URL_PHDY_KONGBU);
+        menuUrlList.add(URLUtil.URL_PHDY_ZAINAN);
+        menuUrlList.add(URLUtil.URL_PHDY_LIANXUJU);
+        menuUrlList.add(URLUtil.URL_PHDY_DONGMAN);
+        menuUrlList.add(URLUtil.URL_PHDY_ZONGYI);
+        menuUrlList.add(URLUtil.URL_PHDY_HUAIJIU);
+        // 飘花电影菜单
+        Spider.create(phdyMenuPageProcessor).thread(5)
+                .addUrl((String[])menuUrlList.toArray(new String[menuUrlList.size()]))
+                .run();
+        // 飘花电影排行榜
+
+        Spider.create(new PhdyHotListProcessor()).thread(5)
+                .addUrl((String[])menuUrlList.toArray(new String[menuUrlList.size()]))
+                .addPipeline(phdyMenuListPipeline)
+                .addPipeline(phdyHotListPipeline)
+                .run();
         // 飘花电影今日更新
         Spider.create(new PhdyNewListProcessor()).thread(1)
                 .addUrl(URLUtil.URL_PHDY_DIANYING)
@@ -85,7 +85,7 @@ public class PhdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 09 00 * * ?")
+    @Scheduled(cron = "0 57 18 * * ?")
     public void getPhdySourceDetail() {
         // 飘花电影详情
         final List<String> urlList = phdySourceDao.findAllUrl();
