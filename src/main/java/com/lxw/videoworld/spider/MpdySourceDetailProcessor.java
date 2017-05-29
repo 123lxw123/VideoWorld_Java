@@ -23,7 +23,7 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
         sourceDetail.setId(url0[4].substring(0, url0[4].length() - 5));
         String title = page.getHtml().css("h2.page-header").regex(">(.*?)</h2>").get();
         String date = "";
-        String date0 = page.getHtml().css("div.media-heading").regex("发布时间: (.*?)</p>").toString();
+        String date0 = page.getHtml().css("div.media-body").regex("发布时间: (.*?)</p>").toString();
         if(!TextUtils.isEmpty(date0) && date0.length() == 10){
             String[] string = date0.split("-");
             date = string[0] + string[1] + string[2];
