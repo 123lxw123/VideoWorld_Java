@@ -1,6 +1,7 @@
 package com.lxw.videoworld.dao;
 
 import com.lxw.videoworld.domain.SourceDetail;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,4 +19,6 @@ public interface YgdySourceDetailDao extends Dao<SourceDetail> {
     SourceDetail findOneById(Serializable Id);
 
     List<SourceDetail> findAll();
+
+    List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("type")String type);
 }

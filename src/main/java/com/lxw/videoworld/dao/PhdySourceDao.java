@@ -1,6 +1,7 @@
 package com.lxw.videoworld.dao;
 
 import com.lxw.videoworld.domain.Source;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +16,7 @@ public interface PhdySourceDao extends Dao<Source> {
 
     int update(Source source);
 
-    int updateStatus(String url, String status);
+    int updateStatus(@Param("url")String url, @Param("status")String status);
 
     Source findOneById(Serializable Id);
 

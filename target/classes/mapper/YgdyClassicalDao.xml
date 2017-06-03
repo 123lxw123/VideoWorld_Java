@@ -50,4 +50,29 @@
         WHERE
         `url`=#{url};
     </update>
+
+    <!--Record-->
+    <select id="getRecordByType" resultType="SourceDetail">
+        SELECT
+        *
+        FROM
+        `ygdy_source_detail`
+        WHERE
+        `url`
+        IN(
+        SELECT
+        `url`
+        FROM
+        `ygdy_classical`
+        <if test="type != null">
+            WHERE
+            `category` = #{type}
+        </if>
+        ORDER BY
+        `date`
+        DESC
+        LIMIT
+        #{start},#{limit}
+        )
+    </select>
 </mapper>

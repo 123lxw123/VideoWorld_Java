@@ -325,7 +325,7 @@ public class SourceDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "SourceDetail{" +
+        return "{" +
                 "url='" + url + '\'' +
                 ", id='" + id + '\'' +
                 ", category='" + category + '\'' +

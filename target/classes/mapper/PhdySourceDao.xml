@@ -74,9 +74,9 @@
         UPDATE
         `phdy_source`
         SET
-        `status`=#{1}
+        `status`=#{status}
         WHERE
-        `url`=#{0};
+        `url`=#{url};
     </update>
 
 </mapper>

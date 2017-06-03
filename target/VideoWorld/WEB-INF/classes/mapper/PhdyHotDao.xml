@@ -58,5 +58,28 @@
         FROM
         `phdy_hot`
     </delete>
-
+    <!--Record-->
+    <select id="getRecordByType" resultType="SourceDetail">
+        SELECT
+        *
+        FROM
+        `phdy_source_detail`
+        WHERE
+        `url`
+        IN(
+        SELECT
+        `url`
+        FROM
+        `phdy_hot`
+        <if test="type != null">
+            WHERE
+            `category` = #{type}
+        </if>
+        ORDER BY
+        `date`
+        DESC
+        LIMIT
+        #{start},#{limit}
+        )
+    </select>
 </mapper>

@@ -72,7 +72,7 @@ public class Source implements Serializable{
 
     @Override
     public String toString() {
-        return "Source{" +
+        return "{" +
                 "id='" + id + '\'' +
                 ", category='" + category + '\'' +
                 ", type='" + type + '\'' +

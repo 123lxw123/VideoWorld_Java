@@ -1,4 +1,4 @@
-package com.lxw.videoworld.servicelmpl;
+package com.lxw.videoworld.test_service;
 
 /**
  * Created by Zion on 2017/4/17.

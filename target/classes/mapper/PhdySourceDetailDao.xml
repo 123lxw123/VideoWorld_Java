@@ -59,4 +59,21 @@
         `url`=#{url};
     </update>
 
+    <!--Record-->
+    <select id="getRecordByType" resultType="SourceDetail">
+        SELECT
+        *
+        FROM
+        `phdy_source_detail`
+        <if test="type != null">
+            WHERE
+            `category` = #{type}
+        </if>
+        ORDER BY
+        `date`
+        DESC
+        LIMIT
+        #{start},#{limit}
+    </select>
+
 </mapper>
