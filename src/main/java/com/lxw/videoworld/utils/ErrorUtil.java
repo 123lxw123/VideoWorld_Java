@@ -6,5 +6,7 @@ package com.lxw.videoworld.utils;
 public class ErrorUtil {
     public static final int CODE_SUCCESS = 1000;
     public static final int CODE_ERROR_PARAM = 1001;
+    public static final int CODE_ERROR_NO_DATA = 1002;
     public static final String MESSAGE_ERROR_PARAM = "参数错误";
+    public static final String MESSAGE_ERROR_NO_DATA = "暂无数据";
 }

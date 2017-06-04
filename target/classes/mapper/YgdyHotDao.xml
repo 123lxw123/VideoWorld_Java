@@ -72,9 +72,13 @@
         `url`
         FROM
         `ygdy_hot`
-        <if test="type != null">
+        <if test="category != null">
             WHERE
-            `category` = #{type}
+            `category` = #{category}
+            <if test="type != null">
+                AND
+                `type` = #{type}
+            </if>
         </if>
         ORDER BY
         `date`

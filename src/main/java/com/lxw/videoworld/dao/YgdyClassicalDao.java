@@ -21,5 +21,5 @@ public interface YgdyClassicalDao extends Dao<Source> {
 
     List<Source> findAll();
 
-    List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("type")String type);
+    List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("category")String category, @Param("type")String type);
 }

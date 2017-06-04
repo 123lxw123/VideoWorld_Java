@@ -23,5 +23,5 @@ public interface YgdyHotDao extends Dao<Source> {
 
     int clear();
 
-    List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("type")String type);
+    List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("category")String category, @Param("type")String type);
 }
