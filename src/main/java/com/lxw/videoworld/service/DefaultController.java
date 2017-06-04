@@ -43,37 +43,71 @@ public class DefaultController {
 //    @Autowired
 //    private YgdyHotDao ygdyHotDao;
 
-    @RequestMapping("notice/")
+    @RequestMapping("config/")
     @ApiVersion(1)
     @ResponseBody
-    public String getNotice(HttpServletRequest request) {
-        Config config = configDao.findOneById("5");
-        Map<String, Object> map = new HashMap<>();
-        map.put("notice", config);
-        String response = ResponseUtil.formatResponse(map);
+    public String getConfig(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        String response = "";
+        if(TextUtils.isEmpty(id)){
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        Config config = configDao.findOneById(id);
+        if(config != null){
+            Map<String, Object> map = new HashMap<>();
+            map.put("config", config);
+            response = ResponseUtil.formatResponse(map);
+        }else{
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
+        }
         return response;
     }
 
-    @RequestMapping("version/")
+    @RequestMapping("updateConfig/")
     @ApiVersion(1)
     @ResponseBody
-    public String getVersion(HttpServletRequest request) {
-        Config config = configDao.findOneById("4");
-        Map<String, Object> map = new HashMap<>();
-        map.put("version", config);
-        String response = ResponseUtil.formatResponse(map);
-        return response;
-    }
-
-    @RequestMapping("image/")
-    @ApiVersion(1)
-    @ResponseBody
-    public String getImage(HttpServletRequest request) {
-        Config config = configDao.findOneById("1");
-        Map<String, Object> map = new HashMap<>();
-        map.put("image", config);
-        String response = ResponseUtil.formatResponse(map);
-        return response;
+    public String updateConfig(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        String image = request.getParameter("image");
+        String notice = request.getParameter("notice");
+        String versionCodeStr = request.getParameter("versionCode");
+        String forceVersionCodeStr = request.getParameter("forceVersionCode");
+        String link = request.getParameter("link");
+        String flag = request.getParameter("flag");
+        String response = "";
+        if(TextUtils.isEmpty(id)){
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        Config config = new Config();
+        try {
+            if(!TextUtils.isEmpty(versionCodeStr)){
+                int versionCode = Integer.valueOf(versionCodeStr);
+                config.setVersionCode(versionCode);
+            }
+            if(!TextUtils.isEmpty(forceVersionCodeStr)){
+                int forceVersionCode = Integer.valueOf(forceVersionCodeStr);
+                config.setForceVersionCode(forceVersionCode);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        config.setId(id);
+        config.setImage(image);
+        config.setNotice(notice);
+        config.setLink(link);
+        config.setFlag(flag);
+        int result = configDao.update(config);
+        if (result == 1){
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_SUCCESS, ErrorUtil.MESSAGE_SUCCESS);
+            return response;
+        }else{
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
     }
 
     @RequestMapping("banner/")

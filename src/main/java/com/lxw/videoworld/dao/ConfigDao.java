@@ -9,4 +9,5 @@ import java.io.Serializable;
  */
 public interface ConfigDao extends Dao<Config> {
     Config findOneById(Serializable Id);
+    int update(Config config);
 }

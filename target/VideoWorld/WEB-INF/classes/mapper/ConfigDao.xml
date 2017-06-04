@@ -14,4 +14,15 @@
     `id` = #{id}
     </select>
 
+    <!-- 更新信息 -->
+    <update id="update" parameterType="Config">
+        UPDATE
+        `config`
+        SET
+        `notice`=#{notice}, `image`=#{image}, `version_code`=#{versionCode}, `force_version_code`=#{forceVersionCode},
+        `link`=#{link}, `flag`=#{flag}
+        WHERE
+        `id`=#{id};
+    </update>
+
 </mapper>
