@@ -70,16 +70,4 @@ public class Source implements Serializable{
         this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id='" + id + '\'' +
-                ", category='" + category + '\'' +
-                ", type='" + type + '\'' +
-                ", date='" + date + '\'' +
-                ", url='" + url + '\'' +
-                ", status='" + status + '\'' +
-                ", time=" + time +
-                '}';
-    }
 }

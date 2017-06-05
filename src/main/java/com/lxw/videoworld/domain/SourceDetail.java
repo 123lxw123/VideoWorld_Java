@@ -323,44 +323,4 @@ public class SourceDetail implements Serializable {
         this.author = author;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "url='" + url + '\'' +
-                ", id='" + id + '\'' +
-                ", category='" + category + '\'' +
-                ", type='" + type + '\'' +
-                ", title='" + title + '\'' +
-                ", images='" + images + '\'' +
-                ", content='" + content + '\'' +
-                ", name='" + name + '\'' +
-                ", translateName='" + translateName + '\'' +
-                ", year=" + year +
-                ", area='" + area + '\'' +
-                ", style='" + style + '\'' +
-                ", language='" + language + '\'' +
-                ", subtitles='" + subtitles + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", imdbScore=" + imdbScore +
-                ", imdbIntro='" + imdbIntro + '\'' +
-                ", imdbUrl='" + imdbUrl + '\'' +
-                ", doubanScore=" + doubanScore +
-                ", doubanIntro='" + doubanIntro + '\'' +
-                ", doubanUrl='" + doubanUrl + '\'' +
-                ", fileFormat='" + fileFormat + '\'' +
-                ", fileSize='" + fileSize + '\'' +
-                ", fileAmounts='" + fileAmounts + '\'' +
-                ", fileLength='" + fileLength + '\'' +
-                ", author='" + author + '\'' +
-                ", director='" + director + '\'' +
-                ", performer='" + performer + '\'' +
-                ", intro='" + intro + '\'' +
-                ", awards='" + awards + '\'' +
-                ", episodes='" + episodes + '\'' +
-                ", links='" + links + '\'' +
-                ", date=" + date +
-                ", status='" + status + '\'' +
-                ", time=" + time +
-                '}';
-    }
 }

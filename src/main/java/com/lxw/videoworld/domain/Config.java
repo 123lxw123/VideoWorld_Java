@@ -70,16 +70,4 @@ public class Config implements Serializable{
         this.forceVersionCode = forceVersionCode;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id='" + id + '\'' +
-                ", notice='" + notice + '\'' +
-                ", image='" + image + '\'' +
-                ", versionCode=" + versionCode +
-                ", forceVersionCode=" + forceVersionCode +
-                ", link='" + link + '\'' +
-                ", flag='" + flag + '\'' +
-                '}';
-    }
 }

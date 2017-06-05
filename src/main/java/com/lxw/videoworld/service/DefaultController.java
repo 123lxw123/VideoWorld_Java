@@ -1,6 +1,9 @@
 package com.lxw.videoworld.service;
 
-import com.lxw.videoworld.dao.*;
+import com.lxw.videoworld.dao.ConfigDao;
+import com.lxw.videoworld.dao.MpdySourceDetailDao;
+import com.lxw.videoworld.dao.PhdySourceDetailDao;
+import com.lxw.videoworld.dao.YgdySourceDetailDao;
 import com.lxw.videoworld.domain.Config;
 import com.lxw.videoworld.domain.SourceDetail;
 import com.lxw.videoworld.utils.ErrorUtil;
@@ -10,6 +13,7 @@ import org.apache.http.util.TextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +47,7 @@ public class DefaultController {
 //    @Autowired
 //    private YgdyHotDao ygdyHotDao;
 
-    @RequestMapping("config/")
+    @RequestMapping(value="config",method= RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getConfig(HttpServletRequest request) {
@@ -55,16 +59,14 @@ public class DefaultController {
         }
         Config config = configDao.findOneById(id);
         if(config != null){
-            Map<String, Object> map = new HashMap<>();
-            map.put("config", config);
-            response = ResponseUtil.formatResponse(map);
+            response = ResponseUtil.formatResponse(config);
         }else{
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
         }
         return response;
     }
 
-    @RequestMapping("updateConfig/")
+    @RequestMapping(value="updateConfig",method= RequestMethod.GET)
     @ApiVersion(1)
     @ResponseBody
     public String updateConfig(HttpServletRequest request) {
@@ -110,7 +112,7 @@ public class DefaultController {
         }
     }
 
-    @RequestMapping("banner/")
+    @RequestMapping(value="banner",method= RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getBanner(HttpServletRequest request) {
@@ -145,7 +147,7 @@ public class DefaultController {
         return response;
     }
 
-    @RequestMapping("list/")
+    @RequestMapping(value="list",method= RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getList(HttpServletRequest request) {
@@ -193,7 +195,7 @@ public class DefaultController {
         return response;
     }
 
-    @RequestMapping("detail/")
+    @RequestMapping(value="detail",method= RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getDetail(HttpServletRequest request) {
@@ -204,7 +206,6 @@ public class DefaultController {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
             return response;
         }
-        Map<String, Object> map = new HashMap<>();
         SourceDetail detail = new SourceDetail();
         switch (sourceType) {
             case "1":
@@ -221,8 +222,7 @@ public class DefaultController {
                 return response;
         }
         if (detail != null) {
-            map.put("detail", detail.toString());
-            response = ResponseUtil.formatResponse(map);
+            response = ResponseUtil.formatResponse(detail.toString());
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
         }

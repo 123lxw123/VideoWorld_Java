@@ -1,7 +1,6 @@
 package com.lxw.videoworld.domain;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * Created by Zion on 2017/6/4.
@@ -9,7 +8,7 @@ import java.util.Map;
 public class ObjectResponse implements Serializable {
     private int code;
     private String message;
-    private Map<String, Object> result;
+    private Object result;
 
     public int getCode() {
         return code;
@@ -27,11 +26,11 @@ public class ObjectResponse implements Serializable {
         this.message = message;
     }
 
-    public Map<String, Object> getResult() {
+    public Object getResult() {
         return result;
     }
 
-    public void setResult(Map<String, Object> result) {
+    public void setResult(Object result) {
         this.result = result;
     }
 }
