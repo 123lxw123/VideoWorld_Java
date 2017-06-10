@@ -1,5 +1,6 @@
 package com.lxw.videoworld.service;
 
+import com.lxw.videoworld.config.Constants;
 import com.lxw.videoworld.dao.ConfigDao;
 import com.lxw.videoworld.dao.MpdySourceDetailDao;
 import com.lxw.videoworld.dao.PhdySourceDetailDao;
@@ -125,13 +126,13 @@ public class DefaultController {
         }
         List<SourceDetail> banner = new ArrayList<>();
         switch (sourceType) {
-            case "1":
+            case Constants.SOURCE_TYPE_1:
                 banner = phdySourceDetailDao.getRecordByType(0, BANNER_LIMIT, null, null);
                 break;
-            case "2":
+            case Constants.SOURCE_TYPE_2:
                 banner = mpdySourceDetailDao.getRecordByType(0, BANNER_LIMIT, null, null);
                 break;
-            case "3":
+            case Constants.SOURCE_TYPE_3:
                 banner = ygdySourceDetailDao.getRecordByType(0, BANNER_LIMIT, null, null);
                 break;
             default:
@@ -173,13 +174,13 @@ public class DefaultController {
         Map<String, Object> map = new HashMap<>();
         List<SourceDetail> list = new ArrayList<>();
         switch (sourceType) {
-            case "1":
+            case Constants.SOURCE_TYPE_1:
                 list = phdySourceDetailDao.getRecordByType(start, limit, category, type);
                 break;
-            case "2":
+            case Constants.SOURCE_TYPE_2:
                 list = mpdySourceDetailDao.getRecordByType(start, limit, category, type);
                 break;
-            case "3":
+            case Constants.SOURCE_TYPE_3:
                 list = ygdySourceDetailDao.getRecordByType(start, limit, category, type);
                 break;
             default:
@@ -208,13 +209,13 @@ public class DefaultController {
         }
         SourceDetail detail = new SourceDetail();
         switch (sourceType) {
-            case "1":
+            case Constants.SOURCE_TYPE_1:
                 detail = phdySourceDetailDao.findOneById(url);
                 break;
-            case "2":
+            case Constants.SOURCE_TYPE_2:
                 detail = mpdySourceDetailDao.findOneById(url);
                 break;
-            case "3":
+            case Constants.SOURCE_TYPE_3:
                 detail = ygdySourceDetailDao.findOneById(url);
                 break;
             default:

@@ -117,8 +117,8 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
         sourceDetail.setStatus(Constants.STATUS_2);
 
         // 获取视频详情各种属性
-        if (!TextUtils.isEmpty(sourceDetail.getCategory()) && !sourceDetail.getCategory().equals(Constants.CATEGORY_2) && !sourceDetail.getCategory().equals(Constants.CATEGORY_3)) {
-            if (sourceDetail.getCategory().equals(Constants.CATEGORY_5)) {
+        if (!TextUtils.isEmpty(sourceDetail.getCategory()) && !sourceDetail.getCategory().equals(Constants.CATEGORY_19) && !sourceDetail.getCategory().equals(Constants.CATEGORY_22)) {
+            if (sourceDetail.getCategory().equals(Constants.CATEGORY_21)) {
                 String name = page.getHtml().css("div#Zoom").regex("中文名称:(.*?)<").toString();
                 if (!TextUtils.isEmpty(name)) {
                     sourceDetail.setName(StringUtil.disposeField(name));
