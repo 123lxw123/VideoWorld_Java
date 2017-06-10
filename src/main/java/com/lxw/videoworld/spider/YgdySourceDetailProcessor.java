@@ -127,6 +127,12 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                 if (!TextUtils.isEmpty(style)) {
                     sourceDetail.setStyle(StringUtil.disposeField(style));
                 }
+                if(!TextUtils.isEmpty(content)){
+                    String[] intro = content.split("游戏简介：");
+                    if(intro != null && intro.length > 1){
+                        sourceDetail.setIntro(StringUtil.disposeField(intro[1]));
+                    }
+                }
             } else {
                 String name = page.getHtml().css("div#Zoom").regex("◎片　　名(.*?)<").toString();
                 if (!TextUtils.isEmpty(name)) {

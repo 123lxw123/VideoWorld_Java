@@ -175,7 +175,11 @@ public class DefaultController {
         List<SourceDetail> list = new ArrayList<>();
         switch (sourceType) {
             case Constants.SOURCE_TYPE_1:
-                list = phdySourceDetailDao.getRecordByType(start, limit, category, type);
+                if(!TextUtils.isEmpty(type) && type.equals(Constants.TYPE_0)){
+                    list = phdySourceDetailDao.getDYRecord(start, limit);
+                }else{
+                    list = phdySourceDetailDao.getRecordByType(start, limit, category, type);
+                }
                 break;
             case Constants.SOURCE_TYPE_2:
                 list = mpdySourceDetailDao.getRecordByType(start, limit, category, type);

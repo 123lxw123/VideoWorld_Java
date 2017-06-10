@@ -80,4 +80,19 @@
         #{start},#{limit}
     </select>
 
+    <!--Record-->
+    <select id="getDYRecord" resultType="SourceDetail">
+        SELECT
+        *
+        FROM
+        `phdy_source_detail`
+        WHERE
+        `category`=`dongzuo` OR `category`=`xiju` OR `category`=`aiqing` OR `category`=`kehuan` OR `category`=`juqing` OR `category`=`xuannian` OR `category`=`zhanzheng` OR `category`=`kongbu` OR `category`=`zainan`
+        ORDER BY
+        `date`
+        DESC
+        LIMIT
+        #{start},#{limit}
+    </select>
+
 </mapper>

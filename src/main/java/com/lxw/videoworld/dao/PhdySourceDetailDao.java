@@ -21,4 +21,6 @@ public interface PhdySourceDetailDao extends Dao<SourceDetail> {
     List<SourceDetail> findAll();
 
     List<SourceDetail> getRecordByType(@Param("start")int start, @Param("limit")int limit, @Param("category")String category, @Param("type")String type);
+
+    List<SourceDetail> getDYRecord(@Param("start")int start, @Param("limit")int limit);
 }
