@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce5fc40-7c8e-4af9-86d1-c4f9e1e27968" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/YgdySourceDetailProcessor.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/YgdySourceDetailProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/task/YgdySourceTask.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/task/YgdySourceTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/YgdySourceDetailProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/YgdySourceDetailProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/task/YgdySourceTask.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/task/YgdySourceTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdySourceDetailProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdySourceDetailProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/utils/ResponseUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/utils/ResponseUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-service.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-service.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,13 +36,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="78">
               <caret line="150" column="59" lean-forward="false" selection-start-line="150" selection-start-column="59" selection-end-line="150" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YgdySourceDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+              <folding>
+                <marker date="1496492203915" expanded="true" signature="338:406" ph="SELECT * FRO... ygdy_source" />
+                <marker date="1496492203915" expanded="true" signature="492:543" ph="SELECT * FRO... ygdy_source" />
+                <marker date="1496492203915" expanded="true" signature="636:691" ph="SELECT `url`... ygdy_source" />
+                <marker date="1496492203915" expanded="true" signature="795:886" ph="SELECT `url`... ygdy_source" />
+                <marker date="1496492203915" expanded="true" signature="972:1136" ph="INSERT INTO ygdy_source" />
+                <marker date="1496492203915" expanded="true" signature="1221:1317" ph="UPDATE `ygdy... " />
+                <marker date="1496492203915" expanded="true" signature="1408:1578" ph="UPDATE `ygdy... " />
+                <marker date="1496492203915" expanded="true" signature="1675:1777" ph="UPDATE `ygdy... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YgdySourceDetailDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="707">
+              <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+              <folding>
+                <marker date="1496570325991" expanded="true" signature="350:425" ph="SELECT * FRO... ygdy_source_detail" />
+                <marker date="1496570325991" expanded="true" signature="517:575" ph="SELECT * FRO... ygdy_source_detail" />
+                <marker date="1496570325991" expanded="true" signature="666:1526" ph="INSERT INTO ygdy_source_detail" />
+                <marker date="1496570325991" expanded="true" signature="1617:1720" ph="UPDATE `ygdy... " />
+                <marker date="1496570325991" expanded="true" signature="1817:2694" ph="UPDATE `ygdy... " />
+                <marker date="1496570325991" expanded="true" signature="2797:2874" ph="SELECT * FRO... ygdy_source_detail" />
+                <marker date="1496570325991" expanded="true" signature="2797:3154" ph="SELECT * FRO... ygdy_source_detail" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhdyNewDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdyNewDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+              <folding>
+                <marker date="1496570315212" expanded="true" signature="335:400" ph="SELECT * FRO... phdy_new" />
+                <marker date="1496570315212" expanded="true" signature="486:534" ph="SELECT * FRO... phdy_new" />
+                <marker date="1496570315212" expanded="true" signature="619:765" ph="INSERT INTO phdy_new" />
+                <marker date="1496570315212" expanded="true" signature="850:943" ph="UPDATE `phdy... " />
+                <marker date="1496570315212" expanded="true" signature="1034:1185" ph="UPDATE `phdy... " />
+                <marker date="1496570315212" expanded="true" signature="1401:1869" ph="SELECT `url`... phdy_new" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhdySourceDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="76" column="25" lean-forward="false" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+              <folding>
+                <marker date="1496492165771" expanded="true" signature="338:406" ph="SELECT * FRO... phdy_source" />
+                <marker date="1496492165771" expanded="true" signature="492:543" ph="SELECT * FRO... phdy_source" />
+                <marker date="1496492165771" expanded="true" signature="636:691" ph="SELECT `url`... phdy_source" />
+                <marker date="1496492165771" expanded="true" signature="795:886" ph="SELECT `url`... phdy_source" />
+                <marker date="1496492165771" expanded="true" signature="972:1136" ph="INSERT INTO phdy_source" />
+                <marker date="1496492165771" expanded="true" signature="1221:1317" ph="UPDATE `phdy... " />
+                <marker date="1496492165771" expanded="true" signature="1408:1578" ph="UPDATE `phdy... " />
+                <marker date="1496492165771" expanded="true" signature="1675:1777" ph="UPDATE `phdy... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhdySourceDetailDao.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+              <folding>
+                <marker date="1497200467421" expanded="true" signature="350:425" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="517:575" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="666:1526" ph="INSERT INTO phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="1617:1720" ph="UPDATE `phdy... " />
+                <marker date="1497200467421" expanded="true" signature="1817:2694" ph="UPDATE `phdy... " />
+                <marker date="1497200467421" expanded="true" signature="2797:3102" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="2797:3114" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="2797:3154" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1497200467421" expanded="true" signature="3252:3625" ph="SELECT * FRO... phdy_source_detail" />
               </folding>
             </state>
           </provider>
@@ -76,16 +161,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-dao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-798">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ResponseUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/utils/ResponseUtil.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,46 +176,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
               <caret line="40" column="57" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="40" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YgdySourceDetailProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdySourceDetailProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhdySourceTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/PhdySourceTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YgdySourceTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/YgdySourceTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1546">
-              <caret line="94" column="52" lean-forward="false" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MpdySourceTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/MpdySourceTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -242,7 +277,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/ObjectResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/config/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/PhdySourceDetailDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/MpdySourceTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/PhdySourceTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdySourceDetailProcessor.java" />
@@ -250,6 +284,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/utils/ResponseUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-service.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml" />
       </list>
     </option>
   </component>
@@ -1345,7 +1380,7 @@
       <workItem from="1495419809479" duration="4672000" />
       <workItem from="1496468411901" duration="40874000" />
       <workItem from="1496834880028" duration="5430000" />
-      <workItem from="1497029552900" duration="15367000" />
+      <workItem from="1497029552900" duration="16733000" />
     </task>
     <servers />
   </component>
@@ -1364,7 +1399,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382561000" />
+    <option name="totallyTimeSpent" value="383927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1376,7 +1411,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1399,7 +1434,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48923078" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14461538" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2876923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2730711" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
@@ -1640,23 +1675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
-          <folding>
-            <marker date="1496492203915" expanded="true" signature="338:406" ph="SELECT * FRO... ygdy_source" />
-            <marker date="1496492203915" expanded="true" signature="492:543" ph="SELECT * FRO... ygdy_source" />
-            <marker date="1496492203915" expanded="true" signature="636:691" ph="SELECT `url`... ygdy_source" />
-            <marker date="1496492203915" expanded="true" signature="795:886" ph="SELECT `url`... ygdy_source" />
-            <marker date="1496492203915" expanded="true" signature="972:1136" ph="INSERT INTO ygdy_source" />
-            <marker date="1496492203915" expanded="true" signature="1221:1317" ph="UPDATE `ygdy... " />
-            <marker date="1496492203915" expanded="true" signature="1408:1578" ph="UPDATE `ygdy... " />
-            <marker date="1496492203915" expanded="true" signature="1675:1777" ph="UPDATE `ygdy... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/MpdySourceDetailDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1692,22 +1710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-          <folding>
-            <marker date="1496570325991" expanded="true" signature="350:425" ph="SELECT * FRO... ygdy_source_detail" />
-            <marker date="1496570325991" expanded="true" signature="517:575" ph="SELECT * FRO... ygdy_source_detail" />
-            <marker date="1496570325991" expanded="true" signature="666:1526" ph="INSERT INTO ygdy_source_detail" />
-            <marker date="1496570325991" expanded="true" signature="1617:1720" ph="UPDATE `ygdy... " />
-            <marker date="1496570325991" expanded="true" signature="1817:2694" ph="UPDATE `ygdy... " />
-            <marker date="1496570325991" expanded="true" signature="2797:2874" ph="SELECT * FRO... ygdy_source_detail" />
-            <marker date="1496570325991" expanded="true" signature="2797:3154" ph="SELECT * FRO... ygdy_source_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdyHotDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1738,23 +1740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="76" column="25" lean-forward="false" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-          <folding>
-            <marker date="1496492165771" expanded="true" signature="338:406" ph="SELECT * FRO... phdy_source" />
-            <marker date="1496492165771" expanded="true" signature="492:543" ph="SELECT * FRO... phdy_source" />
-            <marker date="1496492165771" expanded="true" signature="636:691" ph="SELECT `url`... phdy_source" />
-            <marker date="1496492165771" expanded="true" signature="795:886" ph="SELECT `url`... phdy_source" />
-            <marker date="1496492165771" expanded="true" signature="972:1136" ph="INSERT INTO phdy_source" />
-            <marker date="1496492165771" expanded="true" signature="1221:1317" ph="UPDATE `phdy... " />
-            <marker date="1496492165771" expanded="true" signature="1408:1578" ph="UPDATE `phdy... " />
-            <marker date="1496492165771" expanded="true" signature="1675:1777" ph="UPDATE `phdy... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdyHotDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1766,21 +1751,6 @@
             <marker date="1496570315181" expanded="true" signature="850:943" ph="UPDATE `phdy... " />
             <marker date="1496570315181" expanded="true" signature="1034:1185" ph="UPDATE `phdy... " />
             <marker date="1496570315181" expanded="true" signature="1400:1868" ph="SELECT * FRO... phdy_source_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdyNewDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-          <folding>
-            <marker date="1496570315212" expanded="true" signature="335:400" ph="SELECT * FRO... phdy_new" />
-            <marker date="1496570315212" expanded="true" signature="486:534" ph="SELECT * FRO... phdy_new" />
-            <marker date="1496570315212" expanded="true" signature="619:765" ph="INSERT INTO phdy_new" />
-            <marker date="1496570315212" expanded="true" signature="850:943" ph="UPDATE `phdy... " />
-            <marker date="1496570315212" expanded="true" signature="1034:1185" ph="UPDATE `phdy... " />
-            <marker date="1496570315212" expanded="true" signature="1401:1869" ph="SELECT `url`... phdy_new" />
           </folding>
         </state>
       </provider>
@@ -2133,24 +2103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="83" column="27" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="27" />
-          <folding>
-            <marker date="1497116633925" expanded="true" signature="350:425" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="517:575" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="666:1526" ph="INSERT INTO phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="1617:1720" ph="UPDATE `phdy... " />
-            <marker date="1497116633925" expanded="true" signature="1817:2694" ph="UPDATE `phdy... " />
-            <marker date="1497116633925" expanded="true" signature="2797:3102" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="2797:3114" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="2797:3154" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1497116633925" expanded="true" signature="3252:3625" ph="SELECT * FRO... phdy_source_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/PhdySourceDetailDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -2261,6 +2213,89 @@
           <caret line="150" column="59" lean-forward="false" selection-start-line="150" selection-start-column="59" selection-end-line="150" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="78" column="19" lean-forward="false" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding>
+            <marker date="1496492203915" expanded="true" signature="338:406" ph="SELECT * FRO... ygdy_source" />
+            <marker date="1496492203915" expanded="true" signature="492:543" ph="SELECT * FRO... ygdy_source" />
+            <marker date="1496492203915" expanded="true" signature="636:691" ph="SELECT `url`... ygdy_source" />
+            <marker date="1496492203915" expanded="true" signature="795:886" ph="SELECT `url`... ygdy_source" />
+            <marker date="1496492203915" expanded="true" signature="972:1136" ph="INSERT INTO ygdy_source" />
+            <marker date="1496492203915" expanded="true" signature="1221:1317" ph="UPDATE `ygdy... " />
+            <marker date="1496492203915" expanded="true" signature="1408:1578" ph="UPDATE `ygdy... " />
+            <marker date="1496492203915" expanded="true" signature="1675:1777" ph="UPDATE `ygdy... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+          <folding>
+            <marker date="1496570325991" expanded="true" signature="350:425" ph="SELECT * FRO... ygdy_source_detail" />
+            <marker date="1496570325991" expanded="true" signature="517:575" ph="SELECT * FRO... ygdy_source_detail" />
+            <marker date="1496570325991" expanded="true" signature="666:1526" ph="INSERT INTO ygdy_source_detail" />
+            <marker date="1496570325991" expanded="true" signature="1617:1720" ph="UPDATE `ygdy... " />
+            <marker date="1496570325991" expanded="true" signature="1817:2694" ph="UPDATE `ygdy... " />
+            <marker date="1496570325991" expanded="true" signature="2797:2874" ph="SELECT * FRO... ygdy_source_detail" />
+            <marker date="1496570325991" expanded="true" signature="2797:3154" ph="SELECT * FRO... ygdy_source_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdyNewDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+          <folding>
+            <marker date="1496570315212" expanded="true" signature="335:400" ph="SELECT * FRO... phdy_new" />
+            <marker date="1496570315212" expanded="true" signature="486:534" ph="SELECT * FRO... phdy_new" />
+            <marker date="1496570315212" expanded="true" signature="619:765" ph="INSERT INTO phdy_new" />
+            <marker date="1496570315212" expanded="true" signature="850:943" ph="UPDATE `phdy... " />
+            <marker date="1496570315212" expanded="true" signature="1034:1185" ph="UPDATE `phdy... " />
+            <marker date="1496570315212" expanded="true" signature="1401:1869" ph="SELECT `url`... phdy_new" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="76" column="25" lean-forward="false" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+          <folding>
+            <marker date="1496492165771" expanded="true" signature="338:406" ph="SELECT * FRO... phdy_source" />
+            <marker date="1496492165771" expanded="true" signature="492:543" ph="SELECT * FRO... phdy_source" />
+            <marker date="1496492165771" expanded="true" signature="636:691" ph="SELECT `url`... phdy_source" />
+            <marker date="1496492165771" expanded="true" signature="795:886" ph="SELECT `url`... phdy_source" />
+            <marker date="1496492165771" expanded="true" signature="972:1136" ph="INSERT INTO phdy_source" />
+            <marker date="1496492165771" expanded="true" signature="1221:1317" ph="UPDATE `phdy... " />
+            <marker date="1496492165771" expanded="true" signature="1408:1578" ph="UPDATE `phdy... " />
+            <marker date="1496492165771" expanded="true" signature="1675:1777" ph="UPDATE `phdy... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding>
+            <marker date="1497200467421" expanded="true" signature="350:425" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="517:575" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="666:1526" ph="INSERT INTO phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="1617:1720" ph="UPDATE `phdy... " />
+            <marker date="1497200467421" expanded="true" signature="1817:2694" ph="UPDATE `phdy... " />
+            <marker date="1497200467421" expanded="true" signature="2797:3102" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="2797:3114" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="2797:3154" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1497200467421" expanded="true" signature="3252:3625" ph="SELECT * FRO... phdy_source_detail" />
           </folding>
         </state>
       </provider>
