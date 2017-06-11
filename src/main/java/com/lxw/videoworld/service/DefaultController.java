@@ -140,7 +140,7 @@ public class DefaultController {
                 return response;
         }
         if (banner != null) {
-            map.put("banner", banner.toString());
+            map.put("banner", banner);
             response = ResponseUtil.formatResponse(map);
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
@@ -192,7 +192,7 @@ public class DefaultController {
                 return response;
         }
         if (list != null) {
-            map.put("list", list.toString());
+            map.put("list", list);
             response = ResponseUtil.formatResponse(map);
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
@@ -227,7 +227,7 @@ public class DefaultController {
                 return response;
         }
         if (detail != null) {
-            response = ResponseUtil.formatResponse(detail.toString());
+            response = ResponseUtil.formatResponse(detail);
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
         }

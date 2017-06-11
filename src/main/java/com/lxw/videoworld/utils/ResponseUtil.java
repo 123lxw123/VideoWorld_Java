@@ -47,4 +47,5 @@ public class ResponseUtil {
         response.setMessage(message);
         return new Gson().toJson(response);
     }
+
 }

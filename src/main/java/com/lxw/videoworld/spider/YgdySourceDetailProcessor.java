@@ -128,7 +128,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                     sourceDetail.setStyle(StringUtil.disposeField(style));
                 }
                 if(!TextUtils.isEmpty(content)){
-                    String[] intro = content.split("游戏简介：");
+                    String[] intro = content.split("游戏简介:");
                     if(intro != null && intro.length > 1){
                         sourceDetail.setIntro(StringUtil.disposeField(intro[1]));
                     }
