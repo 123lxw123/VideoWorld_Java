@@ -74,8 +74,8 @@ public class DefaultController {
         String id = request.getParameter("id");
         String image = request.getParameter("image");
         String notice = request.getParameter("notice");
-        String versionCodeStr = request.getParameter("versionCode");
-        String forceVersionCodeStr = request.getParameter("forceVersionCode");
+        String versionCode = request.getParameter("versionCode");
+        String forceVersionCode = request.getParameter("forceVersionCode");
         String link = request.getParameter("link");
         String flag = request.getParameter("flag");
         String response = "";
@@ -84,23 +84,11 @@ public class DefaultController {
             return response;
         }
         Config config = new Config();
-        try {
-            if(!TextUtils.isEmpty(versionCodeStr)){
-                int versionCode = Integer.valueOf(versionCodeStr);
-                config.setVersionCode(versionCode);
-            }
-            if(!TextUtils.isEmpty(forceVersionCodeStr)){
-                int forceVersionCode = Integer.valueOf(forceVersionCodeStr);
-                config.setForceVersionCode(forceVersionCode);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
-            return response;
-        }
         config.setId(id);
         config.setImage(image);
         config.setNotice(notice);
+        config.setVersionCode(versionCode);
+        config.setForceVersionCode(forceVersionCode);
         config.setLink(link);
         config.setFlag(flag);
         int result = configDao.update(config);

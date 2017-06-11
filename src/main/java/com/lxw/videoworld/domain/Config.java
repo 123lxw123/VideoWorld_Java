@@ -9,8 +9,8 @@ public class Config implements Serializable{
     private String id;
     private String notice;
     private String image;
-    private int versionCode;
-    private int forceVersionCode;
+    private String versionCode;
+    private String forceVersionCode;
     private String link;
     private String flag;
 
@@ -30,11 +30,11 @@ public class Config implements Serializable{
         this.image = image;
     }
 
-    public int getVersionCode() {
+    public String getVersionCode() {
         return versionCode;
     }
 
-    public void setVersionCode(int versionCode) {
+    public void setVersionCode(String versionCode) {
         this.versionCode = versionCode;
     }
 
@@ -62,11 +62,11 @@ public class Config implements Serializable{
         this.notice = notice;
     }
 
-    public int getForceVersionCode() {
+    public String getForceVersionCode() {
         return forceVersionCode;
     }
 
-    public void setForceVersionCode(int forceVersionCode) {
+    public void setForceVersionCode(String forceVersionCode) {
         this.forceVersionCode = forceVersionCode;
     }
 

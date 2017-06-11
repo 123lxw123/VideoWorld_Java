@@ -35,7 +35,7 @@ public class PhdyHotListPipeline implements Pipeline {
                             source.setId(params[7].substring(0, params[7].length() - 5));
                         }
                         source.setCategory(params[4]);
-                        source.setDate(Integer.valueOf(params[5] + params[6]));
+                        source.setDate(params[5] + params[6]);
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);
                         source.setTime(System.currentTimeMillis());

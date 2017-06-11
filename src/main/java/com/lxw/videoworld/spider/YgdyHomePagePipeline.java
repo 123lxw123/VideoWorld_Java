@@ -37,7 +37,7 @@ public class YgdyHomePagePipeline implements Pipeline {
                         source.setCategory(params[4]);
                         source.setType(params[5]);
                         if(!TextUtils.isEmpty(params[6]) && params[6].length() == 8){
-                            source.setDate(Integer.valueOf(params[6]));
+                            source.setDate(params[6]);
                         }
                         source.setUrl(urlList.get(i));
                         source.setStatus(Constants.STATUS_1);

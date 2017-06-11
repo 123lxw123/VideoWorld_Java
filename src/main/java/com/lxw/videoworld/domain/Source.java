@@ -9,7 +9,7 @@ public class Source implements Serializable{
     private String id;
     private String category;
     private String type;
-    private int date;
+    private String date;
     private String url;
     private String status;
     private long time;
@@ -38,11 +38,11 @@ public class Source implements Serializable{
         this.type = type;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

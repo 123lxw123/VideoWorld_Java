@@ -41,7 +41,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                         sourceDetail.setId(params[7].substring(0, params[7].length() - 5));
                     }
                     sourceDetail.setCategory(params[4]);
-                    sourceDetail.setDate(Integer.valueOf(params[5] + params[6]));
+                    sourceDetail.setDate(params[5] + params[6]);
                 } else {
 
                 }
@@ -177,7 +177,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 if (!TextUtils.isEmpty(year) && year.length() > 4) {
                                     year = year.substring(0, 4);
                                 }
-                                sourceDetail.setYear(Integer.valueOf(year));
+                                sourceDetail.setYear(year);
                             } else {
                                 String year1 = page.getHtml().css("div#showinfo").regex("【年 &nbsp; &nbsp;　代】：(.*?)<").toString();
                                 if (!TextUtils.isEmpty(year1)) {
@@ -186,7 +186,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     if (!TextUtils.isEmpty(year1) && year1.length() > 4) {
                                         year1 = year1.substring(0, 4);
                                     }
-                                    sourceDetail.setYear(Integer.valueOf(year1));
+                                    sourceDetail.setYear(year1);
                                 } else {
                                     String year2 = page.getHtml().css("div#showinfo").regex("年　　代(.*?)<").toString();
                                     if (!TextUtils.isEmpty(year2)) {
@@ -195,7 +195,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                         if (!TextUtils.isEmpty(year2) && year2.length() > 4) {
                                             year2 = year2.substring(0, 4);
                                         }
-                                        sourceDetail.setYear(Integer.valueOf(year2));
+                                        sourceDetail.setYear(year2);
                                     }
                                 }
                             }
@@ -311,7 +311,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 imdb_score0 = imdb_score0.replaceAll("</font>", "");
                                 String[] imdb_score = imdb_score0.trim().split("/");
                                 if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                    sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
+                                    sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
                                 }
                                 if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                                     sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
@@ -322,7 +322,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     imdb_score1 = imdb_score1.replaceAll("</font>", "");
                                     String[] imdb_score = imdb_score1.trim().split("/");
                                     if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                        sourceDetail.setImdbScore(Float.valueOf(StringUtil.disposeField(imdb_score[0])));
+                                        sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
                                     }
                                     if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                                         sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
@@ -338,7 +338,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                 douban_score0 = douban_score0.replaceAll("</font>", "");
                                 String[] douban_score = douban_score0.trim().split("/");
                                 if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                    sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
+                                    sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
                                 }
                                 if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                                     sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
@@ -349,7 +349,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                     douban_score1 = douban_score1.replaceAll("</font>", "");
                                     String[] douban_score = douban_score1.trim().split("/");
                                     if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                        sourceDetail.setDoubanScore(Float.valueOf(StringUtil.disposeField(douban_score[0])));
+                                        sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
                                     }
                                     if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                                         sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));

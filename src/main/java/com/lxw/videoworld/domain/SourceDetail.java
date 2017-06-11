@@ -16,16 +16,16 @@ public class SourceDetail implements Serializable {
     private String content;// 详情信息
     private String name;// 名字
     private String translateName;// 译名
-    private int year;// 年份
+    private String year;// 年份
     private String area;// 国家、地区
     private String style;// 详情里的分类
     private String language;// 语言
     private String subtitles;// 字幕语言
     private String releaseDate;// 首映日期
-    private float imdbScore;
+    private String imdbScore;
     private String imdbIntro;
     private String imdbUrl;
-    private float doubanScore;// 豆瓣评分
+    private String doubanScore;// 豆瓣评分
     private String doubanIntro;// 豆瓣评分说明
     private String doubanUrl;// 豆瓣评分地址
     private String fileFormat;// 文件格式
@@ -39,7 +39,7 @@ public class SourceDetail implements Serializable {
     private String awards;// 获奖情况
     private String episodes;// 集数
     private String links;// 下载链接
-    private int date;// 网站更新时间
+    private String date;// 网站更新时间
     private String status;
     private long time;// 数据库时间
 
@@ -49,6 +49,30 @@ public class SourceDetail implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getTitle() {
@@ -91,11 +115,11 @@ public class SourceDetail implements Serializable {
         this.translateName = translateName;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
@@ -139,20 +163,12 @@ public class SourceDetail implements Serializable {
         this.releaseDate = releaseDate;
     }
 
-    public float getImdbScore() {
+    public String getImdbScore() {
         return imdbScore;
     }
 
-    public void setImdbScore(float imdbScore) {
+    public void setImdbScore(String imdbScore) {
         this.imdbScore = imdbScore;
-    }
-
-    public float getDoubanScore() {
-        return doubanScore;
-    }
-
-    public void setDoubanScore(float doubanScore) {
-        this.doubanScore = doubanScore;
     }
 
     public String getImdbIntro() {
@@ -169,6 +185,14 @@ public class SourceDetail implements Serializable {
 
     public void setImdbUrl(String imdbUrl) {
         this.imdbUrl = imdbUrl;
+    }
+
+    public String getDoubanScore() {
+        return doubanScore;
+    }
+
+    public void setDoubanScore(String doubanScore) {
+        this.doubanScore = doubanScore;
     }
 
     public String getDoubanIntro() {
@@ -219,6 +243,14 @@ public class SourceDetail implements Serializable {
         this.fileLength = fileLength;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public String getDirector() {
         return director;
     }
@@ -267,6 +299,14 @@ public class SourceDetail implements Serializable {
         this.links = links;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -282,45 +322,4 @@ public class SourceDetail implements Serializable {
     public void setTime(long time) {
         this.time = time;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
 }
