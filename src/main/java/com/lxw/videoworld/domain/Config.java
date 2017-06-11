@@ -13,6 +13,7 @@ public class Config implements Serializable{
     private String forceVersionCode;
     private String link;
     private String flag;
+    private String time;
 
     public String getId() {
         return id;
@@ -70,4 +71,11 @@ public class Config implements Serializable{
         this.forceVersionCode = forceVersionCode;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }
