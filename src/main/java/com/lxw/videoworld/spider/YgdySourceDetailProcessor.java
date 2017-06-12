@@ -338,6 +338,18 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                                 sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
                             }
+                        }else{
+                            String imdb_score2 = page.getHtml().css("div#Zoom").regex("IMDb评分(.*?)<").toString();
+                            if (!TextUtils.isEmpty(imdb_score2)) {
+                                imdb_score2 = imdb_score2.replaceAll("</font>", "");
+                                String[] imdb_score = imdb_score2.trim().split("/");
+                                if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
+                                    sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
+                                }
+                                if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
+                                    sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
+                                }
+                            }
                         }
                     }
                 } catch (Exception e) {
@@ -364,6 +376,18 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                             }
                             if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                                 sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
+                            }
+                        }else{
+                            String douban_score2 = page.getHtml().css("div#Zoom").regex("豆瓣评分(.*?)<").toString();
+                            if (!TextUtils.isEmpty(douban_score2)) {
+                                douban_score2 = douban_score2.replaceAll("</font>", "");
+                                String[] douban_score = douban_score2.trim().split("/");
+                                if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
+                                    sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
+                                }
+                                if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
+                                    sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
+                                }
                             }
                         }
                     }
