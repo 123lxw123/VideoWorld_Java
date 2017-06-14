@@ -20,7 +20,7 @@
         `config`
         SET
         `notice`=#{notice}, `image`=#{image}, `version_code`=#{versionCode}, `force_version_code`=#{forceVersionCode},
-        `link`=#{link}, `flag`=#{flag}
+        `ciliLink`=#{ciliLink}, `flag`=#{flag}
         WHERE
         `id`=#{id};
     </update>

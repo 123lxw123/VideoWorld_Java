@@ -6,9 +6,9 @@ package com.lxw.videoworld.test_service;
 public class YgdySpider {
 
     public static void main(String args[]) {
-//        Spider.create(new YgdySourceDetailProcessor()).thread(1)
-//         .addUrl("http://www.ygdy8.com/html/tv/rihantv/20170515/53997.html")
-//         .addPipeline(new YgdySourceDetailPipeline())
+//        Spider.create(new ZhongziSearchProcessor()).thread(1)
+//         .addUrl("http://www.diaosisou.net/list/%E6%AC%A2%E4%B9%90%E9%A2%822/1/rala_d")
+////         .addPipeline(new YgdySourceDetailPipeline())
 //         .run();
     }
 
