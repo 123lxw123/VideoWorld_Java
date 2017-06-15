@@ -3,6 +3,7 @@ package com.lxw.videoworld.spider;
 import com.lxw.videoworld.domain.SearchResult;
 import com.lxw.videoworld.utils.StringUtil;
 import us.codecraft.webmagic.Page;
+import us.codecraft.webmagic.selector.Html;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +15,25 @@ public class DiaoSiSearchProcessor extends BasePhdyProcessor {
     @Override
     public void process(Page page) {
         super.process(page);
-        List<String> titles = page.getHtml().css("div.item-title").css("h3").all();
-        List<String> dates = page.getHtml().css("div.item-bar").regex("创建时间：(.*?)</b>").all();
-        List<String> sizes = page.getHtml().css("div.item-bar").regex("文件大小：(.*?)</b>").all();
-        List<String> hots = page.getHtml().css("div.item-bar").regex("下载热度：(.*?)</b>").all();
-        List<String> links = page.getHtml().css("table.table table-bordered table-striped").regex("class=\"ls-magnet\">.*?href=\"(.*?)\"").all();
+        List<String> titles = page.getHtml().css("div.T1").all();
+        List<String> dates = page.getHtml().css("dl.BotInfo").regex("创建日期:(.*?)</span>").all();
+        List<String> sizes = page.getHtml().css("dl.BotInfo").regex("大小:(.*?)</span>").all();
+        List<String> hots = page.getHtml().css("dl.BotInfo").regex("访问热度:(.*?)</span>").all();
+        List<String> amounts = page.getHtml().css("dl.BotInfo").regex("文件数:(.*?)</span>").all();
+        Html html = new Html(page.getRawText());
+        List<String> ciliLinks = html.css("div.dInfo").css("a").regex("href=\"(magnet:.*?)\"").all();
+        List<String> thunderLinks = html.css("div.dInfo").css("a").regex("href=\"(thunder:.*?)\"").all();
         List<SearchResult> results = new ArrayList<>();
-        if(links != null && links.size() > 0){
-            for(int i = 0 ; i < links.size(); i++){
+        if(ciliLinks != null && ciliLinks.size() > 0){
+            for(int i = 0 ; i < ciliLinks.size(); i++){
                 SearchResult result = new SearchResult();
                 result.setTitle(StringUtil.disposeField(titles.get(i)));
                 result.setDate(StringUtil.disposeField(dates.get(i)));
                 result.setSize(StringUtil.disposeField(sizes.get(i)));
                 result.setHot(StringUtil.disposeField(hots.get(i)));
-                result.setCiliLink(StringUtil.disposeField(links.get(i)));
+                result.setAmounts(StringUtil.disposeField(amounts.get(i)));
+                result.setCiliLink(StringUtil.disposeField(ciliLinks.get(i)));
+                result.setThunderLink(StringUtil.disposeField(thunderLinks.get(i)));
                 results.add(result);
             }
         }

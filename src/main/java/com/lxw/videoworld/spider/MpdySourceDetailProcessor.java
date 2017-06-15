@@ -288,7 +288,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                         imdb_score0 = imdb_score0.replaceAll("</font>", "");
                         String[] imdb_score = imdb_score0.trim().split("/");
                         if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                            sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
+                            String finalScore = StringUtil.disposeField(imdb_score[0]);
+                            if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                if(finalScore.contains("分") && finalScore.length() == 4){
+                                    sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
+                                }else{
+                                    sourceDetail.setImdbScore(finalScore);
+                                }
+                            }
                         }
                         if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                             sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
@@ -299,7 +306,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                             imdb_score1 = imdb_score1.replaceAll("</font>", "");
                             String[] imdb_score = imdb_score1.trim().split("/");
                             if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
+                                String finalScore = StringUtil.disposeField(imdb_score[0]);
+                                if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                    if(finalScore.contains("分") && finalScore.length() == 4){
+                                        sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
+                                    }else{
+                                        sourceDetail.setImdbScore(finalScore);
+                                    }
+                                }
                             }
                             if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                                 sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
@@ -310,7 +324,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                                 imdb_score2 = imdb_score2.replaceAll("</font>", "");
                                 String[] imdb_score = imdb_score2.trim().split("/");
                                 if (imdb_score.length > 0 && !TextUtils.isEmpty(imdb_score[0])) {
-                                    sourceDetail.setImdbScore(StringUtil.disposeField(imdb_score[0]));
+                                    String finalScore = StringUtil.disposeField(imdb_score[0]);
+                                    if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                        if(finalScore.contains("分") && finalScore.length() == 4){
+                                            sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
+                                        }else{
+                                            sourceDetail.setImdbScore(finalScore);
+                                        }
+                                    }
                                 }
                                 if (imdb_score.length > 1 && !TextUtils.isEmpty(imdb_score[1])) {
                                     sourceDetail.setImdbIntro(StringUtil.disposeField(imdb_score[1]));
@@ -327,7 +348,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                         douban_score0 = douban_score0.replaceAll("</font>", "");
                         String[] douban_score = douban_score0.trim().split("/");
                         if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                            sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
+                            String finalScore = StringUtil.disposeField(douban_score[0]);
+                            if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                if(finalScore.contains("分") && finalScore.length() == 4){
+                                    sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
+                                }else{
+                                    sourceDetail.setDoubanScore(finalScore);
+                                }
+                            }
                         }
                         if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                             sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
@@ -338,7 +366,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                             douban_score1 = douban_score1.replaceAll("</font>", "");
                             String[] douban_score = douban_score1.trim().split("/");
                             if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
+                                String finalScore = StringUtil.disposeField(douban_score[0]);
+                                if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                    if(finalScore.contains("分") && finalScore.length() == 4){
+                                        sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
+                                    }else{
+                                        sourceDetail.setDoubanScore(finalScore);
+                                    }
+                                }
                             }
                             if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                                 sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));
@@ -349,7 +384,14 @@ public class MpdySourceDetailProcessor extends BasePhdyProcessor {
                                 douban_score2 = douban_score2.replaceAll("</font>", "");
                                 String[] douban_score = douban_score2.trim().split("/");
                                 if (douban_score.length > 0 && !TextUtils.isEmpty(douban_score[0])) {
-                                    sourceDetail.setDoubanScore(StringUtil.disposeField(douban_score[0]));
+                                    String finalScore = StringUtil.disposeField(douban_score[0]);
+                                    if(!TextUtils.isEmpty(finalScore) && !finalScore.equals("暂无评分")  && !finalScore.equals("0")  && !finalScore.equals("0.0")){
+                                        if(finalScore.contains("分") && finalScore.length() == 4){
+                                            sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
+                                        }else{
+                                            sourceDetail.setDoubanScore(finalScore);
+                                        }
+                                    }
                                 }
                                 if (douban_score.length > 1 && !TextUtils.isEmpty(douban_score[1])) {
                                     sourceDetail.setDoubanIntro(StringUtil.disposeField(douban_score[1]));

@@ -13,7 +13,6 @@ public class SearchResult implements Serializable{
     private String date;
     private String size;
     private String hot;
-    private String type;
     private String time;
 
     public String getCiliLink() {
@@ -70,14 +69,6 @@ public class SearchResult implements Serializable{
 
     public void setHot(String hot) {
         this.hot = hot;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getTime() {
