@@ -102,10 +102,10 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
             sourceDetail.setTitle(StringUtil.disposeField(title));
         }
         if (imgUrl != null && imgUrl.size() > 0) {
-            sourceDetail.setImages(imgUrl.toString());
+            sourceDetail.setImages(StringUtil.disposeField(imgUrl.toString()));
         }
         if (links != null && links.size() > 0) {
-            sourceDetail.setLinks(links.toString());
+            sourceDetail.setLinks(StringUtil.disposeField(links.toString()));
         }
         if (!TextUtils.isEmpty(content)) {
             String temp = StringUtil.disposeField(content);
@@ -327,7 +327,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                 if(finalScore.contains("分") && finalScore.length() == 4){
                                     sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                 }else{
-                                    sourceDetail.setImdbScore(finalScore);
+                                    sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                 }
                             }
                         }
@@ -345,7 +345,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     if(finalScore.contains("分") && finalScore.length() == 4){
                                         sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                     }else{
-                                        sourceDetail.setImdbScore(finalScore);
+                                        sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                     }
                                 }
                             }
@@ -363,7 +363,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                         if(finalScore.contains("分") && finalScore.length() == 4){
                                             sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                         }else{
-                                            sourceDetail.setImdbScore(finalScore);
+                                            sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                         }
                                     }
                                 }
@@ -387,7 +387,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                 if(finalScore.contains("分") && finalScore.length() == 4){
                                     sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
                                 }else{
-                                    sourceDetail.setDoubanScore(finalScore);
+                                    sourceDetail.setDoubanScore(StringUtil.disposeField(finalScore));
                                 }
                             }
                         }
@@ -405,7 +405,7 @@ public class YgdySourceDetailProcessor extends BaseYgdyProcessor {
                                     if(finalScore.contains("分") && finalScore.length() == 4){
                                         sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
                                     }else{
-                                        sourceDetail.setDoubanScore(finalScore);
+                                        sourceDetail.setDoubanScore(StringUtil.disposeField(finalScore));
                                     }
                                 }
                             }

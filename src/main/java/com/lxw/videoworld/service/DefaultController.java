@@ -1,12 +1,14 @@
 package com.lxw.videoworld.service;
 
 import com.lxw.videoworld.config.Constants;
-import com.lxw.videoworld.dao.ConfigDao;
-import com.lxw.videoworld.dao.MpdySourceDetailDao;
-import com.lxw.videoworld.dao.PhdySourceDetailDao;
-import com.lxw.videoworld.dao.YgdySourceDetailDao;
+import com.lxw.videoworld.dao.*;
 import com.lxw.videoworld.domain.Config;
+import com.lxw.videoworld.domain.SearchResult;
 import com.lxw.videoworld.domain.SourceDetail;
+import com.lxw.videoworld.spider.DiaoSiSearchProcessor;
+import com.lxw.videoworld.spider.YgdySourceDetailPipeline;
+import com.lxw.videoworld.spider.ZhongziSearchPipeline;
+import com.lxw.videoworld.spider.ZhongziSearchProcessor;
 import com.lxw.videoworld.utils.ErrorUtil;
 import com.lxw.videoworld.utils.ResponseUtil;
 import com.lxw.videoworld.version.ApiVersion;
@@ -16,12 +18,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import us.codecraft.webmagic.Spider;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Zion on 2017/6/3.
@@ -39,6 +39,8 @@ public class DefaultController {
     private PhdySourceDetailDao phdySourceDetailDao;
     @Autowired
     private YgdySourceDetailDao ygdySourceDetailDao;
+    @Autowired
+    private SearchResultDao searchResultDao;
 //    @Autowired
 //    private PhdyHotDao phdyHotDao;
 //    @Autowired
@@ -48,26 +50,26 @@ public class DefaultController {
 //    @Autowired
 //    private YgdyHotDao ygdyHotDao;
 
-    @RequestMapping(value="config",method= RequestMethod.POST)
+    @RequestMapping(value = "config", method = RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getConfig(HttpServletRequest request) {
         String id = request.getParameter("id");
         String response = "";
-        if(TextUtils.isEmpty(id)){
+        if (TextUtils.isEmpty(id)) {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
             return response;
         }
         Config config = configDao.findOneById(id);
-        if(config != null){
+        if (config != null) {
             response = ResponseUtil.formatResponse(config);
-        }else{
+        } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
         }
         return response;
     }
 
-    @RequestMapping(value="updateConfig",method= RequestMethod.GET)
+    @RequestMapping(value = "updateConfig", method = RequestMethod.GET)
     @ApiVersion(1)
     @ResponseBody
     public String updateConfig(HttpServletRequest request) {
@@ -77,9 +79,8 @@ public class DefaultController {
         String versionCode = request.getParameter("versionCode");
         String forceVersionCode = request.getParameter("forceVersionCode");
         String link = request.getParameter("link");
-        String flag = request.getParameter("flag");
         String response = "";
-        if(TextUtils.isEmpty(id)){
+        if (TextUtils.isEmpty(id)) {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
             return response;
         }
@@ -90,18 +91,17 @@ public class DefaultController {
         config.setVersionCode(versionCode);
         config.setForceVersionCode(forceVersionCode);
         config.setLink(link);
-        config.setFlag(flag);
         int result = configDao.update(config);
-        if (result == 1){
+        if (result == 1) {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_SUCCESS, ErrorUtil.MESSAGE_SUCCESS);
             return response;
-        }else{
+        } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
             return response;
         }
     }
 
-    @RequestMapping(value="banner",method= RequestMethod.POST)
+    @RequestMapping(value = "banner", method = RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getBanner(HttpServletRequest request) {
@@ -136,7 +136,7 @@ public class DefaultController {
         return response;
     }
 
-    @RequestMapping(value="list",method= RequestMethod.POST)
+    @RequestMapping(value = "list", method = RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getList(HttpServletRequest request) {
@@ -154,7 +154,7 @@ public class DefaultController {
         try {
             start = Integer.valueOf(startStr);
             limit = Integer.valueOf(limitStr);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
             return response;
@@ -163,9 +163,9 @@ public class DefaultController {
         List<SourceDetail> list = new ArrayList<>();
         switch (sourceType) {
             case Constants.SOURCE_TYPE_1:
-                if(!TextUtils.isEmpty(type) && type.equals(Constants.TYPE_0)){
+                if (!TextUtils.isEmpty(type) && type.equals(Constants.TYPE_0)) {
                     list = phdySourceDetailDao.getDYRecord(start, limit);
-                }else{
+                } else {
                     list = phdySourceDetailDao.getRecordByType(start, limit, category, type);
                 }
                 break;
@@ -188,7 +188,7 @@ public class DefaultController {
         return response;
     }
 
-    @RequestMapping(value="detail",method= RequestMethod.POST)
+    @RequestMapping(value = "detail", method = RequestMethod.POST)
     @ApiVersion(1)
     @ResponseBody
     public String getDetail(HttpServletRequest request) {
@@ -219,6 +219,63 @@ public class DefaultController {
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
         }
+        return response;
+    }
+
+    @RequestMapping(value = "search", method = RequestMethod.POST)
+    @ApiVersion(1)
+    @ResponseBody
+    public String getSearch(HttpServletRequest request) {
+//        String uid = request.getParameter("uid");
+//        String url = request.getParameter("url");
+//        String searchType = request.getParameter("searchType");
+        String response = "";
+//        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url) || TextUtils.isEmpty(searchType)) {
+//            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+//            return response;
+//        }
+//        List<SearchResult> results;
+//        Map<String, Object> map = new HashMap<>();
+//        switch (searchType) {
+//            case Constants.SEARCH_TYPE_1:
+//                Spider.create(new ZhongziSearchProcessor(uid)).thread(1)
+//                        .addUrl(url)
+//                        .addPipeline(new ZhongziSearchPipeline())
+//                        .run();
+//                break;
+//            case Constants.SEARCH_TYPE_2:
+//                Spider.create(new DiaoSiSearchProcessor(uid)).thread(1)
+//                        .addUrl(url)
+//                        .addPipeline(new ZhongziSearchPipeline())
+//                        .run();
+//                break;
+//            default:
+//                response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+//                return response;
+//        }
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask(){
+//            int count = 0;
+//            @Override
+//            public void run() {
+//                count++;
+//                if(count <= 16){
+//                    List<SearchResult> tempResults = searchResultDao.getRecordByParams(uid, url);
+//                    if(tempResults != null && tempResults.size() > 0){
+//
+//                    }
+//                }else{
+//                    timer.cancel();
+//                }
+//            }
+//        }, 500);
+//        results = searchResultDao.getRecordByParams(uid, url);
+//        if (results != null) {
+//            map.put("list", results);
+//            response = ResponseUtil.formatResponse(map);
+//        } else {
+//            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
+//        }
         return response;
     }
 }

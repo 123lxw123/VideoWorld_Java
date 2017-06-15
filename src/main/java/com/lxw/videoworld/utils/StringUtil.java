@@ -15,7 +15,7 @@ public class StringUtil {
             String temp1 = HTMLUtil.trimHtml2Txt(oldStr, null);
             String temp2 = removeHtmlTag(temp1);
             String temp3 = replaceAll12288(temp2);
-            String temp4 = temp3.trim();
+            String temp4 = removeExtraCharacters(temp3);
             return temp4;
         }else {
             return "";
@@ -82,5 +82,80 @@ public class StringUtil {
             e.printStackTrace();
         }
         return textStr;// 返回文本字符串
+    }
+
+    public static String removeExtraCharacters(String oldStr){
+        boolean frag_change = false;
+        if(!TextUtils.isEmpty(oldStr)){
+            String content = oldStr.trim();
+            try{
+                if(content.startsWith(",")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith(",")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.startsWith("，")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith("，")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.startsWith("】")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith("】")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.startsWith("【")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith("【")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.startsWith(":")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith(":")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.startsWith("：")){
+                    content = content.substring(1, content.length());
+                    frag_change = true;
+                }
+                if(content.endsWith("：")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.endsWith("]") && !content.contains("[")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(content.endsWith(")") && !content.contains("(")){
+                    content = content.substring(0, content.length() - 1);
+                    frag_change = true;
+                }
+                if(frag_change){
+                    return removeExtraCharacters(content);
+                }else{
+                    return content;
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                return oldStr;
+            }
+        }else{
+            return oldStr;
+        }
     }
 }

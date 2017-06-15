@@ -12,6 +12,13 @@ import java.util.List;
  * Created by Zion on 2017/6/14.
  */
 public class DiaoSiSearchProcessor extends BasePhdyProcessor {
+
+    private String uid;
+
+    public DiaoSiSearchProcessor(String uid){
+        this.uid = uid;
+    }
+
     @Override
     public void process(Page page) {
         super.process(page);
@@ -27,6 +34,8 @@ public class DiaoSiSearchProcessor extends BasePhdyProcessor {
         if(ciliLinks != null && ciliLinks.size() > 0){
             for(int i = 0 ; i < ciliLinks.size(); i++){
                 SearchResult result = new SearchResult();
+                result.setUid(uid);
+                result.setUrl(page.getUrl().toString());
                 result.setTitle(StringUtil.disposeField(titles.get(i)));
                 result.setDate(StringUtil.disposeField(dates.get(i)));
                 result.setSize(StringUtil.disposeField(sizes.get(i)));

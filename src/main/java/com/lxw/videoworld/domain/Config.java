@@ -12,7 +12,7 @@ public class Config implements Serializable{
     private String versionCode;
     private String forceVersionCode;
     private String link;
-    private String flag;
+    private String keyword;
     private String time;
 
     public String getId() {
@@ -47,12 +47,12 @@ public class Config implements Serializable{
         this.link = link;
     }
 
-    public String getFlag() {
-        return flag;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setFlag(String flag) {
-        this.flag = flag;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getNotice() {

@@ -12,6 +12,12 @@ import java.util.List;
  * Created by Zion on 2017/6/14.
  */
 public class ZhongziSearchProcessor extends BasePhdyProcessor {
+
+    private String uid;
+
+    public ZhongziSearchProcessor(String uid){
+        this.uid = uid;
+    }
     @Override
     public void process(Page page) {
         super.process(page);
@@ -25,6 +31,8 @@ public class ZhongziSearchProcessor extends BasePhdyProcessor {
         if(links != null && links.size() > 0){
             for(int i = 0 ; i < links.size(); i++){
                 SearchResult result = new SearchResult();
+                result.setUid(uid);
+                result.setUrl(page.getUrl().toString());
                 result.setTitle(StringUtil.disposeField(titles.get(i)));
                 result.setDate(StringUtil.disposeField(dates.get(i)));
                 result.setSize(StringUtil.disposeField(sizes.get(i)));

@@ -98,13 +98,13 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
 
                 String title = page.getHtml().css("h3").regex(">(.*?)</h3>").get();
                 if (!TextUtils.isEmpty(title)) {
-                    sourceDetail.setTitle(title.trim());
+                    sourceDetail.setTitle(StringUtil.disposeField(title.trim()));
                 }
                 if (imgUrl != null && imgUrl.size() > 0) {
-                    sourceDetail.setImages(imgUrl.toString());
+                    sourceDetail.setImages(StringUtil.disposeField(imgUrl.toString()));
                 }
                 if (links != null && links.size() > 0) {
-                    sourceDetail.setLinks(links.toString());
+                    sourceDetail.setLinks(StringUtil.disposeField(links.toString()));
                 }
                 if (!TextUtils.isEmpty(newContent.toString())) {
                     sourceDetail.setContent(StringUtil.disposeField(newContent.toString()));
@@ -316,7 +316,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                         if(finalScore.contains("分") && finalScore.length() == 4){
                                             sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                         }else{
-                                            sourceDetail.setImdbScore(finalScore);
+                                            sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                         }
                                     }
                                 }
@@ -334,7 +334,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             if(finalScore.contains("分") && finalScore.length() == 4){
                                                 sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                             }else{
-                                                sourceDetail.setImdbScore(finalScore);
+                                                sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                             }
                                         }
                                     }
@@ -352,7 +352,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                                 if(finalScore.contains("分") && finalScore.length() == 4){
                                                     sourceDetail.setImdbScore(finalScore.substring(0, finalScore.length() - 1));
                                                 }else{
-                                                    sourceDetail.setImdbScore(finalScore);
+                                                    sourceDetail.setImdbScore(StringUtil.disposeField(finalScore));
                                                 }
                                             }
                                         }
@@ -376,7 +376,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                         if(finalScore.contains("分") && finalScore.length() == 4){
                                             sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
                                         }else{
-                                            sourceDetail.setDoubanScore(finalScore);
+                                            sourceDetail.setDoubanScore(StringUtil.disposeField(finalScore));
                                         }
                                     }
                                 }
@@ -394,7 +394,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                             if(finalScore.contains("分") && finalScore.length() == 4){
                                                 sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
                                             }else{
-                                                sourceDetail.setDoubanScore(finalScore);
+                                                sourceDetail.setDoubanScore(StringUtil.disposeField(finalScore));
                                             }
                                         }
                                     }
@@ -412,7 +412,7 @@ public class PhdySourceDetailProcessor extends BasePhdyProcessor {
                                                 if(finalScore.contains("分") && finalScore.length() == 4){
                                                     sourceDetail.setDoubanScore(finalScore.substring(0, finalScore.length() - 1));
                                                 }else{
-                                                    sourceDetail.setDoubanScore(finalScore);
+                                                    sourceDetail.setDoubanScore(StringUtil.disposeField(finalScore));
                                                 }
                                             }
                                         }
