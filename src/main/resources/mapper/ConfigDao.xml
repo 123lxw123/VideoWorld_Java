@@ -25,4 +25,14 @@
         `id`=#{id};
     </update>
 
+    <!-- 更新搜索热词 -->
+    <update id="updateKeyword" parameterType="String">
+        UPDATE
+        `config`
+        SET
+        `keyword`=#{keyword}
+        WHERE
+        `id`='1';
+    </update>
+
 </mapper>

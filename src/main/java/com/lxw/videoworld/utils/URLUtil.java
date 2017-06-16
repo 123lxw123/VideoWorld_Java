@@ -60,6 +60,15 @@ public class URLUtil {
     public static final String URL_MPDY_DS = URL_MPDY_HOME_PAGE + "/ds/index.html";
     public static final String URL_MPDY_DM = URL_MPDY_HOME_PAGE + "/dm/index.html";
 
+    //    搜索
+    public static final String BASE_ZHONGZI_SEARCH_1 = "http://www.zhongziso.com/list_ctime/keyword/page";// 时间排序
+    public static final String BASE_ZHONGZI_SEARCH_2 = "http://www.zhongziso.com/list_click/keyword/page";// 点击
+    public static final String BASE_ZHONGZI_SEARCH_3 = "http://www.zhongziso.com/list_length/keyword/page";// 大小
+    public static final String BASE_DIAOSI_SEARCH = "http://www.diaosisou.net/";// 屌丝搜索首页
+    public static final String BASE_DIAOSI_SEARCH_1 = "http://www.diaosisou.net/list/keyword/page/time_d";// 时间排序
+    public static final String BASE_DIAOSI_SEARCH_2 = "http://www.diaosisou.net/list/keyword/page/size_d";// 大小
+    public static final String BASE_DIAOSI_SEARCH_3 = "http://www.diaosisou.net/list/keyword/page/rala_d";// 相关度
+
     public static Site getSiteInstance(){
         return site;
     }
