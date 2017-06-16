@@ -14,9 +14,11 @@ import java.util.List;
 public class DiaoSiSearchProcessor extends BasePhdyProcessor {
 
     private String uid;
+    private String keyword;
 
-    public DiaoSiSearchProcessor(String uid){
+    public DiaoSiSearchProcessor(String uid, String keyword){
         this.uid = uid;
+        this.keyword = keyword;
     }
 
     @Override
@@ -34,8 +36,6 @@ public class DiaoSiSearchProcessor extends BasePhdyProcessor {
         if(ciliLinks != null && ciliLinks.size() > 0){
             for(int i = 0 ; i < ciliLinks.size(); i++){
                 SearchResult result = new SearchResult();
-                result.setUid(uid);
-                result.setUrl(page.getUrl().toString());
                 result.setTitle(StringUtil.disposeField(titles.get(i)));
                 result.setDate(StringUtil.disposeField(dates.get(i)));
                 result.setSize(StringUtil.disposeField(sizes.get(i)));
@@ -46,6 +46,9 @@ public class DiaoSiSearchProcessor extends BasePhdyProcessor {
                 results.add(result);
             }
         }
+        page.putField("uid", uid);
+        page.putField("url", page.getUrl().toString());
+        page.putField("keyword", keyword);
         page.putField("results", results);
     }
 }

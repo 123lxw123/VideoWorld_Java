@@ -3,10 +3,9 @@ package com.lxw.videoworld.service;
 import com.lxw.videoworld.config.Constants;
 import com.lxw.videoworld.dao.*;
 import com.lxw.videoworld.domain.Config;
-import com.lxw.videoworld.domain.SearchResult;
+import com.lxw.videoworld.domain.Search;
 import com.lxw.videoworld.domain.SourceDetail;
 import com.lxw.videoworld.spider.DiaoSiSearchProcessor;
-import com.lxw.videoworld.spider.YgdySourceDetailPipeline;
 import com.lxw.videoworld.spider.ZhongziSearchPipeline;
 import com.lxw.videoworld.spider.ZhongziSearchProcessor;
 import com.lxw.videoworld.utils.ErrorUtil;
@@ -21,7 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import us.codecraft.webmagic.Spider;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import javax.xml.transform.Result;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Zion on 2017/6/3.
@@ -40,7 +43,9 @@ public class DefaultController {
     @Autowired
     private YgdySourceDetailDao ygdySourceDetailDao;
     @Autowired
-    private SearchResultDao searchResultDao;
+    private SearchDao searchDao;
+    @Autowired
+    private ZhongziSearchPipeline zhongziSearchPipeline;
 //    @Autowired
 //    private PhdyHotDao phdyHotDao;
 //    @Autowired
@@ -226,56 +231,61 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getSearch(HttpServletRequest request) {
-//        String uid = request.getParameter("uid");
-//        String url = request.getParameter("url");
-//        String searchType = request.getParameter("searchType");
+        String uid = request.getParameter("uid");
+        String url = request.getParameter("url");
+        String keyword = request.getParameter("keyword");
+        String searchType = request.getParameter("searchType");
+//        uid = "uid";
+//        url = "http://www.diaosisou.net/list/%E7%BE%8E%E5%9B%BD%E9%98%9F%E9%95%BF3/1";
+//        keyword = "keyword";
+//        searchType = "2";
         String response = "";
-//        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url) || TextUtils.isEmpty(searchType)) {
-//            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
-//            return response;
-//        }
-//        List<SearchResult> results;
-//        Map<String, Object> map = new HashMap<>();
-//        switch (searchType) {
-//            case Constants.SEARCH_TYPE_1:
-//                Spider.create(new ZhongziSearchProcessor(uid)).thread(1)
-//                        .addUrl(url)
-//                        .addPipeline(new ZhongziSearchPipeline())
-//                        .run();
-//                break;
-//            case Constants.SEARCH_TYPE_2:
-//                Spider.create(new DiaoSiSearchProcessor(uid)).thread(1)
-//                        .addUrl(url)
-//                        .addPipeline(new ZhongziSearchPipeline())
-//                        .run();
-//                break;
-//            default:
-//                response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
-//                return response;
-//        }
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask(){
-//            int count = 0;
-//            @Override
-//            public void run() {
-//                count++;
-//                if(count <= 16){
-//                    List<SearchResult> tempResults = searchResultDao.getRecordByParams(uid, url);
-//                    if(tempResults != null && tempResults.size() > 0){
-//
-//                    }
-//                }else{
-//                    timer.cancel();
-//                }
-//            }
-//        }, 500);
-//        results = searchResultDao.getRecordByParams(uid, url);
-//        if (results != null) {
-//            map.put("list", results);
-//            response = ResponseUtil.formatResponse(map);
-//        } else {
-//            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
-//        }
+        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url) || TextUtils.isEmpty(keyword) || TextUtils.isEmpty(searchType)) {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        switch (searchType) {
+            case Constants.SEARCH_TYPE_1:
+                Spider.create(new ZhongziSearchProcessor(uid, keyword)).thread(1)
+                        .addUrl(url)
+                        .addPipeline(zhongziSearchPipeline)
+                        .run();
+                break;
+            case Constants.SEARCH_TYPE_2:
+                Spider.create(new DiaoSiSearchProcessor(uid, keyword)).thread(1)
+                        .addUrl(url)
+                        .addPipeline(zhongziSearchPipeline)
+                        .run();
+                break;
+            default:
+                response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+                return response;
+        }
+        response = ResponseUtil.formatResponse(ErrorUtil.CODE_SUCCESS, ErrorUtil.MESSAGE_SUCCESS);
+        return response;
+    }
+
+    @RequestMapping(value = "searchResult", method = RequestMethod.POST)
+    @ApiVersion(1)
+    @ResponseBody
+    public String getSearchResult(HttpServletRequest request) {
+        String uid = request.getParameter("uid");
+        String url = request.getParameter("url");
+//        uid = "uid";
+//        url = "http://www.diaosisou.net/list/%E7%BE%8E%E5%9B%BD%E9%98%9F%E9%95%BF3/1";
+        String response = "";
+        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url)) {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        List<Search> list = searchDao.getRecordByParams(uid, url);
+        Map<String, Object> map = new HashMap<>();
+        if (list != null) {
+            map.put("list", list);
+            response = ResponseUtil.formatResponse(map);
+        } else {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
+        }
         return response;
     }
 }

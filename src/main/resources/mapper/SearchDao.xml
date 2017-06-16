@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指定我们的到具体的bean -->
-<mapper namespace="com.lxw.videoworld.dao.SearchResultDao">
+<mapper namespace="com.lxw.videoworld.dao.SearchDao">
 
     <!--Record-->
-    <select id="getRecordByParams" resultType="SearchResult">
+    <select id="getRecordByParams" resultType="Search">
         SELECT
         *
         FROM
@@ -29,20 +29,20 @@
     </select>
 
     <!--增加语句-->
-    <insert id="add" parameterType="SearchResult">
+    <insert id="add" parameterType="Search">
         INSERT INTO
         `search_result`
-        (`url`,`uid`,`cili_link`,`thunder_link`,`title`,`amounts`,`date`,`size`,`hot`)
+        (`url`,`uid`,`keyword`,`list`)
         VALUES
-        (#{url},#{uid},#{ciliLink},#{thunderLink},#{title},#{amounts},#{date},#{size},#{hot})
+        (#{url},#{uid},#{keyword},#{list})
     </insert>
 
     <!-- 更新信息 -->
-    <update id="update" parameterType="SearchResult">
+    <update id="update" parameterType="Search">
         UPDATE
         `search_result`
         SET
-        `url`=#{url},`uid`=#{uid}, `cili_link`=#{ciliLink},`title`=#{title}, `thunder_link`=#{thunderLink}, `amounts`=#{amounts}, `date`=#{date}, `date`=#{date}, `size`=#{size}, `hot`=#{hot}
+        `list`=#{list}
         WHERE
         `url`=#{url}
         AND

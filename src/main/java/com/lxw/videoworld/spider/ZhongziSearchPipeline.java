@@ -1,18 +1,18 @@
 package com.lxw.videoworld.spider;
 
-import com.lxw.videoworld.config.Constants;
-import com.lxw.videoworld.dao.SearchResultDao;
-import com.lxw.videoworld.dao.YgdySourceDao;
-import com.lxw.videoworld.dao.YgdySourceDetailDao;
+import com.lxw.videoworld.dao.SearchDao;
+import com.lxw.videoworld.domain.Search;
 import com.lxw.videoworld.domain.SearchResult;
-import com.lxw.videoworld.domain.SourceDetail;
+import com.lxw.videoworld.utils.GsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lxw9047 on 2017/5/3.
@@ -21,25 +21,33 @@ import java.util.List;
 @Service("zhongziSearchPipeline")
 public class ZhongziSearchPipeline implements Pipeline {
     @Autowired
-    private SearchResultDao searchResultDao;
+    private SearchDao searchDao;
 
     @Override
     public void process(ResultItems resultItems, Task task) {
-
+        Search search = new Search();
+        String uid = resultItems.get("uid");
+        String url = resultItems.get("url");
+        String keyword = resultItems.get("keyword");
         List<SearchResult> results = resultItems.get("results");
-        if(results != null){
-            for(int i = 0; i < results.size(); i++){
-                try {
-                    searchResultDao.add(results.get(i));
-                }catch (Exception e){
-                    try{
-                        searchResultDao.update(results.get(i));
-                    }catch (Exception exception){
-                        e.printStackTrace();
-                    }
-                    e.printStackTrace();
-                }
+        search.setUid(uid);
+        search.setUrl(url);
+        search.setKeyword(keyword);
+        if(results != null && results.size() > 0){
+            Map<String, Object> map = new HashMap<>();
+            map.put("list", results);
+            String list = GsonUtil.bean2json(map);
+            search.setList(list);
+        }
+        try {
+            searchDao.add(search);
+        }catch (Exception e){
+            try{
+                searchDao.update(search);
+            }catch (Exception exception){
+                e.printStackTrace();
             }
+            e.printStackTrace();
         }
     }
 }

@@ -14,9 +14,11 @@ import java.util.List;
 public class ZhongziSearchProcessor extends BasePhdyProcessor {
 
     private String uid;
+    private String keyword;
 
-    public ZhongziSearchProcessor(String uid){
+    public ZhongziSearchProcessor(String uid, String keyword){
         this.uid = uid;
+        this.keyword = keyword;
     }
     @Override
     public void process(Page page) {
@@ -31,8 +33,6 @@ public class ZhongziSearchProcessor extends BasePhdyProcessor {
         if(links != null && links.size() > 0){
             for(int i = 0 ; i < links.size(); i++){
                 SearchResult result = new SearchResult();
-                result.setUid(uid);
-                result.setUrl(page.getUrl().toString());
                 result.setTitle(StringUtil.disposeField(titles.get(i)));
                 result.setDate(StringUtil.disposeField(dates.get(i)));
                 result.setSize(StringUtil.disposeField(sizes.get(i)));
@@ -41,6 +41,9 @@ public class ZhongziSearchProcessor extends BasePhdyProcessor {
                 results.add(result);
             }
         }
+        page.putField("uid", uid);
+        page.putField("url", page.getUrl().toString());
+        page.putField("keyword", keyword);
         page.putField("results", results);
     }
 }
