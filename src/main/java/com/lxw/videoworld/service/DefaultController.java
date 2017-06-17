@@ -279,12 +279,10 @@ public class DefaultController {
             return response;
         }
         List<Search> list = searchDao.getRecordByParams(uid, url);
-        Map<String, Object> map = new HashMap<>();
-        if (list != null) {
-            map.put("list", list);
-            response = ResponseUtil.formatResponse(map);
+        if (list != null && list.size() > 0) {
+            response = ResponseUtil.formatResponse(list.get(0));
         } else {
-            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_NO_DATA);
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_EMPTY);
         }
         return response;
     }

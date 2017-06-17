@@ -10,4 +10,5 @@ public class ErrorUtil {
     public static final String MESSAGE_SUCCESS = "success";
     public static final String MESSAGE_ERROR_PARAM = "参数错误";
     public static final String MESSAGE_ERROR_NO_DATA = "暂无数据";
+    public static final String MESSAGE_ERROR_EMPTY = "";
 }
