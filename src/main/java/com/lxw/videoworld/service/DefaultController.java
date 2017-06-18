@@ -21,6 +21,7 @@ import us.codecraft.webmagic.Spider;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.transform.Result;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +60,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getConfig(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String id = request.getParameter("id");
         String response = "";
         if (TextUtils.isEmpty(id)) {
@@ -78,6 +84,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String updateConfig(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String id = request.getParameter("id");
         String image = request.getParameter("image");
         String notice = request.getParameter("notice");
@@ -110,6 +121,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getBanner(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String sourceType = request.getParameter("sourceType");
         String response = "";
         Map<String, Object> map = new HashMap<>();
@@ -145,6 +161,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getList(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String sourceType = request.getParameter("sourceType");
         String category = request.getParameter("category");
         String type = request.getParameter("type");
@@ -197,6 +218,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getDetail(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String sourceType = request.getParameter("sourceType");
         String url = request.getParameter("url");
         String response = "";
@@ -231,6 +257,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getSearch(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String uid = request.getParameter("uid");
         String url = request.getParameter("url");
         String keyword = request.getParameter("keyword");
@@ -269,6 +300,11 @@ public class DefaultController {
     @ApiVersion(1)
     @ResponseBody
     public String getSearchResult(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
         String uid = request.getParameter("uid");
         String url = request.getParameter("url");
 //        uid = "uid";
