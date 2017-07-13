@@ -3,6 +3,7 @@ package com.lxw.videoworld.service;
 import com.lxw.videoworld.config.Constants;
 import com.lxw.videoworld.dao.*;
 import com.lxw.videoworld.domain.Config;
+import com.lxw.videoworld.domain.Feedback;
 import com.lxw.videoworld.domain.Search;
 import com.lxw.videoworld.domain.SourceDetail;
 import com.lxw.videoworld.spider.DiaoSiSearchProcessor;
@@ -47,6 +48,8 @@ public class DefaultController {
     private SearchDao searchDao;
     @Autowired
     private ZhongziSearchPipeline zhongziSearchPipeline;
+    @Autowired
+    private FeedbackDao feedbackDao;
 //    @Autowired
 //    private PhdyHotDao phdyHotDao;
 //    @Autowired
@@ -242,6 +245,35 @@ public class DefaultController {
             response = ResponseUtil.formatResponse(list.get(0));
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_EMPTY);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "feedback", method = RequestMethod.POST)
+    @ApiVersion(1)
+    @ResponseBody
+    public String addFeedback(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+        String uid = request.getParameter("uid");
+        String feedbackContent = request.getParameter("feedback");
+        String response = "";
+        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(feedbackContent)) {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        Feedback feedback = new Feedback();
+        feedback.setUid(uid);
+        feedback.setFeedback(feedbackContent);
+        feedback.setStatus("1");
+        int flag = feedbackDao.add(feedback);
+        if(flag == 1){
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_SUCCESS, ErrorUtil.MESSAGE_SUCCESS);
+        }else{
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_SQL, ErrorUtil.MESSAGE_ERROR_SQL);
         }
         return response;
     }
