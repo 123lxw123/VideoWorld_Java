@@ -7,7 +7,7 @@
     <!--增加语句-->
     <insert id="add" parameterType="Feedback">
         INSERT INTO
-        `feeback`
+        `feedback`
         (`uid`,`feedback`,`status`)
         VALUES
         (#{uid},#{feedback},#{status})
