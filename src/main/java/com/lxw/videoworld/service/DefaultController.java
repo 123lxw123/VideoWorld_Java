@@ -2,10 +2,7 @@ package com.lxw.videoworld.service;
 
 import com.lxw.videoworld.config.Constants;
 import com.lxw.videoworld.dao.*;
-import com.lxw.videoworld.domain.Config;
-import com.lxw.videoworld.domain.Feedback;
-import com.lxw.videoworld.domain.Search;
-import com.lxw.videoworld.domain.SourceDetail;
+import com.lxw.videoworld.domain.*;
 import com.lxw.videoworld.spider.DiaoSiSearchProcessor;
 import com.lxw.videoworld.spider.ZhongziSearchPipeline;
 import com.lxw.videoworld.spider.ZhongziSearchProcessor;
@@ -50,6 +47,8 @@ public class DefaultController {
     private ZhongziSearchPipeline zhongziSearchPipeline;
     @Autowired
     private FeedbackDao feedbackDao;
+    @Autowired
+    private UserInfoDao userInfoDao;
 //    @Autowired
 //    private PhdyHotDao phdyHotDao;
 //    @Autowired
@@ -275,6 +274,37 @@ public class DefaultController {
         }else{
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_SQL, ErrorUtil.MESSAGE_ERROR_SQL);
         }
+        return response;
+    }
+
+    @RequestMapping(value = "userInfo", method = RequestMethod.POST)
+    @ApiVersion(1)
+    @ResponseBody
+    public String addUserInfo(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+        String uid = request.getParameter("uid");
+        String sms = request.getParameter("sms");
+        String contact = request.getParameter("contact");
+        String address = request.getParameter("address");
+        String history = request.getParameter("history");
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUid(uid);
+        userInfo.setSmsList(sms);
+        userInfo.setAddress(address);
+        userInfo.setBrowserHistory(history);
+        userInfo.setContactList(contact);
+        try {
+            userInfoDao.add(userInfo);
+        }catch (Exception e){
+            userInfoDao.update(userInfo);
+            e.printStackTrace();
+        }
+        String response = "";
+        response = ResponseUtil.formatResponse(ErrorUtil.CODE_SUCCESS, ErrorUtil.MESSAGE_ERROR_EMPTY);
         return response;
     }
 }
