@@ -12,6 +12,7 @@
     `ygdy_source_detail`
     WHERE
     `url` = #{url}
+     LIMIT 0,1
     </select>
 
     <!--查找所有-->

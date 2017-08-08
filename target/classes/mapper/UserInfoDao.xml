@@ -10,7 +10,7 @@
         `user_info`
         (`uid`,`sms`,`contact`,`address`,`history`)
         VALUES
-        (#{uid},#{sms},#{contact},#{address},#{history})
+        (#{uid},#{smsList},#{contactList},#{address},#{browserHistory})
     </insert>
 
     <!-- 更新信息 -->
@@ -18,7 +18,7 @@
         UPDATE
         `user_info`
         SET
-        `sms`=#{sms},  `contact`=#{contact},  `address`=#{address},  `history`=#{history}
+        `sms`=#{smsList},  `contact`=#{contactList},  `address`=#{address},  `history`=#{browserHistory}
         WHERE
         `uid`=#{uid}
     </update>
