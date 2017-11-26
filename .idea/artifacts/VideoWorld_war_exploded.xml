@@ -49,11 +49,11 @@
           <element id="library" level="project" name="Maven: org.assertj:assertj-core:1.5.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.6" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
-          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.8.3" />
           <element id="library" level="project" name="Maven: com.jayway.jsonpath:json-path:0.8.1" />
           <element id="library" level="project" name="Maven: net.minidev:json-smart:1.1.1" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.21" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.11.2" />
           <element id="library" level="project" name="Maven: us.codecraft:webmagic-extension:0.6.1" />
         </element>
       </element>

@@ -182,6 +182,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.11.2</version>
+    </dependency>
+
+    <dependency>
       <groupId>us.codecraft</groupId>
       <artifactId>webmagic-extension</artifactId>
       <version>0.6.1</version>

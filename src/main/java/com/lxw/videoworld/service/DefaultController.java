@@ -4,6 +4,7 @@ import com.lxw.videoworld.config.Constants;
 import com.lxw.videoworld.dao.*;
 import com.lxw.videoworld.domain.*;
 import com.lxw.videoworld.spider.DiaoSiSearchProcessor;
+import com.lxw.videoworld.spider.SearchSpider;
 import com.lxw.videoworld.spider.ZhongziSearchPipeline;
 import com.lxw.videoworld.spider.ZhongziSearchProcessor;
 import com.lxw.videoworld.utils.ErrorUtil;
@@ -232,8 +233,6 @@ public class DefaultController {
         }
         String uid = request.getParameter("uid");
         String url = request.getParameter("url");
-//        uid = "uid";
-//        url = "http://www.diaosisou.net/list/%E7%BE%8E%E5%9B%BD%E9%98%9F%E9%95%BF3/1";
         String response = "";
         if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url)) {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
@@ -242,6 +241,45 @@ public class DefaultController {
         List<Search> list = searchDao.getRecordByParams(uid, url);
         if (list != null && list.size() > 0) {
             response = ResponseUtil.formatResponse(list.get(0));
+        } else {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_EMPTY);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "spiderResult", method = RequestMethod.POST)
+    @ApiVersion(1)
+    @ResponseBody
+    public String getSpiderResult(HttpServletRequest request) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+        String uid = request.getParameter("uid");
+        String url = request.getParameter("url");
+        String keyword = request.getParameter("keyword");
+        String searchType = request.getParameter("searchType");
+        String response = "";
+        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(url) || TextUtils.isEmpty(keyword) || TextUtils.isEmpty(searchType)) {
+            response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+            return response;
+        }
+        List<SearchResult> results;
+        SearchSpider searchSpider = new SearchSpider();
+        switch (searchType) {
+            case Constants.SEARCH_TYPE_1:
+                results = searchSpider.getZhongziSearchResult(uid, url, keyword);
+                break;
+            case Constants.SEARCH_TYPE_2:
+                results = searchSpider.getDiaosiSearchResult(uid, url, keyword);
+                break;
+            default:
+                response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
+                return response;
+        }
+        if (results != null && results.size() > 0) {
+            response = ResponseUtil.formatResponse(results);
         } else {
             response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_NO_DATA, ErrorUtil.MESSAGE_ERROR_EMPTY);
         }
