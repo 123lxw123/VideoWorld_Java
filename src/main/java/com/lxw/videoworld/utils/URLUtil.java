@@ -60,6 +60,9 @@ public class URLUtil {
     public static final String URL_MPDY_DS = URL_MPDY_HOME_PAGE + "/ds/index.html";
     public static final String URL_MPDY_DM = URL_MPDY_HOME_PAGE + "/dm/index.html";
 
+    public static final String URL_ZXZY_HOME_PAGE = "http://www.kakazycj.com";
+    public static final String URL_ZXZY_LIST_PAGE = "http://www.kakazycj.com/?m=vod-index-pg-page.html";
+
     //    搜索
     public static final String BASE_ZHONGZI_SEARCH_1 = "http://www.zhongziso.com/list_ctime/keyword/page";// 时间排序
     public static final String BASE_ZHONGZI_SEARCH_2 = "http://www.zhongziso.com/list_click/keyword/page";// 点击

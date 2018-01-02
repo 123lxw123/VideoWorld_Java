@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Source implements Serializable{
     private String id;
+    private String title;
     private String category;
     private String type;
     private String date;
@@ -70,4 +71,11 @@ public class Source implements Serializable{
         this.time = time;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
