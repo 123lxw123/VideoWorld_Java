@@ -12,10 +12,10 @@ public class ZxzySourceListProcessor extends BasePhdyProcessor {
     @Override
     public void process(Page page) {
         super.process(page);
-        List<String> titles = page.getHtml().css("div.xing_vb").css("a").smartContent().all();
-        List<String> urls = page.getHtml().css("div.xing_vb").css("a").links().all();
-        List<String> types = page.getHtml().css("div.xing_vb").css("span.xing_vb5").smartContent().all();
-        List<String> dates = page.getHtml().css("div.xing_vb").css("span.xing_vb6").smartContent().all();
+        List<String> titles = page.getHtml().css("div.xing_vb").css("span.xing_vb4").css("a").all();
+        List<String> urls = page.getHtml().css("div.xing_vb").css("a").links().regex("(.*?id.*?)").all();
+        List<String> types = page.getHtml().css("div.xing_vb").css("span.xing_vb5").all();
+        List<String> dates = page.getHtml().css("div.xing_vb").css("span").regex("(\\d{4}-\\d{2}-\\d{2})").all();
         page.putField("titles", titles);
         page.putField("urls", urls);
         page.putField("types", types);

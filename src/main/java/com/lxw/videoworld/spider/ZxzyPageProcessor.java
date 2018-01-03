@@ -21,7 +21,7 @@ public class ZxzyPageProcessor extends BasePhdyProcessor {
     @Override
     public void process(Page page) {
         super.process(page);
-        int pageCount = Integer.valueOf(page.getHtml().css("input.pagebtn").regex("pagego('/?m=vod-index-pg-{pg}.html',(.*?))").toString());
+        int pageCount = Integer.valueOf(page.getHtml().css("div.pages").regex("当前:1/(.*?)页").toString());
         List<String> urlNewList = new ArrayList<>();
         for (int i = 1; i <= pageCount; i++) {
             urlNewList.add(URLUtil.URL_ZXZY_LIST_PAGE.replace("page", i + ""));

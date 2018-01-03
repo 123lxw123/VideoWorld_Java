@@ -4,6 +4,7 @@ import com.lxw.videoworld.dao.ZxzySourceDao;
 import com.lxw.videoworld.spider.ZxzyPageProcessor;
 import com.lxw.videoworld.spider.ZxzySourceDetailPipeline;
 import com.lxw.videoworld.spider.ZxzySourceDetailProcessor;
+import com.lxw.videoworld.spider.ZxzySourceListPipeline;
 import com.lxw.videoworld.utils.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -22,13 +23,16 @@ public class ZxzySourceTask {
     @Autowired
     private ZxzySourceDao zxzySourceDao;
     @Autowired
+    private ZxzySourceListPipeline zxzySourceListPipeline;
+    @Autowired
     private ZxzySourceDetailPipeline zxzySourceDetailPipeline;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 56,50 23 * * ?")
+    @Scheduled(cron = "0 51 23 * * ?")
     public void getZxzySource() {
         Spider.create(new ZxzyPageProcessor()).thread(1)
                 .addUrl(URLUtil.URL_ZXZY_HOME_PAGE)
+                .addPipeline(zxzySourceListPipeline)
                 .run();
     }
 
