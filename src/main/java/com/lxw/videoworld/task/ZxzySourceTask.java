@@ -1,10 +1,7 @@
 package com.lxw.videoworld.task;
 
 import com.lxw.videoworld.dao.ZxzySourceDao;
-import com.lxw.videoworld.spider.ZxzyPageProcessor;
-import com.lxw.videoworld.spider.ZxzySourceDetailPipeline;
-import com.lxw.videoworld.spider.ZxzySourceDetailProcessor;
-import com.lxw.videoworld.spider.ZxzySourceListPipeline;
+import com.lxw.videoworld.spider.*;
 import com.lxw.videoworld.utils.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,21 +20,20 @@ public class ZxzySourceTask {
     @Autowired
     private ZxzySourceDao zxzySourceDao;
     @Autowired
-    private ZxzySourceListPipeline zxzySourceListPipeline;
+    private ZxzyPageProcessor zxzyPageProcessor;
     @Autowired
     private ZxzySourceDetailPipeline zxzySourceDetailPipeline;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 51 23 * * ?")
+    @Scheduled(cron = "0 0, 10 06 * * ?")
     public void getZxzySource() {
-        Spider.create(new ZxzyPageProcessor()).thread(1)
+        Spider.create(zxzyPageProcessor).thread(1)
                 .addUrl(URLUtil.URL_ZXZY_HOME_PAGE)
-                .addPipeline(zxzySourceListPipeline)
                 .run();
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 30 02 * * ?")
+    @Scheduled(cron = "0 20, 50 06 * * ?")
     public void getZxzySourceDetail() {
         final List<String> urlList = zxzySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {

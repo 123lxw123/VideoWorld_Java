@@ -17,7 +17,7 @@ public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
         SourceDetail sourceDetail = new SourceDetail();
         String title = page.getHtml().css("h2").get();
         String url = page.getUrl().toString();
-        String image = page.getHtml().css("img.lazy", "src").links().toString();
+        List<String> images = page.getHtml().css("img.lazy", "src").all();
         String type = page.getHtml().css("dd").css("a").all().get(1);
         String translateName = page.getHtml().css("li").regex("别名：<span>(.*?)</span>").toString();
         String director = page.getHtml().css("li").regex("导演：<span>(.*?)</span>").toString();
@@ -29,11 +29,16 @@ public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
         String fileLength = page.getHtml().css("li").regex("片长：<span>(.*?)</span>").toString();
         String date = page.getHtml().css("li").regex("更新：<span>(.*?)</span>").toString();
         String doubanScore = page.getHtml().css("lable").toString();
-        String intro = page.getHtml().css("div.vodplayinfo").toString();
+        String intro = page.getHtml().regex("<!-- 开始 -->(.*?)<!--结束-->").toString();
         sourceDetail.setTitle(StringUtil.disposeField(title));
         sourceDetail.setName(StringUtil.disposeField(title));
         sourceDetail.setUrl(StringUtil.disposeField(url));
-        sourceDetail.setType(StringUtil.disposeField(type));
+        type = StringUtil.disposeField(type);
+        if (type.contains("动漫")) sourceDetail.setCategory("dm");
+        else if (type.contains("综艺")) sourceDetail.setCategory("zy");
+        else if (type.contains("剧")) sourceDetail.setCategory("ds");
+        else if (type.contains("片")) sourceDetail.setCategory("dy");
+        sourceDetail.setType(type);
         sourceDetail.setTranslateName(StringUtil.disposeField(translateName));
         sourceDetail.setDirector(StringUtil.disposeField(director));
         sourceDetail.setPerformer(StringUtil.disposeField(performer));
@@ -41,14 +46,22 @@ public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
         sourceDetail.setArea(StringUtil.disposeField(area));
         sourceDetail.setLanguage(StringUtil.disposeField(language));
         sourceDetail.setReleaseDate(StringUtil.disposeField(releaseDate));
-        sourceDetail.setFileLength(StringUtil.disposeField(fileLength));
+        if (!StringUtil.disposeField(fileLength).isEmpty() && !StringUtil.disposeField(fileLength).equals("0"))
+            sourceDetail.setFileLength(StringUtil.disposeField(fileLength));
+        if (images != null && images.size() > 0) {
+            sourceDetail.setImages(StringUtil.disposeField(images.toString()));
+        }
         if (!TextUtils.isEmpty(date) && date.length() >= 10){
             date = date.substring(0, 4) + date.substring(5, 7) + date.substring(8, 10);
             sourceDetail.setDate(StringUtil.disposeField(date));
         }
         if (!TextUtils.isEmpty(doubanScore) && !doubanScore.equals("0.0"))
             sourceDetail.setDoubanScore(StringUtil.disposeField(doubanScore));
-        sourceDetail.setDate(StringUtil.disposeField(intro));
+        if (!TextUtils.isEmpty(StringUtil.disposeField(intro))){
+            intro = StringUtil.disposeField(intro);
+            if (intro.startsWith("剧情介绍：")) intro = intro.substring("剧情介绍：".length(), intro.length());
+            sourceDetail.setIntro(StringUtil.disposeField(intro));
+        }
         List<String> links = page.getHtml().css("input").regex("\"(http.*?)\"").all();
         if (links != null && links.size() > 0)
             sourceDetail.setLinks(links.toString());

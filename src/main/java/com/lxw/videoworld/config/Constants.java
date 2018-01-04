@@ -8,6 +8,7 @@ public class Constants {
     public static final String SOURCE_TYPE_1 = "1";// 飘花电影
     public static final String SOURCE_TYPE_2 = "2";// 猫扑电影
     public static final String SOURCE_TYPE_3 = "3";// 阳光电影
+    public static final String SOURCE_TYPE_4 = "4";// 最新资源
 
     public static final String SEARCH_TYPE_1 = "1";// 种子搜索
     public static final String SEARCH_TYPE_2 = "2";// 屌丝搜索

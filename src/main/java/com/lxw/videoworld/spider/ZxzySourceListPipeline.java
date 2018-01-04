@@ -32,7 +32,7 @@ public class ZxzySourceListPipeline implements Pipeline {
             for(int i = 0; i < urls.size(); i++){
                 Source source = new Source();
                 source.setTitle(StringUtil.disposeField(titles.get(i)));
-                source.setUrl(URLUtil.URL_ZXZY_HOME_PAGE + StringUtil.disposeField(urls.get(i)));
+                source.setUrl(StringUtil.disposeField(urls.get(i)));
                 source.setType(StringUtil.disposeField(types.get(i)));
                 String date = StringUtil.disposeField(dates.get(i));
                 date = date.substring(0, 4) + date.substring(5, 7) + date.substring(8, 10);

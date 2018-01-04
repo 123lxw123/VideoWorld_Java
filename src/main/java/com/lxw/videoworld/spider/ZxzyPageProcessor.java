@@ -16,6 +16,8 @@ import java.util.List;
 public class ZxzyPageProcessor extends BasePhdyProcessor {
 
     @Autowired
+    private ZxzySourceListProcessor zxzySourceListProcessor;
+    @Autowired
     private ZxzySourceListPipeline zxzySourceListPipeline;
 
     @Override
@@ -26,7 +28,7 @@ public class ZxzyPageProcessor extends BasePhdyProcessor {
         for (int i = 1; i <= pageCount; i++) {
             urlNewList.add(URLUtil.URL_ZXZY_LIST_PAGE.replace("page", i + ""));
         }
-        Spider.create(new ZxzySourceListProcessor()).thread(10)
+        Spider.create(zxzySourceListProcessor).thread(10)
                 .addUrl((String[])urlNewList.toArray(new String[urlNewList.size()]))
                 .addPipeline(zxzySourceListPipeline)
                 .run();

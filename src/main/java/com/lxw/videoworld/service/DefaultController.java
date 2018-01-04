@@ -43,6 +43,8 @@ public class DefaultController {
     @Autowired
     private YgdySourceDetailDao ygdySourceDetailDao;
     @Autowired
+    private ZxzySourceDetailDao zxzySourceDetailDao;
+    @Autowired
     private SearchDao searchDao;
     @Autowired
     private ZhongziSearchPipeline zhongziSearchPipeline;
@@ -127,6 +129,9 @@ public class DefaultController {
             case Constants.SOURCE_TYPE_3:
                 list = ygdySourceDetailDao.getRecordByType(start, limit, category, type);
                 break;
+            case Constants.SOURCE_TYPE_4:
+                list = zxzySourceDetailDao.getRecordByType(start, limit, category, type);
+                break;
             default:
                 response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
                 return response;
@@ -166,6 +171,9 @@ public class DefaultController {
                 break;
             case Constants.SOURCE_TYPE_3:
                 detail = ygdySourceDetailDao.findOneById(url);
+                break;
+            case Constants.SOURCE_TYPE_4:
+                detail = zxzySourceDetailDao.findOneById(url);
                 break;
             default:
                 response = ResponseUtil.formatResponse(ErrorUtil.CODE_ERROR_PARAM, ErrorUtil.MESSAGE_ERROR_PARAM);
