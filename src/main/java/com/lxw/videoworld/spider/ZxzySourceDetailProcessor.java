@@ -36,8 +36,8 @@ public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
         type = StringUtil.disposeField(type);
         if (type.contains("动漫")) sourceDetail.setCategory("dm");
         else if (type.contains("综艺")) sourceDetail.setCategory("zy");
-        else if (type.contains("剧")) sourceDetail.setCategory("ds");
         else if (type.contains("片")) sourceDetail.setCategory("dy");
+        else if (type.contains("剧")) sourceDetail.setCategory("ds");
         sourceDetail.setType(type);
         sourceDetail.setTranslateName(StringUtil.disposeField(translateName));
         sourceDetail.setDirector(StringUtil.disposeField(director));

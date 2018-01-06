@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce5fc40-7c8e-4af9-86d1-c4f9e1e27968" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzyPageProcessor.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzyPageProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/dao/ZxzySourceDetailDao.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/dao/ZxzySourceDetailDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceListPipeline.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceListPipeline.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceListProcessor.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/spider/ZxzySourceListProcessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/task/ZxzySourceTask.class" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/com/lxw/videoworld/task/ZxzySourceTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzyPageProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzyPageProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/dao/ZxzySourceDetailDao.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/dao/ZxzySourceDetailDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceListPipeline.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceListPipeline.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceListProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/spider/ZxzySourceListProcessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/task/ZxzySourceTask.class" afterPath="$PROJECT_DIR$/target/classes/com/lxw/videoworld/task/ZxzySourceTask.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/config/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/config/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListPipeline.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListPipeline.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListProcessor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/ZxzySourceTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/ZxzySourceTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/mapper/ZxzySourceDetailDao.xml" afterPath="$PROJECT_DIR$/target/VideoWorld/WEB-INF/classes/mapper/ZxzySourceDetailDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/ZxzySourceDetailDao.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/ZxzySourceDetailDao.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,9 +52,27 @@
       <file leaf-file-name="ZxzySourceTask.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/ZxzySourceTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="44">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="31" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZxzySourceDetailDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+              <folding>
+                <marker date="1515083741104" expanded="true" signature="350:439" ph="SELECT * FRO... zxzy_source_detail" />
+                <marker date="1515083741104" expanded="true" signature="531:570" ph="SELECT * FRO... phdy_source_detail" />
+                <marker date="1515083741104" expanded="true" signature="531:589" ph="SELECT * FRO... zxzy_source_detail" />
+                <marker date="1515083741104" expanded="true" signature="680:1540" ph="INSERT INTO zxzy_source_detail" />
+                <marker date="1515083741104" expanded="true" signature="1631:1734" ph="UPDATE `zxzy... " />
+                <marker date="1515083741104" expanded="true" signature="1831:2708" ph="UPDATE `zxzy... " />
+                <marker date="1515083741104" expanded="true" signature="2811:3168" ph="SELECT * FRO... zxzy_source_detail" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,38 +80,8 @@
       <file leaf-file-name="YgdySourceTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/YgdySourceTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MpdySourceTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/MpdySourceTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-341">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhdySourceTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/PhdySourceTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1172">
-              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchKeywordTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/SearchKeywordTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="-893">
+              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -107,64 +90,62 @@
       <file leaf-file-name="DefaultController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2654">
-              <caret line="120" column="53" lean-forward="true" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
+            <state relative-caret-position="83">
+              <caret line="330" column="0" lean-forward="false" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhdySourceDetailDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/PhdySourceDetailDao.java">
+      <file leaf-file-name="ZxzySourceDetailProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="-69">
+              <caret line="39" column="65" lean-forward="false" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhdySourceDetailDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PhdySourceDetailDao.xml">
+      <file leaf-file-name="ZxzyPageProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="282">
+              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZxzySourceDetailDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SourceDetail.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/SourceDetail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Source.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/Source.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-420">
+              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="18" />
               <folding>
-                <marker date="1502208388041" expanded="true" signature="350:439" ph="SELECT * FRO... phdy_source_detail" />
-                <marker date="1502208388041" expanded="true" signature="531:589" ph="SELECT * FRO... phdy_source_detail" />
-                <marker date="1502208388041" expanded="true" signature="680:1540" ph="INSERT INTO phdy_source_detail" />
-                <marker date="1502208388041" expanded="true" signature="1631:1734" ph="UPDATE `phdy... " />
-                <marker date="1502208388041" expanded="true" signature="1831:2708" ph="UPDATE `phdy... " />
-                <marker date="1502208388041" expanded="true" signature="2811:3168" ph="SELECT * FRO... phdy_source_detail" />
-                <marker date="1502208388041" expanded="true" signature="3266:3639" ph="SELECT * FRO... phdy_source_detail" />
+                <element signature="e#1311#1312#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YgdySourceDetailDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1200">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1502207702936" expanded="true" signature="350:440" ph="SELECT * FRO... ygdy_source_detail" />
-                <marker date="1502207702936" expanded="true" signature="532:590" ph="SELECT * FRO... ygdy_source_detail" />
-                <marker date="1502207702936" expanded="true" signature="681:1541" ph="INSERT INTO ygdy_source_detail" />
-                <marker date="1502207702936" expanded="true" signature="1632:1735" ph="UPDATE `ygdy... " />
-                <marker date="1502207702936" expanded="true" signature="1832:2709" ph="UPDATE `ygdy... " />
-                <marker date="1502207702936" expanded="true" signature="2812:3169" ph="SELECT * FRO... ygdy_source_detail" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/config/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -208,6 +189,7 @@
       <find>SearchModel</find>
       <find>phdy_source_detail</find>
       <find>image</find>
+      <find>zxzySourceDetailDao</find>
     </findStrings>
     <replaceStrings>
       <replace>.showinfo</replace>
@@ -231,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/MpdySourceTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/PhdySourceTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZhongziSearchPipeline.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/CiLiBaSearchProcessor.java" />
@@ -272,15 +253,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/YgdySourceTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailPipeline.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListPipeline.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceListProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/config/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyUrlProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/ZxzySourceTask.java" />
       </list>
     </option>
@@ -346,7 +328,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -375,20 +370,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VideoWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VideoWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -398,6 +379,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,10 +443,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,8 +610,99 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="videoworld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="videoworld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VideoWorld_Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="videoworld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1248,7 +1348,9 @@
       <workItem from="1510931236032" duration="13868000" />
       <workItem from="1511618503751" duration="14325000" />
       <workItem from="1514103606177" duration="38065000" />
-      <workItem from="1515074839937" duration="2720000" />
+      <workItem from="1515074839937" duration="3993000" />
+      <workItem from="1515084473570" duration="2028000" />
+      <workItem from="1515087230257" duration="5874000" />
     </task>
     <servers />
   </component>
@@ -1267,7 +1369,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="685820000" />
+    <option name="totallyTimeSpent" value="694995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1279,7 +1381,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="772" extended-state="0" />
+    <frame x="-8" y="-8" width="1370" height="772" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1294,18 +1396,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4923077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="22" y="384" width="1876" height="312" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52507836" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="22" y="384" width="1876" height="312" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20769231" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20689656" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34952977" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5689655" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7554859" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28615385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35267174" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36335877" sideWeight="0.49199083" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19213313" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19213313" sideWeight="0.50800914" order="2" side_tool="true" content_ui="tabs" />
@@ -1355,6 +1457,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -1454,11 +1566,29 @@
           <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java</url>
+          <line>152</line>
+          <properties />
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java</url>
+          <line>262</line>
+          <properties />
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java</url>
+          <line>301</line>
+          <properties />
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="197" />
+      <option name="time" value="213" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1472,97 +1602,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/MpdySourceDetailPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/PhdyHotListPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/MpdyMenuListPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/MpdyMenuListProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/MpdyMenuPageProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/Source.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdyHotListPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="42" column="61" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="56" column="79" lean-forward="false" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
-          <folding>
-            <marker date="1514825015443" expanded="true" signature="338:406" ph="SELECT * FRO... phdy_source" />
-            <marker date="1514825015443" expanded="true" signature="492:543" ph="SELECT * FRO... phdy_source" />
-            <marker date="1514825015443" expanded="true" signature="636:691" ph="SELECT `url`... zxzy_source" />
-            <marker date="1514825015443" expanded="true" signature="776:946" ph="INSERT INTO phdy_source" />
-            <marker date="1514825015443" expanded="true" signature="1031:1127" ph="UPDATE `phdy... " />
-            <marker date="1514825015443" expanded="true" signature="1218:1394" ph="UPDATE `phdy... " />
-            <marker date="1514825015443" expanded="true" signature="1491:1593" ph="UPDATE `phdy... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdyClassicalListPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="49" column="25" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="49" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/YgdyHomePageProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1578,7 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1586,13 +1628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/SourceDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1608,7 +1643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1623,7 +1657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1639,7 +1672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-114">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1647,7 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1655,7 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,7 +1693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1679,7 +1708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1687,17 +1715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1705,7 +1722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1713,7 +1729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1732,7 +1747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="33" column="59" lean-forward="false" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1768,9 +1782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="931">
           <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1780,57 +1791,6 @@
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
-          <folding>
-            <marker date="1514825607859" expanded="true" signature="350:439" ph="SELECT * FRO... zxzy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="531:570" ph="SELECT * FRO... phdy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="531:589" ph="SELECT * FRO... zxzy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="680:1540" ph="INSERT INTO zxzy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="1631:1734" ph="UPDATE `zxzy... " />
-            <marker date="1514825607859" expanded="true" signature="1831:2708" ph="UPDATE `zxzy... " />
-            <marker date="1514825607859" expanded="true" signature="2811:3168" ph="SELECT * FRO... zxzy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="3266:3639" ph="SELECT * FRO... zxzy_source_detail" />
-            <marker date="1514825607859" expanded="true" signature="3308:3639" ph="SELECT * FRO... phdy_source_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1200">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502207702936" expanded="true" signature="350:440" ph="SELECT * FRO... ygdy_source_detail" />
-            <marker date="1502207702936" expanded="true" signature="532:590" ph="SELECT * FRO... ygdy_source_detail" />
-            <marker date="1502207702936" expanded="true" signature="681:1541" ph="INSERT INTO ygdy_source_detail" />
-            <marker date="1502207702936" expanded="true" signature="1632:1735" ph="UPDATE `ygdy... " />
-            <marker date="1502207702936" expanded="true" signature="1832:2709" ph="UPDATE `ygdy... " />
-            <marker date="1502207702936" expanded="true" signature="2812:3169" ph="SELECT * FRO... ygdy_source_detail" />
           </folding>
         </state>
       </provider>
@@ -1863,29 +1823,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2654">
-          <caret line="120" column="53" lean-forward="true" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/SearchKeywordTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="114">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/PhdySourceTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1172">
+        <state relative-caret-position="171">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
@@ -1893,24 +1843,202 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/MpdySourceTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-341">
+        <state relative-caret-position="171">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/YgdySourceDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/mapper/ZxzySourceDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1244">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1515084557957" expanded="true" signature="350:439" ph="SELECT * FRO... zxzy_source_detail" />
+            <marker date="1515084557957" expanded="true" signature="531:589" ph="SELECT * FRO... zxzy_source_detail" />
+            <marker date="1515084557957" expanded="true" signature="680:1540" ph="INSERT INTO zxzy_source_detail" />
+            <marker date="1515084557957" expanded="true" signature="1631:1734" ph="UPDATE `zxzy... " />
+            <marker date="1515084557957" expanded="true" signature="1831:2708" ph="UPDATE `zxzy... " />
+            <marker date="1515084557957" expanded="true" signature="2811:3168" ph="SELECT * FRO... zxzy_source_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BaseDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdySourceDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1244">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1502207702936" expanded="true" signature="350:440" ph="SELECT * FRO... ygdy_source_detail" />
+            <marker date="1502207702936" expanded="true" signature="532:590" ph="SELECT * FRO... ygdy_source_detail" />
+            <marker date="1502207702936" expanded="true" signature="681:1541" ph="INSERT INTO ygdy_source_detail" />
+            <marker date="1502207702936" expanded="true" signature="1632:1735" ph="UPDATE `ygdy... " />
+            <marker date="1502207702936" expanded="true" signature="1832:2709" ph="UPDATE `ygdy... " />
+            <marker date="1502207702936" expanded="true" signature="2812:3169" ph="SELECT * FRO... ygdy_source_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/YgdyHotDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1496570315196" expanded="true" signature="335:400" ph="SELECT * FRO... ygdy_hot" />
+            <marker date="1496570315196" expanded="true" signature="486:534" ph="SELECT * FRO... ygdy_hot" />
+            <marker date="1496570315196" expanded="true" signature="619:780" ph="INSERT INTO ygdy_hot" />
+            <marker date="1496570315196" expanded="true" signature="865:956" ph="UPDATE `ygdy... " />
+            <marker date="1496570315196" expanded="true" signature="1047:1214" ph="UPDATE `ygdy... " />
+            <marker date="1496570315196" expanded="true" signature="1430:1898" ph="SELECT * FRO... ygdy_source_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="56" column="79" lean-forward="false" selection-start-line="56" selection-start-column="79" selection-end-line="56" selection-end-column="79" />
+          <folding>
+            <marker date="1514825015443" expanded="true" signature="338:406" ph="SELECT * FRO... phdy_source" />
+            <marker date="1514825015443" expanded="true" signature="492:543" ph="SELECT * FRO... phdy_source" />
+            <marker date="1514825015443" expanded="true" signature="636:691" ph="SELECT `url`... zxzy_source" />
+            <marker date="1514825015443" expanded="true" signature="776:946" ph="INSERT INTO phdy_source" />
+            <marker date="1514825015443" expanded="true" signature="1031:1127" ph="UPDATE `phdy... " />
+            <marker date="1514825015443" expanded="true" signature="1218:1394" ph="UPDATE `phdy... " />
+            <marker date="1514825015443" expanded="true" signature="1491:1593" ph="UPDATE `phdy... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ZxzySourceDetailDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+          <folding>
+            <marker date="1515083741104" expanded="true" signature="350:439" ph="SELECT * FRO... zxzy_source_detail" />
+            <marker date="1515083741104" expanded="true" signature="531:570" ph="SELECT * FRO... phdy_source_detail" />
+            <marker date="1515083741104" expanded="true" signature="531:589" ph="SELECT * FRO... zxzy_source_detail" />
+            <marker date="1515083741104" expanded="true" signature="680:1540" ph="INSERT INTO zxzy_source_detail" />
+            <marker date="1515083741104" expanded="true" signature="1631:1734" ph="UPDATE `zxzy... " />
+            <marker date="1515083741104" expanded="true" signature="1831:2708" ph="UPDATE `zxzy... " />
+            <marker date="1515083741104" expanded="true" signature="2811:3168" ph="SELECT * FRO... zxzy_source_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/Source.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/domain/SourceDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/dao/ZxzySourceDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyPageProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/YgdySourceTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="-893">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzySourceDetailProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="39" column="65" lean-forward="false" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/spider/ZxzyUrlProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/service/DefaultController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="330" column="0" lean-forward="false" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lxw/videoworld/task/ZxzySourceTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="44">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="31" selection-end-column="23" />
           <folding />
         </state>
       </provider>
