@@ -3,14 +3,18 @@ package com.lxw.videoworld.spider;
 import com.lxw.videoworld.domain.SourceDetail;
 import com.lxw.videoworld.utils.StringUtil;
 import org.apache.http.util.TextUtils;
+import org.springframework.stereotype.Service;
 import us.codecraft.webmagic.Page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Zion on 2017/12/31.
  */
+@Service("zxzySourceDetailProcessor")
 public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
+
     @Override
     public void process(Page page) {
         super.process(page);
@@ -63,9 +67,16 @@ public class ZxzySourceDetailProcessor extends BasePhdyProcessor {
             sourceDetail.setIntro(StringUtil.disposeField(intro));
         }
         List<String> links = page.getHtml().css("input").regex("\"(http.*?)\"").all();
-        if (links != null && links.size() > 0)
+        if (links != null && links.size() > 0){
+            List<String> newLinks = new ArrayList<>();
+            for (int i = 0; i < links.size(); i++){
+                if (links.get(i).contains("m3u8")) newLinks.add(links.get(i));
+            }
+            if (newLinks.size() > 0) links = newLinks;
             sourceDetail.setLinks(links.toString());
+        }
         page.putField("sourceDetail", sourceDetail);
+        page.putField("links", links);
         page.putField("url", url);
     }
 }

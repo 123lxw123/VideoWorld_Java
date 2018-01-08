@@ -22,6 +22,8 @@ public class ZxzySourceTask {
     @Autowired
     private ZxzyPageProcessor zxzyPageProcessor;
     @Autowired
+    private ZxzySourceDetailProcessor zxzySourceDetailProcessor;
+    @Autowired
     private ZxzySourceDetailPipeline zxzySourceDetailPipeline;
 
     // 每天凌晨4点执行
@@ -33,11 +35,11 @@ public class ZxzySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 20,50 06 * * ?")
+    @Scheduled(cron = "0 0,10 06 * * ?")
     public void getZxzySourceDetail() {
         final List<String> urlList = zxzySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
-            Spider.create(new ZxzySourceDetailProcessor()).thread(50)
+            Spider.create(zxzySourceDetailProcessor).thread(50)
                     .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
                     .addPipeline(zxzySourceDetailPipeline)
                     .run();
