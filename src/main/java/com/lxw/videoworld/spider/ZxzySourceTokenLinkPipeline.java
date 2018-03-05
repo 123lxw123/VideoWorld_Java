@@ -23,9 +23,10 @@ public class ZxzySourceTokenLinkPipeline implements Pipeline {
             String url = resultItems.get("url");
             String link = resultItems.get("link");
             String partOfLink = resultItems.get("partOfLink");
+            String firstPartUrl = resultItems.get("firstPartUrl");
             SourceDetail sourceDetail = zxzySourceDetailDao.findOneById(url);
             sourceDetail.setLinks(
-                    sourceDetail.getLinks().replaceAll(link, "http://zy.zxziyuan-yun.com" + partOfLink)
+                    sourceDetail.getLinks().replaceAll(link, firstPartUrl + partOfLink)
             );
             zxzySourceDetailDao.update(sourceDetail);
         } catch (Exception exception) {

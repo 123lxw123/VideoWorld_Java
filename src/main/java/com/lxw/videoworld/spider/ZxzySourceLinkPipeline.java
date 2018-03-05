@@ -28,15 +28,16 @@ public class ZxzySourceLinkPipeline implements Pipeline {
             String link = resultItems.get("link");
             String partOfLink = resultItems.get("partOfLink");
             String token = resultItems.get("token");
+            String firstPartUrl = resultItems.get("firstPartUrl");
             if (!TextUtils.isEmpty(token)){
-                Spider.create(new ZxzySourceTokenLinkProcessor(url, link)).thread(1)
+                Spider.create(new ZxzySourceTokenLinkProcessor(url, link, firstPartUrl)).thread(1)
                         .addUrl("http://kakazy-yun.com/token/" + token)
                         .addPipeline(zxzySourceTokenLinkPipeline)
                         .run();
             } else {
                 SourceDetail sourceDetail = zxzySourceDetailDao.findOneById(url);
                 sourceDetail.setLinks(
-                        sourceDetail.getLinks().replaceAll(link, "http://zy.zxziyuan-yun.com" + partOfLink)
+                        sourceDetail.getLinks().replaceAll(link, firstPartUrl + partOfLink)
                 );
                 zxzySourceDetailDao.update(sourceDetail);
             }

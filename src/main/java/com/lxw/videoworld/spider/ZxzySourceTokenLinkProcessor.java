@@ -8,11 +8,13 @@ import us.codecraft.webmagic.Page;
 public class ZxzySourceTokenLinkProcessor extends BasePhdyProcessor {
 
     private String url;
+    private String firstPartUrl;
     private String link;
 
-    ZxzySourceTokenLinkProcessor(String url, String link){
+    ZxzySourceTokenLinkProcessor(String url, String link, String firstPartUrl){
         this.url = url;
         this.link = link;
+        this.firstPartUrl = firstPartUrl;
     }
 
     public void setUrl(String url){
@@ -35,5 +37,6 @@ public class ZxzySourceTokenLinkProcessor extends BasePhdyProcessor {
         page.putField("partOfLink", partOfLink);
         page.putField("link", link);
         page.putField("url", url);
+        page.putField("firstPartUrl", firstPartUrl);
     }
 }

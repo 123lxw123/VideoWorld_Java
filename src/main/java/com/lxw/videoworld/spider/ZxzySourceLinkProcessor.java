@@ -27,7 +27,9 @@ public class ZxzySourceLinkProcessor extends BasePhdyProcessor {
             String token = page.getHtml().regex("requestToken = \"(.*?)\"").toString();
             page.putField("token", token);
         }
+        String firstPartUrl = page.getUrl().toString().substring(0, page.getUrl().toString().indexOf("com") + "com".length());
         page.putField("link", link);
         page.putField("url", url);
+        page.putField("firstPartUrl", firstPartUrl);
     }
 }
