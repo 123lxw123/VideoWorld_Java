@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class SourceDetail implements Serializable {
 
     private String url;
+    private String sourceType;
     private String id;
     private String category;// 一级分类
     private String type;// 二级分类
@@ -49,6 +50,14 @@ public class SourceDetail implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
     }
 
     public String getId() {
