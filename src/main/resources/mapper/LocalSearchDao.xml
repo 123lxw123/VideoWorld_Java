@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指定我们的到具体的bean -->
+<mapper namespace="com.lxw.videoworld.dao.LocalSearchDao">
+
+    <!--查找-->
+    <select id="getRecordByKeyword" resultType="SourceDetail" parameterType="String">
+        (SELECT
+        *
+        FROM
+        `zxzy_source_detail`
+        WHERE
+        `title` LIKE #{keyword}
+        OR
+        `name` LIKE #{keyword}
+        OR
+        `translate_name` LIKE #{keyword}
+        ORDER BY
+        `date`
+        DESC
+        LIMIT 0, 50)
+        UNION ALL
+        (SELECT
+        *
+        FROM
+        `phdy_source_detail`
+        WHERE
+        `title` LIKE #{keyword}
+        OR
+        `name` LIKE #{keyword}
+        OR
+        `translate_name` LIKE #{keyword}
+        ORDER BY
+        `date`
+        DESC
+        LIMIT 0, 50)
+        UNION ALL
+        (SELECT
+        *
+        FROM
+        `mpdy_source_detail`
+        WHERE
+        `title` LIKE #{keyword}
+        OR
+        `name` LIKE #{keyword}
+        OR
+        `translate_name` LIKE #{keyword}
+        ORDER BY
+        `date`
+        DESC
+        LIMIT 0, 50)
+        UNION ALL
+        (SELECT
+        *
+        FROM
+        `ygdy_source_detail`
+        WHERE
+        `title` LIKE #{keyword}
+        OR
+        `name` LIKE #{keyword}
+        OR
+        `translate_name` LIKE #{keyword}
+        ORDER BY
+        `date`
+        DESC
+         LIMIT 0, 50)
+    </select>
+
+</mapper>
