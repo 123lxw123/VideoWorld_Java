@@ -27,7 +27,7 @@ public class MpdySourceTask {
     private MpdyMenuPageProcessor mpdyMenuPageProcessor;
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 0,05 02 * * ?")
+    @Scheduled(cron = "0 0 02 * * ?")
     public void getMpdySource() {
         try{
             //清空今日更新
@@ -45,12 +45,12 @@ public class MpdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 0,30 03 * * ?")
+    @Scheduled(cron = "0 0 03 * * ?")
     public void getMpdySourceDetail() {
         // 猫扑电影详情
         final List<String> urlList = mpdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
-            Spider.create(new MpdySourceDetailProcessor()).thread(50)
+            Spider.create(new MpdySourceDetailProcessor()).thread(4)
                     .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
                     .addPipeline(mpdySourceDetailPipeline)
                     .run();

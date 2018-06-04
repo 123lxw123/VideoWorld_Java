@@ -36,7 +36,7 @@ public class YgdySourceTask {
 
 
     // 每天凌晨4点执行
-    @Scheduled(cron = "0 40,50 02 * * ?")
+    @Scheduled(cron = "0 30 02 * * ?")
     public void getYgdySource() {
         try{
             // 清空热门排行榜
@@ -71,7 +71,7 @@ public class YgdySourceTask {
         menuUrlList.add(URLUtil.URL_YGDY_JBZY);
         menuUrlList.add(URLUtil.URL_YGDY_DONGMAN);
         menuUrlList.add(URLUtil.URL_YGDY_GAME);
-        Spider.create(ygdyMenuPageProcessor).thread(5)
+        Spider.create(ygdyMenuPageProcessor).thread(1)
                 .addUrl((String[]) menuUrlList.toArray(new String[menuUrlList.size()]))
                 .run();
         // 阳光电影高分经典
@@ -86,12 +86,12 @@ public class YgdySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 0,30 05 * * ?")
+    @Scheduled(cron = "0 0 05 * * ?")
     public void getYgdySourceDetail() {
         //      // 阳光电影详情
         final List<String> urlList = ygdySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
-            Spider.create(new YgdySourceDetailProcessor()).thread(50)
+            Spider.create(new YgdySourceDetailProcessor()).thread(4)
                     .addUrl((String[]) urlList.toArray(new String[urlList.size()]))
                     .addPipeline(ygdySourceDetailPipeline)
                     .run();
