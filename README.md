@@ -1,5 +1,5 @@
 # VideoWorld_Java
-本项目致力于搭建一个资源类 APP 的后端平台，提供资源展示、资源搜等服务。利用爬虫技术爬取 3 个资源类网站的内容，共数万条记录，涵盖电影、电视剧、综艺节目、动漫、游戏五大类别的资源。整合两大资源搜索引擎，连接互联网千万数量级的资源库。
+本项目致力于搭建一个资源类 APP 的后端平台，提供资源展示、资源搜等服务。利用爬虫技术爬取 4 个资源类网站的内容，共数万条记录，涵盖电影、电视剧、综艺节目、动漫、游戏五大类别的资源。整合两大资源搜索引擎，连接互联网千万数量级的资源库。
 
 ## 项目框架
   - 主流 Java Web 框架 SSM：[Spring][1] + [Spring MVC][2] + [Mybatis][3]
@@ -10,7 +10,7 @@
 
   >WebMagic 采用完全模块化的设计，功能覆盖整个爬虫的生命周期(链接提取、页面下载、内容抽取、持久化)，支持多线程抓取，分布式抓取，并支持自动重试、自定义 UA/cookie 等功能。
 ## 数据库截图
-![](https://github.com/123lxw123/VideoWorld_Java/blob/master/screenshot/QQ%E5%9B%BE%E7%89%8720170619225140.png)  
+![](https://github.com/123lxw123/VideoWorld_Java/blob/master/screenshot/QQ图片20180604230626.png)  
 ![](https://github.com/123lxw123/VideoWorld_Java/blob/master/screenshot/QQ%E5%9B%BE%E7%89%8720170619225637.png)  
 
 
