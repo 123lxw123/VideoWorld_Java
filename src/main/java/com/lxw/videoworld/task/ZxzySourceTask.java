@@ -35,7 +35,7 @@ public class ZxzySourceTask {
     }
 
     // 每天凌晨5点执行
-    @Scheduled(cron = "0 0 0/12 * * ?")
+    @Scheduled(cron = "0 0 06 * * ?")
     public void getZxzySourceDetail() {
         final List<String> urlList = zxzySourceDao.findAllUrl();
         if (urlList != null && urlList.size() > 0) {
