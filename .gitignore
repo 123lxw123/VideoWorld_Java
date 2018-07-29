@@ -91,3 +91,5 @@ fabric.properties
 hs_err_pid*
 target
 .idea
+src\main\resources\jdbc.properties
+
